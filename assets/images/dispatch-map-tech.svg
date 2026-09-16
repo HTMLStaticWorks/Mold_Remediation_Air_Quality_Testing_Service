@@ -1,0 +1,145 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 600" width="900" height="600" style="background:#070B14; font-family:'Inter', system-ui, sans-serif;">
+  <defs>
+    <!-- Background Gradients -->
+    <linearGradient id="bg-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#080E1A"/>
+      <stop offset="50%" stop-color="#050912"/>
+      <stop offset="100%" stop-color="#0A1224"/>
+    </linearGradient>
+
+    <!-- Radar Pulse Gradient -->
+    <radialGradient id="radar-glow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#10B981" stop-opacity="0.35"/>
+      <stop offset="60%" stop-color="#06B6D4" stop-opacity="0.12"/>
+      <stop offset="100%" stop-color="#070B14" stop-opacity="0"/>
+    </radialGradient>
+
+    <!-- Node Glow Filters -->
+    <filter id="glow-emerald" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="6" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+
+    <filter id="glow-cyan" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="8" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+  </defs>
+
+  <!-- Base Grid Background -->
+  <rect width="900" height="600" fill="url(#bg-grad)"/>
+
+  <!-- Grid Patterns -->
+  <g stroke="#1E293B" stroke-width="0.75" opacity="0.4">
+    <path d="M 0 60 L 900 60 M 0 120 L 900 120 M 0 180 L 900 180 M 0 240 L 900 240 M 0 300 L 900 300 M 0 360 L 900 360 M 0 420 L 900 420 M 0 480 L 900 480 M 0 540 L 900 540"/>
+    <path d="M 90 0 L 90 600 M 180 0 L 180 600 M 270 0 L 270 600 M 360 0 L 360 600 M 450 0 L 450 600 M 540 0 L 540 600 M 630 0 L 630 600 M 720 0 L 720 600 M 810 0 L 810 600"/>
+  </g>
+
+  <!-- Vector Topography & River Contours -->
+  <path d="M 120 0 C 180 120, 240 220, 280 340 C 310 420, 360 520, 390 600" fill="none" stroke="#0F2C3E" stroke-width="42" opacity="0.6"/>
+  <path d="M 120 0 C 180 120, 240 220, 280 340 C 310 420, 360 520, 390 600" fill="none" stroke="#0E3B4F" stroke-width="8" opacity="0.8"/>
+  <path d="M 280 340 C 400 320, 520 350, 680 300 C 780 270, 850 240, 900 220" fill="none" stroke="#0F2C3E" stroke-width="28" opacity="0.5"/>
+
+  <!-- Highway Arterials (Teal/Emerald Glow Roads) -->
+  <g fill="none" stroke="#0284C7" stroke-width="1.5" opacity="0.35" stroke-dasharray="6,4">
+    <path d="M 50 150 Q 250 180 450 250 T 850 480"/>
+    <path d="M 450 50 Q 450 250 450 550"/>
+    <path d="M 150 500 Q 450 350 750 100"/>
+  </g>
+
+  <!-- Concentric Radar Sweeps from HQ Center (450, 260) -->
+  <g fill="none" stroke="#06B6D4" stroke-width="1" opacity="0.2">
+    <circle cx="450" cy="260" r="90"/>
+    <circle cx="450" cy="260" r="170" stroke-dasharray="4,4"/>
+    <circle cx="450" cy="260" r="250"/>
+    <circle cx="450" cy="260" r="330" stroke-dasharray="6,6"/>
+  </g>
+
+  <!-- Radar Pulse Glow Area -->
+  <circle cx="450" cy="260" r="190" fill="url(#radar-glow)"/>
+
+  <!-- Active Route Lines connecting Depots -->
+  <g fill="none" stroke="#10B981" stroke-width="2" stroke-dasharray="8,6" opacity="0.75">
+    <line x1="450" y1="260" x2="280" y2="140"/>
+    <line x1="450" y1="260" x2="650" y2="200"/>
+    <line x1="450" y1="260" x2="260" y2="420"/>
+    <line x1="450" y1="260" x2="620" y2="440"/>
+  </g>
+
+  <!-- Depot Node 1: Central HQ (Manhattan) (450, 260) -->
+  <g transform="translate(450, 260)" filter="url(#glow-emerald)">
+    <circle r="28" fill="#10B981" opacity="0.18"/>
+    <circle r="18" fill="none" stroke="#10B981" stroke-width="2"/>
+    <circle r="8" fill="#10B981"/>
+    <circle r="3" fill="#FFFFFF"/>
+  </g>
+  <!-- HQ Tooltip -->
+  <g transform="translate(450, 205)">
+    <rect x="-100" y="-16" width="200" height="32" rx="16" fill="#0B1E2B" stroke="#10B981" stroke-width="1.5"/>
+    <text x="0" y="4" font-size="11" font-weight="800" fill="#FFFFFF" text-anchor="middle" letter-spacing="0.5">CENTRAL BIO-LAB HQ (35 MIN)</text>
+  </g>
+
+  <!-- Depot Node 2: North County Rapid (Westchester) (280, 140) -->
+  <g transform="translate(280, 140)" filter="url(#glow-cyan)">
+    <circle r="22" fill="#06B6D4" opacity="0.2"/>
+    <circle r="14" fill="none" stroke="#06B6D4" stroke-width="2"/>
+    <circle r="6" fill="#06B6D4"/>
+  </g>
+  <!-- Node 2 Tooltip -->
+  <g transform="translate(280, 95)">
+    <rect x="-90" y="-14" width="180" height="28" rx="14" fill="#091B24" stroke="#06B6D4" stroke-width="1.2"/>
+    <text x="0" y="3" font-size="10" font-weight="700" fill="#38BDF8" text-anchor="middle">NORTH DEPOT (45 MIN)</text>
+  </g>
+
+  <!-- Depot Node 3: East Bay Commercial (Queens/Brooklyn) (650, 200) -->
+  <g transform="translate(650, 200)" filter="url(#glow-cyan)">
+    <circle r="22" fill="#06B6D4" opacity="0.2"/>
+    <circle r="14" fill="none" stroke="#06B6D4" stroke-width="2"/>
+    <circle r="6" fill="#06B6D4"/>
+  </g>
+  <!-- Node 3 Tooltip -->
+  <g transform="translate(650, 155)">
+    <rect x="-90" y="-14" width="180" height="28" rx="14" fill="#091B24" stroke="#06B6D4" stroke-width="1.2"/>
+    <text x="0" y="3" font-size="10" font-weight="700" fill="#38BDF8" text-anchor="middle">EAST BAY STATION (40 MIN)</text>
+  </g>
+
+  <!-- Depot Node 4: Tri-State Mobile (NJ Corridor) (260, 420) -->
+  <g transform="translate(260, 420)" filter="url(#glow-emerald)">
+    <circle r="22" fill="#10B981" opacity="0.2"/>
+    <circle r="14" fill="none" stroke="#10B981" stroke-width="2"/>
+    <circle r="6" fill="#10B981"/>
+  </g>
+  <!-- Node 4 Tooltip -->
+  <g transform="translate(260, 470)">
+    <rect x="-95" y="-14" width="190" height="28" rx="14" fill="#0B1E2B" stroke="#10B981" stroke-width="1.2"/>
+    <text x="0" y="3" font-size="10" font-weight="700" fill="#34D399" text-anchor="middle">TRI-STATE MOBILE (50 MIN)</text>
+  </g>
+
+  <!-- Depot Node 5: Long Island Coastal (620, 440) -->
+  <g transform="translate(620, 440)" filter="url(#glow-cyan)">
+    <circle r="22" fill="#06B6D4" opacity="0.2"/>
+    <circle r="14" fill="none" stroke="#06B6D4" stroke-width="2"/>
+    <circle r="6" fill="#06B6D4"/>
+  </g>
+  <!-- Node 5 Tooltip -->
+  <g transform="translate(620, 490)">
+    <rect x="-90" y="-14" width="180" height="28" rx="14" fill="#091B24" stroke="#06B6D4" stroke-width="1.2"/>
+    <text x="0" y="3" font-size="10" font-weight="700" fill="#38BDF8" text-anchor="middle">COASTAL DISPATCH (42 MIN)</text>
+  </g>
+
+  <!-- Live Telemetry HUD Bar (Top Left Header) -->
+  <g transform="translate(30, 30)">
+    <rect width="310" height="42" rx="8" fill="#0B1926" stroke="#1E3A8A" stroke-width="1" opacity="0.9"/>
+    <circle cx="20" cy="21" r="5" fill="#10B981"/>
+    <text x="34" y="25" font-size="11" font-weight="800" fill="#F8FAFC" letter-spacing="1">LIVE DISPATCH TELEMETRY</text>
+    <text x="210" y="25" font-size="10" font-weight="700" fill="#10B981">14/16 UNITS READY</text>
+  </g>
+
+  <!-- Coverage Radius Legend (Bottom Left) -->
+  <g transform="translate(30, 520)">
+    <rect width="220" height="52" rx="8" fill="#0B1926" stroke="#1E293B" stroke-width="1" opacity="0.9"/>
+    <circle cx="20" cy="26" r="6" stroke="#10B981" stroke-width="2" fill="none"/>
+    <text x="36" y="23" font-size="10" font-weight="700" fill="#E2E8F0">Primary 2-Hour Rapid Radius</text>
+    <text x="36" y="38" font-size="9" font-weight="500" fill="#94A3B8">HEPA Mobile Trailer Fleet</text>
+  </g>
+</svg>

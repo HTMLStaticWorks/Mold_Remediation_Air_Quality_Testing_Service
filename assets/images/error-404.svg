@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 350" width="100%" height="100%">
+  <defs>
+    <linearGradient id="evap-grad" x1="0%" y1="100%" x2="0%" y2="0%">
+      <stop offset="0%" stop-color="#0D9488" stop-opacity="0.8"/>
+      <stop offset="100%" stop-color="#38BDF8" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+  <!-- Evaporating moisture / clean air streams -->
+  <path d="M120 280 C110 200 160 160 140 100 C130 70 150 40 160 20" fill="none" stroke="url(#evap-grad)" stroke-width="6" stroke-linecap="round" stroke-dasharray="12 8"/>
+  <path d="M250 300 C240 210 290 170 270 90 C260 50 280 30 290 10" fill="none" stroke="url(#evap-grad)" stroke-width="8" stroke-linecap="round"/>
+  <path d="M380 270 C370 190 410 150 390 80 C380 50 400 30 410 15" fill="none" stroke="url(#evap-grad)" stroke-width="5" stroke-linecap="round" stroke-dasharray="10 6"/>
+  <!-- Vacuum / Negative Air Dehumidifier Chamber -->
+  <rect x="180" y="190" width="140" height="110" rx="16" fill="#0F172A" stroke="#14B8A6" stroke-width="3"/>
+  <circle cx="250" cy="245" r="30" fill="none" stroke="#2DD4BF" stroke-width="3" stroke-dasharray="6 4"/>
+  <!-- Digital Indicator 0.00% Moisture -->
+  <rect x="210" y="205" width="80" height="24" rx="4" fill="#020617"/>
+  <text x="250" y="221" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="700" fill="#34D399" text-anchor="middle">RH: 0.00%</text>
+  <!-- Floating Spore Trap Cassette (Zero count) -->
+  <rect x="80" y="180" width="50" height="70" rx="8" fill="#1E293B" stroke="#64748B" stroke-width="2"/>
+  <circle cx="105" cy="215" r="14" fill="#020617"/>
+  <circle cx="105" cy="215" r="4" fill="#34D399"/>
+</svg>

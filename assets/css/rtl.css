@@ -1,0 +1,99 @@
+/* ==========================================================================
+   AEROPURE ENVIRONMENTAL - RTL (RIGHT-TO-LEFT) STYLESHEET
+   Supports Arabic, Hebrew & RTL layouts seamlessly
+   ========================================================================== */
+
+[dir="rtl"],
+html[dir="rtl"] body {
+  direction: rtl;
+  text-align: right;
+}
+
+[dir="rtl"] .section-header,
+[dir="rtl"] .pricing-header {
+  text-align: center;
+}
+
+[dir="rtl"] .hero-description {
+  margin-right: 0;
+  margin-left: auto;
+}
+
+[dir="rtl"] .hero-floating-card {
+  left: auto;
+  right: -24px;
+}
+
+@media (max-width: 1024px) {
+  [dir="rtl"] .hero-floating-card {
+    left: auto;
+    right: 16px;
+  }
+}
+
+[dir="rtl"] .accordion-header {
+  text-align: right;
+}
+
+[dir="rtl"] .comparison-image-after {
+  right: 0;
+  left: auto;
+  border-right: none;
+  border-left: 3px solid var(--white);
+  box-shadow: -4px 0 20px rgba(0, 0, 0, 0.3);
+}
+
+[dir="rtl"] .comparison-pill.pill-before {
+  right: auto;
+  left: 24px;
+}
+
+[dir="rtl"] .comparison-pill.pill-after {
+  left: auto;
+  right: 24px;
+}
+
+[dir="rtl"] .modal-close-btn {
+  right: auto;
+  left: 20px;
+}
+
+/* Mobile drawer RTL positioning */
+[dir="rtl"] .mobile-nav-drawer {
+  right: auto;
+  left: -100%;
+  box-shadow: 10px 0 30px rgba(0, 0, 0, 0.15);
+  transition: left 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+[dir="rtl"] .mobile-nav-drawer.open {
+  left: 0;
+}
+
+/* Directional SVG flips */
+[dir="rtl"] .icon-arrow-right,
+[dir="rtl"] .btn svg:not(.icon-no-flip) {
+  transform: scaleX(-1);
+}
+
+[dir="rtl"] .dashboard-sidebar {
+  border-right: none;
+  border-left: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+[dir="rtl"] .dash-nav-btn {
+  text-align: right;
+}
+
+[dir="rtl"] .tilt-card-features,
+[dir="rtl"] .pricing-features {
+  padding-left: 0;
+  padding-right: 16px;
+  align-items: flex-end;
+}
+
+[dir="rtl"] .tilt-card-features li,
+[dir="rtl"] .pricing-features li {
+  text-align: right;
+  justify-content: flex-start;
+}

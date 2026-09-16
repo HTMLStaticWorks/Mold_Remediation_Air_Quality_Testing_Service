@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Coming Soon | Commercial Pathogen Intelligence Portal</title>
+  <meta name="description" content="AeroPure's real-time continuous indoor airborne pathogen monitoring portal is launching soon. Subscribe for early beta access.">
+  <link rel="icon" type="image/svg+xml" href="../assets/images/favicon.svg">
+
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="stylesheet" href="../assets/css/dark-mode.css">
+  <link rel="stylesheet" href="../assets/css/rtl.css">
+</head>
+<body style="background:var(--slate-950); color:var(--white); min-height:100vh; display:flex; flex-direction:column; justify-content:space-between;">
+
+  <header class="site-header" style="background:transparent; border:none;">
+    <div class="container header-inner">
+      <a href="index.html" class="brand-logo" aria-label="AeroPure Homepage">
+        <svg viewBox="0 0 240 50" width="180" height="38">
+          <defs>
+            <linearGradient id="logo-bg-grad-cs" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#0B2535"/>
+              <stop offset="100%" stop-color="#04121A"/>
+            </linearGradient>
+            <linearGradient id="logo-grad-cs" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#10B981"/>
+              <stop offset="100%" stop-color="#06B6D4"/>
+            </linearGradient>
+          </defs>
+          <g transform="translate(2, 4)">
+            <circle cx="21" cy="21" r="20" fill="url(#logo-bg-grad-cs)" stroke="#0E3B4F" stroke-width="1.2"/>
+            <path d="M21 8.5 L31.5 13.8 V23.5 C31.5 30.5 21 35.5 21 35.5 C21 35.5 10.5 30.5 10.5 23.5 V13.8 Z" fill="rgba(16, 185, 129, 0.12)" stroke="url(#logo-grad-cs)" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round"/>
+            <path d="M14.8 21.5 C17 17.8 25 17.8 27.2 21.5 C25 25.2 17 25.2 14.8 21.5 Z" fill="none" stroke="#10B981" stroke-width="1.8" stroke-linejoin="round"/>
+            <circle cx="21" cy="21.5" r="2.2" fill="#FFFFFF"/>
+          </g>
+          <text x="56" y="27" font-family="'Plus Jakarta Sans', sans-serif" font-size="20" font-weight="800" fill="#FFFFFF" letter-spacing="-0.5">AEROPURE</text>
+          <text x="56" y="40" font-family="'Inter', sans-serif" font-size="8.5" font-weight="600" fill="#14B8A6" letter-spacing="2">AIR INTELLIGENCE</text>
+        </svg>
+      </a>
+      <a href="index.html" class="btn btn-secondary btn-sm" style="background:rgba(255,255,255,0.08); color:#FFFFFF; border-color:rgba(255,255,255,0.2);">Back to Main Site</a>
+    </div>
+  </header>
+
+  <main style="display:flex; align-items:center; padding:60px 0;">
+    <div class="container" style="text-align:center; max-width:760px;">
+      <span class="section-badge" style="background:rgba(20,184,166,0.15); color:var(--primary-light); border-color:rgba(20,184,166,0.3);">
+        Advanced Environmental Technology
+      </span>
+      <h1 style="color:#FFFFFF; margin:16px 0 16px; font-size:clamp(2.2rem, 4.2vw, 3.4rem);">
+        Commercial Airborne Pathogen Intelligence Portal
+      </h1>
+      <p style="color:var(--slate-300); font-size:1.15rem; margin-bottom:40px;">
+        Continuous real-time IoT air monitoring for enterprise facilities, hospitals, and educational institutions. Detect fungal spore eruptions the moment relative humidity spikes.
+      </p>
+
+      <!-- Live Countdown Timer -->
+      <div style="display:grid; grid-template-columns:repeat(4, 1fr); gap:16px; max-width:480px; margin:0 auto 48px;">
+        <div class="diff-card" style="padding:18px 12px; background:rgba(15,23,42,0.8); border-color:rgba(255,255,255,0.1);">
+          <div id="cdDays" style="font-family:var(--font-mono); font-size:2.4rem; font-weight:800; color:var(--primary-light); line-height:1;">24</div>
+          <div style="font-size:0.75rem; color:var(--slate-400); text-transform:uppercase; margin-top:6px;">Days</div>
+        </div>
+        <div class="diff-card" style="padding:18px 12px; background:rgba(15,23,42,0.8); border-color:rgba(255,255,255,0.1);">
+          <div id="cdHours" style="font-family:var(--font-mono); font-size:2.4rem; font-weight:800; color:var(--primary-light); line-height:1;">14</div>
+          <div style="font-size:0.75rem; color:var(--slate-400); text-transform:uppercase; margin-top:6px;">Hours</div>
+        </div>
+        <div class="diff-card" style="padding:18px 12px; background:rgba(15,23,42,0.8); border-color:rgba(255,255,255,0.1);">
+          <div id="cdMins" style="font-family:var(--font-mono); font-size:2.4rem; font-weight:800; color:var(--primary-light); line-height:1;">48</div>
+          <div style="font-size:0.75rem; color:var(--slate-400); text-transform:uppercase; margin-top:6px;">Minutes</div>
+        </div>
+        <div class="diff-card" style="padding:18px 12px; background:rgba(15,23,42,0.8); border-color:rgba(255,255,255,0.1);">
+          <div id="cdSecs" style="font-family:var(--font-mono); font-size:2.4rem; font-weight:800; color:var(--accent-red); line-height:1;">32</div>
+          <div style="font-size:0.75rem; color:var(--slate-400); text-transform:uppercase; margin-top:6px;">Seconds</div>
+        </div>
+      </div>
+
+      <!-- Email Capture Form -->
+      <form data-validate="true" style="max-width:500px; margin:0 auto 36px;" id="comingSoonForm">
+        <div style="display:flex; gap:12px;">
+          <input type="email" class="input-field" placeholder="Enter your corporate or personal email" required style="background:rgba(255,255,255,0.08); border-color:rgba(255,255,255,0.2); color:#FFFFFF;">
+          <button type="submit" class="btn btn-primary" style="white-space:nowrap;">Request Early Beta</button>
+        </div>
+      </form>
+
+      <div style="display:flex; justify-content:center; gap:20px; font-size:0.9rem; color:var(--slate-400);">
+        <span>&bull; Enterprise Security</span>
+        <span>&bull; ASHRAE 62.1 Telemetry</span>
+        <span>&bull; Automated CIH Dispatch</span>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer" style="background:transparent; border-top:1px solid rgba(255,255,255,0.08); padding:24px 0;">
+    <div class="container footer-bottom" style="border:none; padding:0;">
+      <div>&copy; 2026 AeroPure Environmental Health Services LLC.</div>
+      <div style="display:flex; gap:16px;">
+        <a href="contact.html" style="color:var(--slate-400);">Contact Sales</a>
+        <a href="index.html" style="color:var(--primary-light);">Main Website</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../assets/js/main.js"></script>
+  <script>
+    // Live countdown incrementer
+    let seconds = 32;
+    setInterval(() => {
+      seconds = (seconds > 0) ? seconds - 1 : 59;
+      const secEl = document.getElementById('cdSecs');
+      if (secEl) secEl.textContent = seconds < 10 ? '0' + seconds : seconds;
+    }, 1000);
+  </script>
+</body>
+</html>

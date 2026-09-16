@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AeroPure Documentation & Developer Guide</title>
+  <link rel="icon" type="image/svg+xml" href="../assets/images/favicon.svg">
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="stylesheet" href="../assets/css/dark-mode.css">
+  <style>
+    .doc-layout {
+      display: grid;
+      grid-template-columns: 280px 1fr;
+      min-height: 100vh;
+    }
+    .doc-sidebar {
+      background: var(--slate-900);
+      color: #FFFFFF;
+      padding: 32px 20px;
+      position: sticky;
+      top: 0;
+      height: 100vh;
+      overflow-y: auto;
+    }
+    .doc-content {
+      padding: 60px 48px;
+      max-width: 960px;
+    }
+    .doc-nav-item {
+      display: block;
+      padding: 10px 14px;
+      color: var(--slate-300);
+      border-radius: var(--radius-sm);
+      font-size: 0.92rem;
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+    .doc-nav-item:hover, .doc-nav-item.active {
+      background: rgba(13,148,136,0.2);
+      color: var(--primary-light);
+    }
+    pre {
+      background: var(--slate-900);
+      color: #F8FAFC;
+      padding: 20px;
+      border-radius: var(--radius-md);
+      overflow-x: auto;
+      font-family: var(--font-mono);
+      font-size: 0.88rem;
+      margin: 16px 0 24px;
+    }
+    code {
+      font-family: var(--font-mono);
+      background: var(--slate-200);
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-size: 0.88rem;
+    }
+    [data-theme="dark"] code {
+      background: #1E293B;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="doc-layout">
+    <aside class="doc-sidebar">
+      <div style="font-family:var(--font-display); font-size:1.3rem; font-weight:800; color:#FFFFFF; margin-bottom:6px;">AEROPURE</div>
+      <div style="font-size:0.75rem; color:var(--primary-light); text-transform:uppercase; letter-spacing:0.1em; margin-bottom:28px;">Template Documentation</div>
+
+      <nav>
+        <a href="#quickstart" class="doc-nav-item active">1. Quickstart & Installation</a>
+        <a href="#structure" class="doc-nav-item">2. Project File Structure</a>
+        <a href="#design-system" class="doc-nav-item">3. Design System & Tokens</a>
+        <a href="#tilt-cards" class="doc-nav-item">4. 3D Tilt Cards Engine</a>
+        <a href="#portal" class="doc-nav-item">5. Client Dashboard System</a>
+        <a href="#dark-rtl" class="doc-nav-item">6. Dark Mode & RTL Support</a>
+        <a href="#customization" class="doc-nav-item">7. Customization Guide</a>
+        <a href="#credits" class="doc-nav-item">8. Credits & Licensing</a>
+      </nav>
+
+      <div style="margin-top:40px; padding-top:20px; border-top:1px solid rgba(255,255,255,0.1);">
+        <a href="../index.html" class="btn btn-secondary btn-sm" style="width:100%; color:#FFFFFF; border-color:rgba(255,255,255,0.2);">Back to Website &rarr;</a>
+      </div>
+    </aside>
+
+    <main class="doc-content">
+      <span class="section-badge">Engineering Documentation</span>
+      <h1 style="font-size:2.6rem; margin:12px 0 16px;">AeroPure Mold Remediation & Air Quality Testing Template</h1>
+      <p style="font-size:1.1rem; color:var(--text-secondary); margin-bottom:40px;">
+        A multi-page HTML5/CSS3/ES6+ website and login-gated client portal designed specifically for certified environmental health, mold inspection, and remediation agencies.
+      </p>
+
+      <!-- Section 1 -->
+      <section id="quickstart" style="margin-bottom:60px;">
+        <h2>1. Quickstart & Installation</h2>
+        <p>This project is zero-dependency static HTML/CSS/JS. No heavy node bundler is strictly required to browse the static site, although any standard HTTP server (like Python's built-in server or Live Server) is recommended for development:</p>
+        <pre><code># Run local server with Python 3:
+python -m http.server 8000
+
+# Or with Node.js (npx):
+npx serve .</code></pre>
+        <p>Open <code>http://localhost:8000</code> in any modern browser.</p>
+      </section>
+
+      <!-- Section 2 -->
+      <section id="structure" style="margin-bottom:60px;">
+        <h2>2. Project File Structure</h2>
+        <pre><code>mold-remediation-template/
+├── index.html                     # Home 1 ("Breathe Safe Indoors" - 6 Sections)
+├── assets/
+│   ├── css/
+│   │   ├── style.css              # Core tokens, 8px grid, components, responsiveness
+│   │   ├── dark-mode.css          # Deep slate clinical dark theme overrides
+│   │   └── rtl.css                # Right-to-Left bidirectional layout rules
+│   ├── js/
+│   │   ├── main.js                # Themes, RTL, form validation, mobile nav
+│   │   ├── tilt-cards.js          # Cursor-tracking 3D tilt perspective engine
+│   │   ├── interactive.js         # AQI gauge, Before/After image slider, modals
+│   │   └── dashboard.js           # Client dashboard tabs, tracker, mock Stripe pay
+│   └── images/                    # Local, unique, high-resolution WebP & SVG badges
+├── pages/
+│   ├── home-2.html                # Home 2 ("The Hidden Danger in Your Air" - 6 Sections)
+│   ├── about.html                 # About Us (4 Sections)
+│   ├── services.html              # Services Suite (4 Sections)
+│   ├── pricing.html               # Pricing Guide (4 Sections)
+│   ├── contact.html               # Contact & Emergency Dispatch (4 Sections)
+│   ├── login.html                 # Client Portal Login (with Demo auto-fill)
+│   ├── register.html              # Client Portal Registration
+│   ├── dashboard.html             # Client Portal Dashboard (8 modules)
+│   ├── 404.html                   # On-Theme 404 Error
+│   └── coming-soon.html           # Commercial Pathogen Portal Countdown
+├── documentation/                 # Comprehensive documentation files
+├── robots.txt                     # SEO crawling rules
+├── sitemap.xml                    # Production XML sitemap
+└── README.md                      # Overview & Developer Readme</code></pre>
+      </section>
+
+      <!-- Section 3 -->
+      <section id="design-system" style="margin-bottom:60px;">
+        <h2>3. Design System & CSS Custom Properties</h2>
+        <p>All colors and typography are centralized in <code>assets/css/style.css</code>:</p>
+        <pre><code>:root {
+  --primary: #0D9488;          /* Clean Air Medical Teal */
+  --primary-light: #14B8A6;    /* Luminous Teal Highlight */
+  --primary-surface: #F0FDFA;  /* Subtle Card Wash */
+  --secondary: #059669;        /* Nature/Health Sage Green */
+  --accent-red: #EF4444;       /* Hazard Spore Indicator */
+  --accent-amber: #F59E0B;     /* Warning Indicator */
+  --slate-900: #0F172A;        /* Premium Dark Neutral */
+}</code></pre>
+      </section>
+
+      <!-- Section 4 -->
+      <section id="tilt-cards" style="margin-bottom:60px;">
+        <h2>4. 3D Tilt Cards Engine</h2>
+        <p>Cards automatically track the cursor coordinates within a 1200px perspective space. In accordance with strict requirements:</p>
+        <ul>
+          <li><strong>Centered Alignment:</strong> Card icons, headings, and descriptions are center-aligned across all viewport sizes.</li>
+          <li><strong>Micro-Animation:</strong> Includes an animated clean air ripple and pulsing shield check.</li>
+          <li><strong>Touch Graceful Degradation:</strong> On touch devices, mouse tracking is disabled to prevent stuck hover states.</li>
+        </ul>
+      </section>
+
+      <!-- Section 5 -->
+      <section id="portal" style="margin-bottom:60px;">
+        <h2>5. Client Portal & Dashboard System</h2>
+        <p>The dashboard contains 8 modules accessible via tab navigation with realistic skeleton loading:</p>
+        <ol>
+          <li><strong>Overview:</strong> Active job metrics, health score, and next inspection timer.</li>
+          <li><strong>Schedule Inspection:</strong> Booking calendar with date and time picker.</li>
+          <li><strong>Job Status Tracker:</strong> 6-stage visual pipeline with technician notes.</li>
+          <li><strong>Air Quality Reports:</strong> Table of downloadable lab tests with modal preview.</li>
+          <li><strong>Before & After Documentation:</strong> High-res photo gallery with moisture ratings.</li>
+          <li><strong>Invoices & Billing:</strong> Mock checkout modal with instant status flipping from "Due" to "Paid".</li>
+          <li><strong>Messages:</strong> Direct chat with Lead Certified Industrial Hygienist.</li>
+          <li><strong>Settings:</strong> SMS preferences and profile management.</li>
+        </ol>
+      </section>
+
+      <!-- Section 6 -->
+      <section id="credits" style="margin-bottom:60px;">
+        <h2>6. Credits & Attributions</h2>
+        <p>Fonts: <a href="https://fonts.google.com/specimen/Plus+Jakarta+Sans" target="_blank">Plus Jakarta Sans</a>, <a href="https://fonts.google.com/specimen/Inter" target="_blank">Inter</a>, <a href="https://fonts.google.com/specimen/JetBrains+Mono" target="_blank">JetBrains Mono</a>.<br>
+        Certification Standards: IICRC S520, ACAC CIEC, NORMI, EPA Lead-Safe guidelines.</p>
+      </section>
+    </main>
+  </div>
+
+  <script src="../assets/js/main.js"></script>
+</body>
+</html>

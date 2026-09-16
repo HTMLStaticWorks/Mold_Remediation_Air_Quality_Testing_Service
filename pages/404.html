@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>404 - Page Evaporated | AeroPure Environmental</title>
+  <meta name="description" content="The page you requested evaporated like moisture under negative air pressure. Return to AeroPure environmental homepage.">
+  <link rel="icon" type="image/svg+xml" href="../assets/images/favicon.svg">
+
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="stylesheet" href="../assets/css/dark-mode.css">
+  <link rel="stylesheet" href="../assets/css/rtl.css">
+</head>
+<body style="min-height:100vh; display:flex; flex-direction:column; justify-content:space-between;">
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="brand-logo" aria-label="AeroPure Homepage">
+        <svg viewBox="0 0 240 50" width="180" height="38">
+          <defs>
+            <linearGradient id="logo-bg-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#0B2535"/>
+              <stop offset="100%" stop-color="#04121A"/>
+            </linearGradient>
+            <linearGradient id="logo-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#10B981"/>
+              <stop offset="100%" stop-color="#06B6D4"/>
+            </linearGradient>
+          </defs>
+          <g transform="translate(2, 4)">
+            <circle cx="21" cy="21" r="20" fill="url(#logo-bg-grad)" stroke="#0E3B4F" stroke-width="1.2"/>
+            <path d="M21 8.5 L31.5 13.8 V23.5 C31.5 30.5 21 35.5 21 35.5 C21 35.5 10.5 30.5 10.5 23.5 V13.8 Z" fill="rgba(16, 185, 129, 0.12)" stroke="url(#logo-grad)" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round"/>
+            <path d="M14.8 21.5 C17 17.8 25 17.8 27.2 21.5 C25 25.2 17 25.2 14.8 21.5 Z" fill="none" stroke="#10B981" stroke-width="1.8" stroke-linejoin="round"/>
+            <circle cx="21" cy="21.5" r="2.2" fill="#FFFFFF"/>
+          </g>
+          <text x="56" y="27" font-family="'Plus Jakarta Sans', sans-serif" font-size="20" font-weight="800" fill="currentColor" letter-spacing="-0.5">AEROPURE</text>
+          <text x="56" y="40" font-family="'Inter', sans-serif" font-size="8.5" font-weight="600" fill="#10B981" letter-spacing="2">AIR INTELLIGENCE</text>
+        </svg>
+      </a>
+
+      <div class="header-actions">
+        <button type="button" class="icon-toggle-btn theme-toggle-btn" aria-label="Toggle theme">
+          <svg class="icon-moon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/></svg>
+          <svg class="icon-sun" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="display:none;"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
+        </button>
+        <a href="index.html" class="btn btn-primary btn-sm">Return Home</a>
+      </div>
+    </div>
+  </header>
+
+  <main style="display:flex; align-items:center; padding:60px 0;">
+    <div class="container" style="text-align:center; max-width:680px;">
+      <!-- On-theme Custom Illustration -->
+      <div style="max-width:380px; margin:0 auto 28px;">
+        <img src="../assets/images/error-404.svg" alt="404 - Evaporated moisture graphic" width="500" height="350">
+      </div>
+
+      <span class="section-badge" style="background:rgba(20,184,166,0.15); color:var(--primary);">
+        Relative Humidity: 0.00% &bull; Code 404
+      </span>
+      <h1 style="font-size:clamp(2rem, 3.8vw, 3rem); margin:16px 0 12px;">This Page Evaporated Like Moisture</h1>
+      <p style="color:var(--text-secondary); font-size:1.1rem; margin-bottom:32px;">
+        Our negative-air scrubbers must have extracted this URL during containment. The file you are looking for has been remediated or relocated.
+      </p>
+
+      <!-- Search Bar -->
+      <div style="max-width:440px; margin:0 auto 32px; display:flex; gap:10px;">
+        <input type="text" class="input-field" placeholder="Search services (e.g. testing, thermal, pricing)..." id="searchBox" onkeypress="if(event.key==='Enter'){window.location.href='services.html';}">
+        <a href="services.html" class="btn btn-secondary">Search</a>
+      </div>
+
+      <!-- Helpful Quick Links -->
+      <div style="display:flex; justify-content:center; gap:16px; flex-wrap:wrap; margin-bottom:36px;">
+        <a href="index.html" class="btn btn-primary">Back to Home</a>
+        <a href="services.html" class="btn btn-secondary">Explore Services</a>
+        <a href="pricing.html" class="btn btn-secondary">Pricing Packages</a>
+        <a href="contact.html" class="btn btn-secondary">Contact Us</a>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer" style="padding:28px 0;">
+    <div class="container footer-bottom" style="border:none; padding:0;">
+      <div>&copy; 2026 AeroPure Environmental Health Services LLC.</div>
+      <a href="index.html" style="color:var(--primary-light);">Return to Safety</a>
+    </div>
+  </footer>
+
+  <script src="../assets/js/main.js"></script>
+</body>
+</html>

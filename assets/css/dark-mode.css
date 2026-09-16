@@ -1,0 +1,200 @@
+/* ==========================================================================
+   AEROPURE ENVIRONMENTAL - DARK MODE THEME SPECIFICATION
+   Clinical Deep Slate & Luminous Cyan/Teal Accents
+   ========================================================================== */
+
+[data-theme="dark"],
+body.dark-theme {
+  --bg-main: #070B14;
+  --bg-surface: #0F172A;
+  --bg-elevated: #1E293B;
+  --bg-alt: #0B1120;
+
+  --text-primary: #F8FAFC;
+  --text-secondary: #94A3B8;
+  --text-muted: #64748B;
+
+  --border-color: rgba(51, 65, 85, 0.7);
+  --border-subtle: rgba(20, 184, 166, 0.18);
+  --glass-bg: rgba(15, 23, 42, 0.88);
+  --glass-border: rgba(20, 184, 166, 0.28);
+
+  --shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.4);
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.5);
+  --shadow-md: 0 10px 28px -6px rgba(0, 0, 0, 0.6);
+  --shadow-lg: 0 24px 48px -12px rgba(0, 0, 0, 0.7);
+  --shadow-hover: 0 28px 56px -10px rgba(13, 148, 136, 0.35);
+
+  --primary-surface: rgba(13, 148, 136, 0.15);
+  --secondary-surface: rgba(16, 185, 129, 0.15);
+  --accent-red-surface: rgba(239, 68, 68, 0.15);
+}
+
+[data-theme="dark"] .tilt-card {
+  background: #0F172A;
+  border-color: rgba(51, 65, 85, 0.8);
+}
+
+[data-theme="dark"] .tilt-card:hover {
+  border-color: var(--primary-light);
+  box-shadow: 0 20px 40px -10px rgba(20, 184, 166, 0.25);
+}
+
+[data-theme="dark"] .tilt-card-glare {
+  background: radial-gradient(circle at var(--glare-x, 50%) var(--glare-y, 50%), rgba(20, 184, 166, 0.15) 0%, transparent 70%);
+}
+
+[data-theme="dark"] .input-field {
+  background: #1E293B;
+  border-color: #334155;
+  color: #F8FAFC;
+}
+
+[data-theme="dark"] .input-field:focus {
+  border-color: var(--primary-light);
+  background: #0F172A;
+}
+
+[data-theme="dark"] .timeline-card,
+[data-theme="dark"] .testimonial-card,
+[data-theme="dark"] .problem-card,
+[data-theme="dark"] .diff-card,
+[data-theme="dark"] .hub-item,
+[data-theme="dark"] .accordion-item,
+[data-theme="dark"] .pricing-card {
+  background: #0F172A;
+  border-color: rgba(51, 65, 85, 0.8);
+}
+
+[data-theme="dark"] .accordion-header {
+  background: #0F172A;
+  color: #F8FAFC;
+}
+
+[data-theme="dark"] .step-number {
+  box-shadow: 0 0 0 6px #0F172A;
+}
+
+[data-theme="dark"] .hero-home-1 {
+  background: radial-gradient(circle at 80% 20%, rgba(20, 184, 166, 0.15) 0%, transparent 50%),
+              radial-gradient(circle at 10% 80%, rgba(6, 182, 212, 0.1) 0%, transparent 40%),
+              #070B14;
+}
+
+[data-theme="dark"] .btn-secondary {
+  background: #1E293B;
+  border-color: #334155;
+  color: #F8FAFC;
+}
+
+[data-theme="dark"] .btn-secondary:hover {
+  background: #334155;
+}
+
+[data-theme="dark"] .stage-tracker-wrapper,
+[data-theme="dark"] .modal-card {
+  background: #0F172A;
+  border-color: rgba(51, 65, 85, 0.8);
+}
+
+[data-theme="dark"] .skeleton-box {
+  background: linear-gradient(90deg, #1E293B 25%, #334155 50%, #1E293B 75%);
+  background-size: 200% 100%;
+}
+
+[data-theme="dark"] .dash-table-wrapper {
+  background: #0F172A;
+  border-color: rgba(51, 65, 85, 0.8);
+}
+
+[data-theme="dark"] .dash-table thead,
+[data-theme="dark"] .dash-table th {
+  background: #1E293B !important;
+  color: #34D399 !important;
+  border-bottom-color: rgba(51, 65, 85, 0.8);
+}
+
+[data-theme="dark"] .dash-table td {
+  color: #F8FAFC;
+  border-bottom-color: rgba(51, 65, 85, 0.4);
+}
+
+[data-theme="dark"] .dash-table tbody tr:hover {
+  background: rgba(30, 41, 59, 0.7);
+}
+
+/* Chat Component & Dashboard Dark Mode Rules */
+[data-theme="dark"] .chat-container,
+body.dark-theme .chat-container {
+  background: #0F172A !important;
+  border-color: rgba(51, 65, 85, 0.8) !important;
+}
+
+[data-theme="dark"] #chatForm,
+body.dark-theme #chatForm {
+  background: #0F172A !important;
+  border-top-color: rgba(51, 65, 85, 0.8) !important;
+}
+
+[data-theme="dark"] .chat-technician,
+body.dark-theme .chat-technician {
+  background: #1E293B !important;
+  color: #F8FAFC !important;
+  border: 1px solid rgba(51, 65, 85, 0.8) !important;
+}
+
+[data-theme="dark"] .chat-technician .chat-bubble-meta,
+body.dark-theme .chat-technician .chat-bubble-meta {
+  color: #94A3B8 !important;
+  opacity: 0.9 !important;
+}
+
+[data-theme="dark"] .chat-technician .chat-bubble-text,
+body.dark-theme .chat-technician .chat-bubble-text {
+  color: #F8FAFC !important;
+}
+
+[data-theme="dark"] .chat-client,
+body.dark-theme .chat-client {
+  background: #0D9488 !important;
+  color: #FFFFFF !important;
+}
+
+[data-theme="dark"] .chat-client .chat-bubble-meta,
+body.dark-theme .chat-client .chat-bubble-meta {
+  color: rgba(255, 255, 255, 0.85) !important;
+}
+
+[data-theme="dark"] .chat-client .chat-bubble-text,
+body.dark-theme .chat-client .chat-bubble-text {
+  color: #FFFFFF !important;
+}
+
+[data-theme="dark"] .status-paid,
+body.dark-theme .status-paid {
+  background: rgba(22, 163, 74, 0.2) !important;
+  color: #4ADE80 !important;
+  border: 1px solid rgba(74, 222, 128, 0.3) !important;
+}
+
+[data-theme="dark"] .status-pending,
+body.dark-theme .status-pending {
+  background: rgba(217, 119, 6, 0.2) !important;
+  color: #FBBF24 !important;
+  border: 1px solid rgba(251, 191, 36, 0.3) !important;
+}
+
+[data-theme="dark"] .status-in-progress,
+body.dark-theme .status-in-progress {
+  background: rgba(2, 132, 199, 0.2) !important;
+  color: #38BDF8 !important;
+  border: 1px solid rgba(56, 189, 248, 0.3) !important;
+}
+
+[data-theme="dark"] .status-completed,
+body.dark-theme .status-completed {
+  background: rgba(22, 163, 74, 0.2) !important;
+  color: #4ADE80 !important;
+  border: 1px solid rgba(74, 222, 128, 0.3) !important;
+}
+

@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us | AeroPure Environmental Health Specialists</title>
+  <meta name="description" content="Meet AeroPure's team of Certified Industrial Hygienists, environmental toxicologists, and master remediation engineers dedicated to clean indoor air.">
+  <link rel="icon" type="image/svg+xml" href="../assets/images/favicon.svg">
+
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="stylesheet" href="../assets/css/dark-mode.css">
+  <link rel="stylesheet" href="../assets/css/rtl.css">
+</head>
+<body>
+
+  <!-- Site Header -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="brand-logo" aria-label="AeroPure Homepage">
+        <svg viewBox="0 0 240 50" width="180" height="38">
+          <defs>
+            <linearGradient id="logo-bg-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#0B2535"/>
+              <stop offset="100%" stop-color="#04121A"/>
+            </linearGradient>
+            <linearGradient id="logo-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#10B981"/>
+              <stop offset="100%" stop-color="#06B6D4"/>
+            </linearGradient>
+          </defs>
+          <g transform="translate(2, 4)">
+            <circle cx="21" cy="21" r="20" fill="url(#logo-bg-grad)" stroke="#0E3B4F" stroke-width="1.2"/>
+            <path d="M21 8.5 L31.5 13.8 V23.5 C31.5 30.5 21 35.5 21 35.5 C21 35.5 10.5 30.5 10.5 23.5 V13.8 Z" fill="rgba(16, 185, 129, 0.12)" stroke="url(#logo-grad)" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round"/>
+            <path d="M14.8 21.5 C17 17.8 25 17.8 27.2 21.5 C25 25.2 17 25.2 14.8 21.5 Z" fill="none" stroke="#10B981" stroke-width="1.8" stroke-linejoin="round"/>
+            <circle cx="21" cy="21.5" r="2.2" fill="#FFFFFF"/>
+          </g>
+          <text x="56" y="27" font-family="'Plus Jakarta Sans', sans-serif" font-size="20" font-weight="800" fill="currentColor" letter-spacing="-0.5">AEROPURE</text>
+          <text x="56" y="40" font-family="'Inter', sans-serif" font-size="8.5" font-weight="600" fill="#10B981" letter-spacing="2">AIR INTELLIGENCE</text>
+        </svg>
+      </a>
+
+      <!-- Primary Navigation -->
+      <nav class="main-nav" aria-label="Primary Navigation">
+        <ul class="nav-links">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="home-2.html" class="nav-link">Home 2</a></li>
+          <li><a href="services.html" class="nav-link">Services</a></li>
+          <li><a href="pricing.html" class="nav-link">Pricing</a></li>
+          <li><a href="about.html" class="nav-link active">About</a></li>
+          <li><a href="contact.html" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+
+      <!-- Action Utilities -->
+      <div class="header-actions">
+        <!-- RTL Switcher -->
+        <button type="button" class="icon-toggle-btn rtl-toggle-btn" title="Toggle RTL / LTR layout" aria-label="Toggle RTL layout">
+          <span style="font-weight:700; font-size:0.82rem;">RTL</span>
+        </button>
+
+        <!-- Dark/Light Mode Switcher -->
+        <button type="button" class="icon-toggle-btn theme-toggle-btn" title="Toggle Dark/Light Mode" aria-label="Toggle theme">
+          <svg class="icon-moon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/>
+          </svg>
+          <svg class="icon-sun" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="display:none;">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/>
+          </svg>
+        </button>
+
+        <!-- Login & Dashboard Action Buttons -->
+        <a href="login.html" class="btn btn-secondary btn-sm" id="navLoginBtn">
+          <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/>
+          </svg>
+          <span>Login</span>
+        </a>
+        <a href="dashboard.html" class="btn btn-primary btn-sm" id="navDashBtn">
+          <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"/>
+          </svg>
+          <span>Dashboard</span>
+        </a>
+
+        <!-- Mobile Hamburger Button -->
+        <button type="button" class="mobile-menu-toggle" aria-label="Open mobile navigation menu" aria-expanded="false">
+          <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer Menu -->
+  <div class="drawer-backdrop"></div>
+  <aside class="mobile-nav-drawer">
+    <div class="drawer-header">
+      <a href="index.html" class="brand-logo" aria-label="AeroPure Environmental Homepage">
+        <svg viewBox="0 0 240 50" width="180" height="38">
+          <defs>
+            <linearGradient id="logo-bg-grad-drawer-abt" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#0B2535"/>
+              <stop offset="100%" stop-color="#04121A"/>
+            </linearGradient>
+            <linearGradient id="logo-grad-drawer-abt" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#10B981"/>
+              <stop offset="100%" stop-color="#06B6D4"/>
+            </linearGradient>
+          </defs>
+          <g transform="translate(2, 4)">
+            <circle cx="21" cy="21" r="20" fill="url(#logo-bg-grad-drawer-abt)" stroke="#0E3B4F" stroke-width="1.2"/>
+            <path d="M21 8.5 L31.5 13.8 V23.5 C31.5 30.5 21 35.5 21 35.5 C21 35.5 10.5 30.5 10.5 23.5 V13.8 Z" fill="rgba(16, 185, 129, 0.12)" stroke="url(#logo-grad-drawer-abt)" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round"/>
+            <path d="M14.8 21.5 C17 17.8 25 17.8 27.2 21.5 C25 25.2 17 25.2 14.8 21.5 Z" fill="none" stroke="#10B981" stroke-width="1.8" stroke-linejoin="round"/>
+            <circle cx="21" cy="21.5" r="2.2" fill="#FFFFFF"/>
+          </g>
+          <text x="56" y="27" font-family="'Plus Jakarta Sans', sans-serif" font-size="20" font-weight="800" fill="currentColor" letter-spacing="-0.5">AEROPURE</text>
+          <text x="56" y="40" font-family="'Inter', sans-serif" font-size="8.5" font-weight="600" fill="#10B981" letter-spacing="2">AIR INTELLIGENCE</text>
+        </svg>
+      </a>
+      <button type="button" class="drawer-close-btn icon-toggle-btn"><svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg></button>
+    </div>
+    <ul class="drawer-nav-list">
+      <li><a href="index.html" class="drawer-nav-link">Home</a></li>
+      <li><a href="home-2.html" class="drawer-nav-link">Home 2</a></li>
+      <li><a href="services.html" class="drawer-nav-link">Services</a></li>
+      <li><a href="pricing.html" class="drawer-nav-link">Pricing</a></li>
+      <li><a href="about.html" class="drawer-nav-link active">About</a></li>
+      <li><a href="contact.html" class="drawer-nav-link">Contact</a></li>
+    </ul>
+    <div class="drawer-footer-actions">
+      <div class="drawer-tools-row">
+        <!-- RTL Switcher -->
+        <button type="button" class="icon-toggle-btn rtl-toggle-btn" title="Toggle RTL / LTR layout" aria-label="Toggle RTL layout">
+          <span style="font-weight:700; font-size:0.82rem;">RTL</span>
+        </button>
+        <!-- Dark/Light Mode Switcher -->
+        <button type="button" class="icon-toggle-btn theme-toggle-btn" title="Toggle Dark/Light Mode" aria-label="Toggle theme">
+          <svg class="icon-moon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/>
+          </svg>
+          <svg class="icon-sun" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="display:none;">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/>
+          </svg>
+        </button>
+      </div>
+      <div class="drawer-cta-btns">
+        <a href="login.html" class="btn btn-secondary btn-sm">
+          <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/>
+          </svg>
+          <span>Login</span>
+        </a>
+        <a href="dashboard.html" class="btn btn-primary btn-sm">
+          <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"/>
+          </svg>
+          <span>Dashboard</span>
+        </a>
+      </div>
+    </div>
+  </aside>
+
+  <main>
+    <!-- SECTION 1: ORIGIN STORY -->
+    <section class="section-padding hero-home-1" style="padding-top:60px;">
+      <div class="container hero-grid">
+        <div class="about-hero-content">
+          <span class="section-badge" style="margin-bottom:12px;">Our Genesis</span>
+          <h1 style="margin-bottom:20px;">Founded in Science.<br><span class="text-gradient">Driven by Health.</span></h1>
+          <p style="margin-bottom:20px; font-size:1.1rem; color:var(--text-secondary); line-height:1.7;">
+            AeroPure Environmental was founded in 2011 by two former university environmental microbiologists who grew frustrated seeing mold treated as a cosmetic painting problem rather than an urgent airborne health hazard.
+          </p>
+          <p style="font-size:1.02rem; color:var(--text-secondary); line-height:1.7; margin-bottom:28px;">
+            We brought clinical medical-grade containment, laser spore counters, and accredited third-party laboratory verification into residential homes and commercial buildings. Over a decade later, we have cleared over 14,800 properties with zero fungal recurrence.
+          </p>
+          <div class="about-stats-row" style="display:flex; gap:24px; flex-wrap:wrap;">
+            <div class="stat-item">
+              <div style="font-size:2rem; font-weight:800; color:var(--primary);">14,800+</div>
+              <div style="font-size:0.85rem; color:var(--text-muted);">Structures Cleared</div>
+            </div>
+            <div class="stat-item">
+              <div style="font-size:2rem; font-weight:800; color:var(--primary);">0%</div>
+              <div style="font-size:0.85rem; color:var(--text-muted);">Recurrence Rate</div>
+            </div>
+            <div class="stat-item">
+              <div style="font-size:2rem; font-weight:800; color:var(--primary);">15+ Yrs</div>
+              <div style="font-size:0.85rem; color:var(--text-muted);">Aerobiology Practice</div>
+            </div>
+          </div>
+        </div>
+        <div class="hero-media-wrapper">
+          <div style="position:relative; border-radius:16px; overflow:hidden; border:1px solid rgba(255,255,255,0.1); box-shadow:var(--shadow-xl); max-width:520px; margin:0 auto;">
+            <img src="../assets/images/about-genesis-lab.webp" alt="AeroPure Aerobiology & Air Quality Testing Laboratory" style="width:100%; height:380px; object-fit:cover; display:block;">
+            <div style="position:absolute; bottom:0; left:0; right:0; padding:16px 20px; background:linear-gradient(to top, rgba(11,37,53,0.95), rgba(11,37,53,0)); color:#fff; text-align:left;">
+              <span style="font-size:0.85rem; font-weight:700; color:var(--primary); text-transform:uppercase; letter-spacing:1px;">Central Diagnostic Hub</span>
+              <p style="font-size:0.88rem; margin:2px 0 0; color:rgba(255,255,255,0.85);">AI-driven spore analysis & bio-aerosol containment center</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 2: HEALTH-FIRST MISSION & PHILOSOPHY -->
+    <section class="section-padding">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-badge">Core Philosophy</span>
+          <h2 class="section-title">The Three Pillars of AeroPure Integrity</h2>
+          <p class="section-subtitle">We believe every family, tenant, and employee has an inherent right to inhale air free of toxic pathogens.</p>
+        </div>
+
+        <div class="services-grid-3">
+          <div class="diff-card">
+            <div class="diff-icon">
+              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+            </div>
+            <h3>Independent Verification</h3>
+            <p>We never verify our own remediation work in-house. All clearance air samples are shipped to accredited external laboratories to ensure complete conflict-of-interest transparency.</p>
+          </div>
+
+          <div class="diff-card">
+            <div class="diff-icon">
+              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+            </div>
+            <h3>Zero Toxic Off-Gassing</h3>
+            <p>Traditional remediation floods living spaces with harsh chlorine or synthetic phenols. We rely on botanical thymol formulations and cold dry-ice sublimation that leave zero chemical residue.</p>
+          </div>
+
+          <div class="diff-card">
+            <div class="diff-icon">
+              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+            </div>
+            <h3>Lifelong Accountability</h3>
+            <p>Our transferable lifetime warranty is backed by continuous customer support, annual air monitoring options, and client portal records accessible indefinitely.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 3: CERTIFIED TEAM & HYGIENIST CREDENTIALS -->
+    <section class="section-padding" style="background:var(--bg-alt);">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-badge">Leadership & Field Scientists</span>
+          <h2 class="section-title">Led by Board-Certified Hygienists</h2>
+          <p class="section-subtitle">Every project is managed and signed off by an ACAC Certified Indoor Environmental Consultant (CIEC).</p>
+        </div>
+
+        <div class="pricing-grid-3">
+          <!-- Member 1 -->
+          <div class="diff-card" style="padding:0; overflow:hidden;">
+            <div style="height:260px; overflow:hidden; background:var(--slate-800);">
+              <img src="../assets/images/dr-elena-vance.webp" alt="Dr. Elena Vance, Chief Environmental Officer" style="width:100%; height:100%; object-fit:cover; object-position:center top;">
+            </div>
+            <div style="padding:28px;">
+              <h3 style="font-size:1.25rem; margin-bottom:4px;">Dr. Elena Vance, PhD, CIH</h3>
+              <p style="font-size:0.85rem; color:var(--primary); font-weight:700; margin-bottom:12px;">Chief Environmental Officer &bull; ACAC CIEC #14092</p>
+              <p style="font-size:0.92rem; color:var(--text-secondary);">
+                18 years researching airborne mycotoxins and indoor spore aerobiology. Former technical consultant to the State Department of Health.
+              </p>
+            </div>
+          </div>
+
+          <!-- Member 2 -->
+          <div class="diff-card" style="padding:0; overflow:hidden;">
+            <div style="height:260px; overflow:hidden; background:var(--slate-800);">
+              <img src="../assets/images/marcus-thorne.webp" alt="Marcus Thorne, Director of Remediation Engineering" style="width:100%; height:100%; object-fit:cover; object-position:center top;">
+            </div>
+            <div style="padding:28px;">
+              <h3 style="font-size:1.25rem; margin-bottom:4px;">Marcus Thorne, AMRS</h3>
+              <p style="font-size:0.85rem; color:var(--primary); font-weight:700; margin-bottom:12px;">Director of Remediation Engineering &bull; IICRC Master #88214</p>
+              <p style="font-size:0.92rem; color:var(--text-secondary);">
+                Specialist in large-loss negative pressure containment, HEPA airflow velocity modeling, and historic timber dry-ice decontamination.
+              </p>
+            </div>
+          </div>
+
+          <!-- Member 3 -->
+          <div class="diff-card" style="padding:0; overflow:hidden;">
+            <div style="height:260px; overflow:hidden; background:var(--slate-800);">
+              <img src="../assets/images/sarah-lin.webp" alt="Sarah J. Lin, Lead Diagnostic Thermographer" style="width:100%; height:100%; object-fit:cover; object-position:center top;">
+            </div>
+            <div style="padding:28px;">
+              <h3 style="font-size:1.25rem; margin-bottom:4px;">Sarah J. Lin, ITC-III</h3>
+              <p style="font-size:0.85rem; color:var(--primary); font-weight:700; margin-bottom:12px;">Lead Diagnostic Thermographer &bull; ITC Level III #9210</p>
+              <p style="font-size:0.92rem; color:var(--text-secondary);">
+                Master infrared thermographer specialized in forensic moisture tracking behind finished masonry, stucco, and multi-ply roof decks.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 4: FIELD OPERATIONS SHOWCASE -->
+    <section class="section-padding">
+      <div class="container">
+        <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(320px, 1fr)); gap:48px; align-items:center;">
+          <div>
+            <div style="position:relative; border-radius:16px; overflow:hidden; border:1px solid rgba(255,255,255,0.1); box-shadow:var(--shadow-xl);">
+              <img src="../assets/images/about-field-techs.webp" alt="AeroPure Certified Technicians and Advanced Negative Pressure Air Scrubbers" style="width:100%; height:360px; object-fit:cover; display:block;">
+            </div>
+          </div>
+          <div>
+            <span class="section-badge" style="margin-bottom:12px; display:inline-block;">Field Precision</span>
+            <h2 style="margin-bottom:18px;">Medical-Grade Containment & Rapid Deployment</h2>
+            <p style="font-size:1.05rem; color:var(--text-secondary); line-height:1.7; margin-bottom:20px;">
+              Our field teams operate with hospital isolation containment protocols. Before a single spore is disturbed, we establish HEPA-filtered negative pressure zones that isolate affected areas completely.
+            </p>
+            <ul style="list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:12px;">
+              <li style="display:flex; align-items:center; gap:12px; color:var(--text-primary); font-weight:600;">
+                <svg width="20" height="20" fill="none" stroke="var(--primary)" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+                Real-time particle counters measuring airborne spores in real time
+              </li>
+              <li style="display:flex; align-items:center; gap:12px; color:var(--text-primary); font-weight:600;">
+                <svg width="20" height="20" fill="none" stroke="var(--primary)" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+                Non-destructive thermal imaging moisture mapping
+              </li>
+              <li style="display:flex; align-items:center; gap:12px; color:var(--text-primary); font-weight:600;">
+                <svg width="20" height="20" fill="none" stroke="var(--primary)" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+                Zero chemical toxicity for children, pets, and chemically sensitive individuals
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 5: CERTIFICATIONS & COMPLIANCE WALL -->
+    <section class="section-padding" style="background:var(--bg-alt);">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-badge">Accreditations & Compliance</span>
+          <h2 class="section-title">Verified Institutional Compliance</h2>
+          <p class="section-subtitle">Our operating standards strictly follow ANSI/IICRC S520 and EPA Standard Operating Procedures.</p>
+        </div>
+
+        <div class="compliance-grid">
+          <div class="diff-card" style="padding:24px;">
+            <img src="../assets/images/iicrc-badge.svg" alt="IICRC" width="70" height="70" style="margin:0 auto 14px;">
+            <h4 style="font-size:1rem;">IICRC Master Firm</h4>
+            <p style="font-size:0.8rem; color:var(--text-muted);">S520 Standard Compliance</p>
+          </div>
+          <div class="diff-card" style="padding:24px;">
+            <img src="../assets/images/acac-badge.svg" alt="ACAC" width="70" height="70" style="margin:0 auto 14px;">
+            <h4 style="font-size:1rem;">ACAC Board Certified</h4>
+            <p style="font-size:0.8rem; color:var(--text-muted);">Council-Certified CIEC</p>
+          </div>
+          <div class="diff-card" style="padding:24px;">
+            <img src="../assets/images/normi-badge.svg" alt="NORMI" width="70" height="70" style="margin:0 auto 14px;">
+            <h4 style="font-size:1rem;">NORMI Senior Member</h4>
+            <p style="font-size:0.8rem; color:var(--text-muted);">Indoor Air Quality Assoc</p>
+          </div>
+          <div class="diff-card" style="padding:24px;">
+            <img src="../assets/images/epa-badge.svg" alt="EPA" width="70" height="70" style="margin:0 auto 14px;">
+            <h4 style="font-size:1rem;">EPA Lead-Safe Certified</h4>
+            <p style="font-size:0.8rem; color:var(--text-muted);">Firm #NAT-F199201-1</p>
+          </div>
+          <div class="diff-card" style="padding:24px;">
+            <img src="../assets/images/iso-badge.svg" alt="ISO" width="70" height="70" style="margin:0 auto 14px;">
+            <h4 style="font-size:1rem;">ISO 17025 Labs</h4>
+            <p style="font-size:0.8rem; color:var(--text-muted);">AIHA EMLAP Affiliation</p>
+          </div>
+        </div>
+
+        <div style="text-align:center; margin-top:56px;">
+          <a href="contact.html" class="btn btn-primary btn-lg">Consult With Our Senior Hygienists Today</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Site Footer -->
+  <!-- Site Footer (Axora 4-Column Model Architecture) -->
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      
+      <!-- Col 1: Brand Logo, Description & Social Icons -->
+      <div class="footer-brand">
+        <a href="../index.html" class="brand-logo footer-brand-logo" aria-label="AeroPure Environmental Homepage" style="display:inline-block; margin-bottom:16px;">
+          <svg viewBox="0 0 240 50" width="180" height="38">
+            <defs>
+              <linearGradient id="ftr-logo-bg-grad-abt" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#0B2535"/>
+                <stop offset="100%" stop-color="#04121A"/>
+              </linearGradient>
+              <linearGradient id="ftr-logo-grad-abt" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#10B981"/>
+                <stop offset="100%" stop-color="#06B6D4"/>
+              </linearGradient>
+            </defs>
+            <g transform="translate(2, 4)">
+              <circle cx="21" cy="21" r="20" fill="url(#ftr-logo-bg-grad-abt)" stroke="#0E3B4F" stroke-width="1.2"/>
+              <path d="M21 8.5 L31.5 13.8 V23.5 C31.5 30.5 21 35.5 21 35.5 C21 35.5 10.5 30.5 10.5 23.5 V13.8 Z" fill="rgba(16, 185, 129, 0.12)" stroke="url(#ftr-logo-grad-abt)" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round"/>
+              <path d="M14.8 21.5 C17 17.8 25 17.8 27.2 21.5 C25 25.2 17 25.2 14.8 21.5 Z" fill="none" stroke="#10B981" stroke-width="1.8" stroke-linejoin="round"/>
+              <circle cx="21" cy="21.5" r="2.2" fill="#FFFFFF"/>
+            </g>
+            <text x="56" y="27" font-family="'Plus Jakarta Sans', sans-serif" font-size="20" font-weight="800" fill="#FFFFFF" letter-spacing="-0.5">AEROPURE</text>
+            <text x="56" y="40" font-family="'Inter', sans-serif" font-size="8.5" font-weight="600" fill="#10B981" letter-spacing="2">AIR INTELLIGENCE</text>
+          </svg>
+        </a>
+        <p>
+          A premium mold remediation & indoor air quality testing service. We identify airborne spores, eliminate moisture hazards, and guarantee certified clean air.
+        </p>
+        <div class="footer-socials">
+          <a href="#" class="social-icon-btn" aria-label="Facebook">
+            <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H7.5v-3H10V9.69c0-2.47 1.47-3.84 3.73-3.84 1.08 0 2.22.19 2.22.19v2.44h-1.25c-1.23 0-1.61.76-1.61 1.54V12h2.74l-.44 3h-2.3v6.8c4.56-.93 8-4.96 8-9.8z"/>
+            </svg>
+          </a>
+          <a href="#" class="social-icon-btn" aria-label="Instagram">
+            <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+            </svg>
+          </a>
+          <a href="#" class="social-icon-btn" aria-label="YouTube">
+            <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+            </svg>
+          </a>
+          <a href="#" class="social-icon-btn" aria-label="Twitter">
+            <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Col 2: LINKS -->
+      <div class="footer-col">
+        <h4>LINKS</h4>
+        <ul class="footer-links">
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="home-2.html">Home 2</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="pricing.html">Pricing</a></li>
+          <li><a href="about.html" class="active">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+
+      <!-- Col 3: DISPATCH HOURS -->
+      <div class="footer-col">
+        <h4>DISPATCH & LAB HOURS</h4>
+        <ul class="footer-hours-list">
+          <li>Monday - Thursday: <strong>8:00 AM - 8:00 PM</strong></li>
+          <li>Friday: <strong>8:00 AM - 6:00 PM</strong></li>
+          <li>Saturday: <strong>9:00 AM - 4:00 PM</strong></li>
+          <li>Sunday: <strong>24/7 Emergency Response</strong></li>
+        </ul>
+      </div>
+
+      <!-- Col 4: DISPATCH LOCATION & NEWSLETTER -->
+      <div class="footer-col">
+        <h4>DISPATCH LOCATION</h4>
+        <div class="footer-contact-info">
+          <div>742 Clean Air Blvd, Suite 400</div>
+          <div>Metropolis, NY 10001</div>
+          <div style="margin-top:6px;">Phone: <a href="tel:+18002376787">+1 (800) 237-6787</a></div>
+          <div>Email: <a href="mailto:info@aeropure.com">info@aeropure.com</a></div>
+        </div>
+
+        <div class="newsletter-box">
+          <h5>NEWSLETTER</h5>
+          <form class="newsletter-form-joined" onsubmit="event.preventDefault(); if(window.showToast) window.showToast('Thank you for subscribing!', 'success');">
+            <input type="email" placeholder="Email Address" required>
+            <button type="submit" class="btn-subscribe">SUBSCRIBE</button>
+          </form>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Bottom Copyright & Policy Bar -->
+    <div class="container footer-bottom">
+      <div>&copy; 2026 AeroPure Environmental. All rights reserved.</div>
+      <div class="footer-bottom-links">
+        <a href="contact.html">Privacy Policy</a>
+        <span class="divider">|</span>
+        <a href="contact.html">Terms of Service</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../assets/js/main.js"></script>
+</body>
+</html>

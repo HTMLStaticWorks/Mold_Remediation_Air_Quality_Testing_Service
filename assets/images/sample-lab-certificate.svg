@@ -1,0 +1,190 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1050" width="800" height="1050" style="background:#FFFFFF; font-family:'Inter', system-ui, -apple-system, sans-serif;">
+  <defs>
+    <!-- Header Gradient -->
+    <linearGradient id="cert-hdr-grad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#0B2535"/>
+      <stop offset="100%" stop-color="#04121A"/>
+    </linearGradient>
+
+    <linearGradient id="stamp-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#10B981"/>
+      <stop offset="100%" stop-color="#059669"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Outer Border & Page Frame -->
+  <rect x="0" y="0" width="800" height="1050" fill="#FFFFFF"/>
+  <rect x="16" y="16" width="768" height="1018" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="2"/>
+  <rect x="24" y="24" width="752" height="1002" fill="none" stroke="#10B981" stroke-width="1" stroke-dasharray="6,4"/>
+
+  <!-- HEADER BANNER -->
+  <rect x="25" y="25" width="750" height="110" fill="url(#cert-hdr-grad)"/>
+  
+  <!-- Logo Icon -->
+  <g transform="translate(45, 45)">
+    <circle cx="30" cy="30" r="26" fill="#0B1926" stroke="#10B981" stroke-width="2"/>
+    <path d="M30 14 L42 21.5 V35 C42 43 30 49 30 49 C30 49 18 43 18 35 V21.5 Z" fill="rgba(16, 185, 129, 0.2)" stroke="#10B981" stroke-width="2.2"/>
+    <circle cx="30" cy="31" r="3" fill="#FFFFFF"/>
+  </g>
+
+  <!-- Header Text -->
+  <text x="115" y="62" font-size="22" font-weight="900" fill="#FFFFFF" letter-spacing="-0.5">AEROPURE ENVIRONMENTAL LABS</text>
+  <text x="115" y="80" font-size="11" font-weight="700" fill="#10B981" letter-spacing="2">AIHA-EMLAP &amp; ISO/IEC 17025 ACCREDITED TESTING</text>
+  <text x="115" y="98" font-size="9" font-weight="500" fill="#94A3B8">742 Clean Air Blvd, Suite 400 &bull; Phone: +1 (800) 237-6787 &bull; Lab License #EMLAP-104928</text>
+
+  <!-- Certificate Verification Badge Right -->
+  <g transform="translate(620, 45)">
+    <rect width="135" height="70" rx="8" fill="rgba(16, 185, 129, 0.15)" stroke="#10B981" stroke-width="1.5"/>
+    <text x="67" y="24" font-size="9" font-weight="800" fill="#10B981" text-anchor="middle" letter-spacing="1">STATUS: VERIFIED</text>
+    <text x="67" y="44" font-size="14" font-weight="900" fill="#FFFFFF" text-anchor="middle">PASSED PRV</text>
+    <text x="67" y="58" font-size="8" font-weight="600" fill="#34D399" text-anchor="middle">CLEARED FOR OCCUPANCY</text>
+  </g>
+
+  <!-- TITLE BLOCK -->
+  <text x="40" y="170" font-size="18" font-weight="800" fill="#0F172A">CERTIFICATE OF ANALYSIS &amp; AEROBIOLOGY PROFILE</text>
+  <line x1="40" y1="180" x2="760" y2="180" stroke="#E2E8F0" stroke-width="2"/>
+
+  <!-- CLIENT & METADATA GRID -->
+  <rect x="40" y="195" width="720" height="90" rx="6" fill="#F8FAFC" stroke="#E2E8F0" stroke-width="1"/>
+  
+  <g font-size="11" fill="#334155">
+    <!-- Col 1 -->
+    <text x="60" y="220" font-weight="700" fill="#64748B">Report ID:</text>
+    <text x="140" y="220" font-weight="800" fill="#0F172A">LAB-2026-9811-A</text>
+    
+    <text x="60" y="244" font-weight="700" fill="#64748B">Sample Date:</text>
+    <text x="140" y="244" font-weight="600">Sept 14, 2026</text>
+
+    <text x="60" y="268" font-weight="700" fill="#64748B">Issue Date:</text>
+    <text x="140" y="268" font-weight="600">Sept 15, 2026</text>
+
+    <!-- Col 2 -->
+    <text x="310" y="220" font-weight="700" fill="#64748B">Property Site:</text>
+    <text x="410" y="220" font-weight="700" fill="#0F172A">Scarsdale Estate Residence</text>
+
+    <text x="310" y="244" font-weight="700" fill="#64748B">Lead Hygienist:</text>
+    <text x="410" y="244" font-weight="600">Elena Vance, PhD, CIH</text>
+
+    <text x="310" y="268" font-weight="700" fill="#64748B">Sampling Method:</text>
+    <text x="410" y="268" font-weight="600">Zefon Air-O-Cell @ 15 L/min</text>
+
+    <!-- Col 3 -->
+    <text x="590" y="220" font-weight="700" fill="#64748B">Target Area:</text>
+    <text x="670" y="220" font-weight="600">Master HVAC Zone</text>
+
+    <text x="590" y="244" font-weight="700" fill="#64748B">Lab Analyst:</text>
+    <text x="670" y="244" font-weight="600">Dr. M. Chen</text>
+
+    <text x="590" y="268" font-weight="700" fill="#64748B">Sample Count:</text>
+    <text x="670" y="268" font-weight="600">8 Air / 4 Surface</text>
+  </g>
+
+  <!-- TABLE 1: SPORE DENSITY QUANTITATIVE ANALYSIS -->
+  <text x="40" y="322" font-size="13" font-weight="800" fill="#0F172A" letter-spacing="0.5">1. AIRBORNE SPORE TRAP QUANTITATIVE RESULTS (Spores/m³)</text>
+  
+  <!-- Table Header -->
+  <rect x="40" y="335" width="720" height="32" fill="#0F172A" rx="4"/>
+  <g font-size="10" font-weight="800" fill="#FFFFFF">
+    <text x="55" y="356">FUNGAL / MYCOTOXIN GENUS</text>
+    <text x="270" y="356" text-anchor="middle">OUTDOOR BASELINE</text>
+    <text x="420" y="356" text-anchor="middle">PRE-REMEDIATION</text>
+    <text x="575" y="356" text-anchor="middle">POST-CLEARANCE</text>
+    <text x="710" y="356" text-anchor="middle">PRV STATUS</text>
+  </g>
+
+  <!-- Row 1: Stachybotrys chartarum -->
+  <rect x="40" y="367" width="720" height="42" fill="#FEF2F2" stroke="#FCA5A5" stroke-width="0.8"/>
+  <text x="55" y="392" font-size="11" font-weight="800" fill="#991B1B">Stachybotrys chartarum (Black Mold)</text>
+  <text x="270" y="392" font-size="11" font-weight="600" fill="#475569" text-anchor="middle">0 /m³</text>
+  <text x="420" y="392" font-size="11" font-weight="800" fill="#DC2626" text-anchor="middle">8,400 /m³ (CRITICAL)</text>
+  <text x="575" y="392" font-size="11" font-weight="800" fill="#059669" text-anchor="middle">0 /m³ (UNDETECTED)</text>
+  <rect x="675" y="378" width="70" height="20" rx="10" fill="#10B981"/>
+  <text x="710" y="392" font-size="9" font-weight="800" fill="#FFFFFF" text-anchor="middle">PASSED</text>
+
+  <!-- Row 2: Aspergillus / Penicillium -->
+  <rect x="40" y="411" width="720" height="42" fill="#FFFBEB" stroke="#FDE68A" stroke-width="0.8"/>
+  <text x="55" y="436" font-size="11" font-weight="700" fill="#92400E">Aspergillus / Penicillium Group</text>
+  <text x="270" y="436" font-size="11" font-weight="600" fill="#475569" text-anchor="middle">140 /m³</text>
+  <text x="420" y="436" font-size="11" font-weight="800" fill="#D97706" text-anchor="middle">14,800 /m³ (ELEVATED)</text>
+  <text x="575" y="436" font-size="11" font-weight="800" fill="#059669" text-anchor="middle">28 /m³ (PURE)</text>
+  <rect x="675" y="422" width="70" height="20" rx="10" fill="#10B981"/>
+  <text x="710" y="436" font-size="9" font-weight="800" fill="#FFFFFF" text-anchor="middle">PASSED</text>
+
+  <!-- Row 3: Chaetomium globosum -->
+  <rect x="40" y="455" width="720" height="42" fill="#F8FAFC" stroke="#E2E8F0" stroke-width="0.8"/>
+  <text x="55" y="480" font-size="11" font-weight="700" fill="#334155">Chaetomium globosum</text>
+  <text x="270" y="480" font-size="11" font-weight="600" fill="#475569" text-anchor="middle">0 /m³</text>
+  <text x="420" y="480" font-size="11" font-weight="700" fill="#E11D48" text-anchor="middle">1,250 /m³ (HIGH)</text>
+  <text x="575" y="480" font-size="11" font-weight="800" fill="#059669" text-anchor="middle">0 /m³ (UNDETECTED)</text>
+  <rect x="675" y="466" width="70" height="20" rx="10" fill="#10B981"/>
+  <text x="710" y="480" font-size="9" font-weight="800" fill="#FFFFFF" text-anchor="middle">PASSED</text>
+
+  <!-- Row 4: Cladosporium -->
+  <rect x="40" y="499" width="720" height="42" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="0.8"/>
+  <text x="55" y="524" font-size="11" font-weight="700" fill="#334155">Cladosporium sphaerospermum</text>
+  <text x="270" y="524" font-size="11" font-weight="600" fill="#475569" text-anchor="middle">80 /m³</text>
+  <text x="420" y="524" font-size="11" font-weight="600" fill="#475569" text-anchor="middle">420 /m³ (MODERATE)</text>
+  <text x="575" y="524" font-size="11" font-weight="800" fill="#059669" text-anchor="middle">12 /m³ (CLEARED)</text>
+  <rect x="675" y="510" width="70" height="20" rx="10" fill="#10B981"/>
+  <text x="710" y="524" font-size="9" font-weight="800" fill="#FFFFFF" text-anchor="middle">PASSED</text>
+
+  <!-- Total Summary Row -->
+  <rect x="40" y="543" width="720" height="44" fill="#0B1926" rx="4"/>
+  <text x="55" y="569" font-size="11" font-weight="900" fill="#FFFFFF">TOTAL AIRBORNE FUNGAL SPORES</text>
+  <text x="270" y="569" font-size="11" font-weight="800" fill="#94A3B8" text-anchor="middle">220 /m³</text>
+  <text x="420" y="569" font-size="11" font-weight="900" fill="#F87171" text-anchor="middle">24,870 /m³ (HAZARD)</text>
+  <text x="575" y="569" font-size="12" font-weight="900" fill="#34D399" text-anchor="middle">40 /m³ (SURGICAL SAFE)</text>
+  <rect x="675" y="555" width="70" height="22" rx="11" fill="#10B981"/>
+  <text x="710" y="570" font-size="10" font-weight="900" fill="#FFFFFF" text-anchor="middle">PASSED</text>
+
+  <!-- TABLE 2: TVOC &amp; PARTICULATE GAS CHROMATOGRAPHY -->
+  <text x="40" y="618" font-size="13" font-weight="800" fill="#0F172A" letter-spacing="0.5">2. VOLATILE ORGANIC COMPOUNDS (TVOC) &amp; PARTICULATES</text>
+  
+  <rect x="40" y="630" width="720" height="100" rx="6" fill="#F8FAFC" stroke="#E2E8F0" stroke-width="1"/>
+  
+  <g font-size="11">
+    <text x="60" y="658" font-weight="700" fill="#475569">Total Volatile Organic Compounds (TVOC):</text>
+    <text x="320" y="658" font-weight="800" fill="#DC2626">Pre: 1,840 ppb</text>
+    <text x="460" y="658" font-weight="800" fill="#059669">&rarr; Post: 18 ppb (Pure Air Standard)</text>
+    
+    <text x="60" y="684" font-weight="700" fill="#475569">Respirable PM2.5 Fine Particulates:</text>
+    <text x="320" y="684" font-weight="800" fill="#DC2626">Pre: 88 &#181;g/m&#179;</text>
+    <text x="460" y="684" font-weight="800" fill="#059669">&rarr; Post: 1.4 &#181;g/m&#179; (WHO Compliant)</text>
+
+    <text x="60" y="710" font-weight="700" fill="#475569">Relative Humidity &amp; Dew Point:</text>
+    <text x="320" y="710" font-weight="800" fill="#DC2626">Pre: 68.4% RH</text>
+    <text x="460" y="710" font-weight="800" fill="#059669">&rarr; Post: 42.1% RH (Optimal)</text>
+  </g>
+
+  <!-- HYGIENIST REMARKS &amp; CERTIFICATION STATEMENT -->
+  <rect x="40" y="745" width="720" height="110" rx="6" fill="#F0FDF4" stroke="#BBF7D0" stroke-width="1"/>
+  <text x="55" y="768" font-size="11" font-weight="900" fill="#166534">BOARD-CERTIFIED INDUSTRIAL HYGIENIST CONCLUSION:</text>
+  <text x="55" y="788" font-size="10" font-weight="500" fill="#15803D">Post-Remediation Verification (PRV) testing confirms complete eradication of active Stachybotrys chartarum</text>
+  <text x="55" y="804" font-size="10" font-weight="500" fill="#15803D">and Aspergillus colonies. Indoor spore counts have been reduced below natural outdoor ambient baselines.</text>
+  <text x="55" y="820" font-size="10" font-weight="500" fill="#15803D">Air quality meets hospital-grade indoor environmental clearance standards.</text>
+  <text x="55" y="842" font-size="10" font-weight="800" fill="#166534">&bull; Certificate #LAB-2026-9811 is valid for property closing escrow and insurance clearance.</text>
+
+  <!-- SIGNATURE &amp; ACCREDITATION STAMP BLOCK -->
+  <g transform="translate(40, 875)">
+    <!-- Signature Line -->
+    <path d="M 20 40 Q 50 10 90 45 T 160 30" fill="none" stroke="#0F2C3E" stroke-width="2.5"/>
+    <line x1="10" y1="50" x2="240" y2="50" stroke="#94A3B8" stroke-width="1"/>
+    <text x="10" y="66" font-size="11" font-weight="800" fill="#0F172A">Elena Vance, PhD, CIH</text>
+    <text x="10" y="80" font-size="9" font-weight="600" fill="#64748B">Chief Environmental Microbiologist, AIHA #104928</text>
+
+    <!-- Official Stamp Seal (Center Right) -->
+    <g transform="translate(560, 20)">
+      <circle cx="50" cy="30" r="45" fill="none" stroke="#10B981" stroke-width="3" stroke-dasharray="6,3"/>
+      <circle cx="50" cy="30" r="38" fill="url(#stamp-grad)" opacity="0.12"/>
+      <circle cx="50" cy="30" r="38" fill="none" stroke="#059669" stroke-width="1.5"/>
+      <text x="50" y="18" font-size="8" font-weight="900" fill="#059669" text-anchor="middle">AIHA-EMLAP</text>
+      <text x="50" y="32" font-size="10" font-weight="900" fill="#047857" text-anchor="middle">OFFICIAL</text>
+      <text x="50" y="44" font-size="9" font-weight="900" fill="#059669" text-anchor="middle">PASSED</text>
+      <text x="50" y="54" font-size="7" font-weight="700" fill="#065F46" text-anchor="middle">LAB #104928</text>
+    </g>
+  </g>
+
+  <!-- FOOTER DISCLAIMER -->
+  <line x1="40" y1="990" x2="760" y2="990" stroke="#CBD5E1" stroke-width="1"/>
+  <text x="400" y="1008" font-size="9" font-weight="500" fill="#94A3B8" text-anchor="middle">Page 1 of 1 &bull; Official Accredited Laboratory Document &bull; Confidential &copy; 2026 AeroPure Environmental Services</text>
+</svg>

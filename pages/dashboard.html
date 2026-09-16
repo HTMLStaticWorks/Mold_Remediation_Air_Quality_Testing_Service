@@ -1,0 +1,1258 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Client Portal Dashboard | AeroPure Environmental</title>
+  <meta name="description" content="AeroPure Client Dashboard. Track active remediation jobs, download laboratory spore certificates, view before/after photo logs, and pay invoices.">
+  <link rel="icon" type="image/svg+xml" href="../assets/images/favicon.svg">
+
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="stylesheet" href="../assets/css/dark-mode.css">
+  <link rel="stylesheet" href="../assets/css/rtl.css">
+  <style>
+    .status-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 12px;
+      border-radius: var(--radius-full);
+      font-size: 0.8rem;
+      font-weight: 700;
+    }
+    .status-paid { background: #DCFCE7; color: #15803D; }
+    .status-pending { background: #FEF3C7; color: #B45309; }
+    .status-in-progress { background: #E0F2FE; color: #0369A1; }
+    .status-completed { background: #F0FDF4; color: #166534; border: 1px solid #BBF7D0; }
+
+    .dash-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.92rem;
+      background: var(--bg-surface);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      border: 1px solid var(--border-color);
+    }
+    .dash-table th {
+      background: var(--bg-alt);
+      text-align: left;
+      padding: 14px 18px;
+      font-weight: 700;
+      color: var(--text-primary);
+      border-bottom: 1px solid var(--border-color);
+    }
+    .dash-table td {
+      padding: 16px 18px;
+      border-bottom: 1px solid var(--border-color);
+      color: var(--text-secondary);
+    }
+    .dash-table tr:last-child td {
+      border-bottom: none;
+    }
+
+    .chat-container {
+      display: flex;
+      flex-direction: column;
+      height: 480px;
+      background: var(--bg-surface);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+    }
+    .chat-messages {
+      flex: 1;
+      padding: 24px;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .chat-bubble {
+      max-width: 75%;
+      padding: 14px 18px;
+      border-radius: var(--radius-md);
+      font-size: 0.92rem;
+      line-height: 1.5;
+    }
+    .chat-technician {
+      align-self: flex-start;
+      background: var(--bg-alt);
+      color: var(--text-primary);
+      border: 1px solid var(--border-color);
+      border-bottom-left-radius: 4px;
+    }
+    .chat-client {
+      align-self: flex-end;
+      background: var(--primary);
+      color: #ffffff;
+      border-bottom-right-radius: 4px;
+    }
+    .chat-bubble-meta {
+      font-size: 0.75rem;
+      opacity: 0.85;
+      margin-bottom: 4px;
+    }
+    .chat-technician .chat-bubble-meta {
+      color: var(--text-muted);
+    }
+    .chat-technician .chat-bubble-text {
+      color: var(--text-primary);
+    }
+    .chat-client .chat-bubble-meta {
+      color: rgba(255, 255, 255, 0.85);
+    }
+    .chat-client .chat-bubble-text {
+      color: #ffffff;
+    }
+
+    /* Responsive Dashboard Cards */
+    /* Dashboard Mobile Hamburger & Sidebar Overlay */
+    .dash-hamburger-btn {
+      display: none;
+      align-items: center;
+      justify-content: center;
+      width: 44px;
+      height: 44px;
+      border-radius: var(--radius-sm, 8px);
+      background: var(--slate-900, #0F172A);
+      border: 1.5px solid rgba(255, 255, 255, 0.18);
+      color: #FFFFFF;
+      cursor: pointer;
+      flex-shrink: 0;
+      transition: all var(--transition-fast);
+      margin-left: auto;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+    }
+    .dash-hamburger-btn:hover {
+      background: var(--primary);
+      border-color: var(--primary);
+      color: #FFFFFF;
+    }
+    .dash-hamburger-btn svg {
+      width: 22px;
+      height: 22px;
+      stroke: #FFFFFF;
+    }
+
+    .dash-sidebar-close-btn {
+      display: none;
+      position: absolute;
+      top: 18px;
+      right: 18px;
+      background: transparent;
+      border: none;
+      color: var(--slate-400);
+      font-size: 1.8rem;
+      cursor: pointer;
+      line-height: 1;
+      padding: 4px;
+      z-index: 10;
+      transition: color var(--transition-fast);
+    }
+    .dash-sidebar-close-btn:hover {
+      color: var(--white);
+    }
+
+    .dash-sidebar-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(15, 23, 42, 0.75);
+      backdrop-filter: blur(4px);
+      z-index: 2490;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.3s ease, visibility 0.3s ease;
+    }
+    .dash-sidebar-backdrop.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    @media (max-width: 1024px) {
+      .dashboard-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .dash-hamburger-btn {
+        display: flex !important;
+        order: 99 !important;
+      }
+
+      .dash-topbar-actions {
+        display: flex !important;
+        align-items: center !important;
+        gap: 12px !important;
+        margin-left: auto !important;
+      }
+
+      .dashboard-sidebar {
+        display: flex !important;
+        position: fixed !important;
+        top: 0 !important;
+        left: 0 !important;
+        bottom: 0 !important;
+        width: 290px !important;
+        max-width: 85vw !important;
+        z-index: 2500 !important;
+        transform: translateX(-100%) !important;
+        transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
+        box-shadow: 8px 0 32px rgba(0, 0, 0, 0.5) !important;
+        overflow-y: auto !important;
+      }
+
+      .dashboard-sidebar.active {
+        transform: translateX(0) !important;
+      }
+
+      .dash-sidebar-close-btn {
+        display: block !important;
+      }
+    }
+
+    .dash-stat-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+      margin-bottom: 32px;
+    }
+    .dash-skeleton-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      margin-bottom: 24px;
+    }
+    .dash-gallery-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+
+    /* iPad Mini / Tablet Viewport Card Inner Alignment (577px to 1024px) */
+    @media (min-width: 577px) and (max-width: 1024px) {
+      .dash-stat-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 16px !important;
+      }
+
+      .dash-stat-grid .diff-card {
+        padding: 18px 16px !important;
+        box-sizing: border-box !important;
+        align-items: flex-start !important;
+        text-align: left !important;
+        width: 100% !important;
+      }
+
+      .dash-quick-actions-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 16px !important;
+      }
+
+      .dash-quick-actions-grid .diff-card {
+        padding: 18px 16px !important;
+        box-sizing: border-box !important;
+        align-items: stretch !important;
+        text-align: left !important;
+        width: 100% !important;
+        overflow: hidden !important;
+      }
+
+      .dash-card-header {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        text-align: left !important;
+        gap: 8px !important;
+        margin-bottom: 14px !important;
+        padding-bottom: 10px !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+      }
+
+      .dash-card-header > div:first-child,
+      .dash-card-title-group {
+        width: 100% !important;
+        text-align: left !important;
+      }
+
+      .dash-card-header h4,
+      .dash-card-title-group h4 {
+        font-size: 0.98rem !important;
+        line-height: 1.3 !important;
+        margin: 0 0 2px 0 !important;
+        word-break: break-word !important;
+        text-align: left !important;
+      }
+
+      .dash-card-header p,
+      .dash-card-title-group p {
+        font-size: 0.76rem !important;
+        margin: 0 !important;
+        text-align: left !important;
+      }
+
+      .dash-card-header .btn {
+        align-self: flex-start !important;
+        padding: 5px 12px !important;
+        font-size: 0.78rem !important;
+        flex-shrink: 0 !important;
+      }
+
+      .dash-card-header .status-pill {
+        align-self: flex-start !important;
+        padding: 3px 8px !important;
+        font-size: 0.74rem !important;
+        flex-shrink: 0 !important;
+      }
+
+      .dash-report-row {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        gap: 8px !important;
+        padding: 10px 12px !important;
+        background: var(--bg-alt) !important;
+        border-radius: var(--radius-sm) !important;
+        border: 1px solid var(--border-color) !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+      }
+
+      .dash-report-row > div:first-child {
+        width: 100% !important;
+      }
+
+      .dash-report-row .dash-report-title {
+        font-size: 0.85rem !important;
+        font-weight: 700 !important;
+        line-height: 1.3 !important;
+        white-space: normal !important;
+        word-break: break-word !important;
+        color: var(--text-primary) !important;
+        margin-bottom: 2px !important;
+      }
+
+      .dash-report-row .btn {
+        width: 100% !important;
+        text-align: center !important;
+        justify-content: center !important;
+        padding: 5px 10px !important;
+        font-size: 0.78rem !important;
+      }
+    }
+
+    /* Mobile Only Alignment (<= 576px) - Keeps iPad Mini (768px) intact */
+    @media (max-width: 576px) {
+      .dash-stat-grid,
+      .dash-skeleton-grid,
+      .dash-gallery-grid {
+        grid-template-columns: 1fr !important;
+      }
+
+      .stage-tracker-wrapper {
+        padding: 20px 16px !important;
+      }
+
+      .stage-tracker-header {
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        gap: 10px !important;
+      }
+
+      .stage-tracker-header h3 {
+        font-size: 1.1rem !important;
+        line-height: 1.35 !important;
+        margin: 0 !important;
+      }
+
+      .stage-tracker-header .status-pill {
+        align-self: flex-start !important;
+        font-size: 0.78rem !important;
+        white-space: normal !important;
+      }
+
+      .stage-tracker-bar {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 20px !important;
+        position: relative !important;
+        padding-left: 8px !important;
+        margin-top: 24px !important;
+      }
+
+      .stage-tracker-bar::before {
+        display: block !important;
+        content: '' !important;
+        position: absolute !important;
+        top: 20px !important;
+        bottom: 20px !important;
+        left: 27px !important;
+        right: auto !important;
+        width: 3px !important;
+        height: auto !important;
+        background: var(--slate-200) !important;
+        z-index: 1 !important;
+      }
+
+      .tracker-step {
+        display: flex !important;
+        flex-direction: row !important;
+        align-items: center !important;
+        text-align: left !important;
+        gap: 16px !important;
+        position: relative !important;
+        z-index: 2 !important;
+      }
+
+      .tracker-node {
+        margin-bottom: 0 !important;
+        flex-shrink: 0 !important;
+        width: 40px !important;
+        height: 40px !important;
+      }
+
+      .tracker-text {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        text-align: left !important;
+      }
+
+      .tracker-title {
+        font-size: 0.9rem !important;
+        font-weight: 700 !important;
+        text-align: left !important;
+      }
+
+      .tracker-date {
+        font-size: 0.78rem !important;
+        color: var(--text-muted) !important;
+        text-align: left !important;
+      }
+
+      /* Mobile Tables & Buttons Alignment (<= 576px Mobile ONLY) */
+      .dash-table-wrapper {
+        width: 100% !important;
+        overflow-x: auto !important;
+        -webkit-overflow-scrolling: touch !important;
+        margin-bottom: 20px !important;
+        border-radius: var(--radius-md) !important;
+        border: 1px solid var(--border-color) !important;
+      }
+
+      .dash-table {
+        min-width: 560px !important;
+        width: 100% !important;
+      }
+
+      .dash-table th,
+      .dash-table td {
+        white-space: nowrap !important;
+        padding: 12px 14px !important;
+      }
+
+      .dash-table .btn {
+        white-space: nowrap !important;
+        font-size: 0.78rem !important;
+        padding: 6px 14px !important;
+        display: inline-flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+      }
+
+      /* Quick Action Columns Mobile Alignment */
+      .dash-quick-actions-grid {
+        grid-template-columns: 1fr !important;
+      }
+
+      .dash-quick-actions-grid .diff-card {
+        padding: 18px 16px !important;
+        align-items: stretch !important;
+        text-align: left !important;
+      }
+
+      .dash-card-header {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        gap: 10px !important;
+        margin-bottom: 16px !important;
+        padding-bottom: 12px !important;
+        border-bottom: 1px solid var(--border-color) !important;
+      }
+
+      .dash-card-header .btn,
+      .dash-card-header .status-pill {
+        align-self: flex-start !important;
+      }
+
+      .dash-report-row {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        gap: 10px !important;
+        padding: 14px 14px !important;
+        background: var(--bg-alt) !important;
+        border-radius: var(--radius-sm) !important;
+        border: 1px solid var(--border-color) !important;
+      }
+
+      .dash-report-row > div {
+        width: 100% !important;
+      }
+
+      .dash-report-row .dash-report-title {
+        white-space: normal !important;
+        word-break: break-word !important;
+        font-weight: 700 !important;
+        font-size: 0.88rem !important;
+        color: var(--text-primary) !important;
+        margin-bottom: 3px !important;
+      }
+
+      .dash-report-row .btn {
+        width: 100% !important;
+        text-align: center !important;
+        justify-content: center !important;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="dashboard-layout">
+    <!-- SIDEBAR NAVIGATION -->
+    <aside class="dashboard-sidebar" style="position:relative;">
+      <button type="button" class="dash-sidebar-close-btn" id="dashSidebarCloseBtn" aria-label="Close Navigation Menu">&times;</button>
+      <div>
+        <!-- Brand -->
+        <a href="../index.html" class="brand-logo" style="margin-bottom:20px; color:#FFFFFF;">
+          <svg viewBox="0 0 240 50" width="160" height="34">
+            <defs>
+              <linearGradient id="logo-bg-grad-dash" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#0B2535"/>
+                <stop offset="100%" stop-color="#04121A"/>
+              </linearGradient>
+              <linearGradient id="logo-grad-dash" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#10B981"/>
+                <stop offset="100%" stop-color="#06B6D4"/>
+              </linearGradient>
+            </defs>
+            <g transform="translate(2, 4)">
+              <circle cx="21" cy="21" r="20" fill="url(#logo-bg-grad-dash)" stroke="#0E3B4F" stroke-width="1.2"/>
+              <path d="M21 8.5 L31.5 13.8 V23.5 C31.5 30.5 21 35.5 21 35.5 C21 35.5 10.5 30.5 10.5 23.5 V13.8 Z" fill="rgba(16, 185, 129, 0.12)" stroke="url(#logo-grad-dash)" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round"/>
+              <path d="M14.8 21.5 C17 17.8 25 17.8 27.2 21.5 C25 25.2 17 25.2 14.8 21.5 Z" fill="none" stroke="#10B981" stroke-width="1.8" stroke-linejoin="round"/>
+              <circle cx="21" cy="21.5" r="2.2" fill="#FFFFFF"/>
+            </g>
+            <text x="56" y="27" font-family="'Plus Jakarta Sans', sans-serif" font-size="20" font-weight="800" fill="#FFFFFF">AEROPURE</text>
+            <text x="56" y="40" font-family="'Inter', sans-serif" font-size="8.5" font-weight="600" fill="#14B8A6" letter-spacing="2">CLIENT PORTAL</text>
+          </svg>
+        </a>
+
+        <!-- Property Badge -->
+        <div style="background:rgba(255,255,255,0.06); padding:12px 14px; border-radius:var(--radius-sm); border:1px solid rgba(255,255,255,0.1); margin-bottom:24px;">
+          <div style="font-size:0.75rem; color:var(--slate-400); text-transform:uppercase; letter-spacing:0.05em;">Active Remediation Property</div>
+          <div style="font-size:0.9rem; font-weight:700; color:#FFFFFF; margin-top:2px;">742 Clean Air Blvd, Unit 4B</div>
+          <div style="font-size:0.78rem; color:var(--primary-light); margin-top:2px;">Job ID: #AP-2026-8941</div>
+        </div>
+
+        <!-- Tab Buttons (Section 6 Dashboard Components) -->
+        <nav class="dashboard-nav-list" aria-label="Dashboard Panels">
+          <button type="button" class="dash-nav-btn active" data-tab="overview">
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"/></svg>
+            <span>Overview</span>
+          </button>
+
+          <button type="button" class="dash-nav-btn" data-tab="schedule">
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+            <span>Schedule Inspection</span>
+          </button>
+
+          <button type="button" class="dash-nav-btn" data-tab="tracker">
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
+            <span>Job Status Tracker</span>
+          </button>
+
+          <button type="button" class="dash-nav-btn" data-tab="reports">
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+            <span>Air Quality Reports</span>
+          </button>
+
+          <button type="button" class="dash-nav-btn" data-tab="gallery">
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+            <span>Before & After Photos</span>
+          </button>
+
+          <button type="button" class="dash-nav-btn" data-tab="invoices">
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
+            <span>Invoices & Billing</span>
+          </button>
+
+          <button type="button" class="dash-nav-btn" data-tab="messages">
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"/></svg>
+            <span>Technician Messages</span>
+          </button>
+
+          <button type="button" class="dash-nav-btn" data-tab="settings">
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+            <span>Account Settings</span>
+          </button>
+        </nav>
+      </div>
+
+      <!-- Logout & Theme Switcher -->
+      <div style="padding-top:20px; border-top:1px solid rgba(255,255,255,0.1);">
+        <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:14px;">
+          <span style="font-size:0.85rem; color:var(--slate-400);">Theme Mode</span>
+          <button type="button" class="icon-toggle-btn theme-toggle-btn" aria-label="Toggle theme">
+            <svg class="icon-moon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/></svg>
+            <svg class="icon-sun" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="display:none;"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
+          </button>
+        </div>
+        <a href="index.html" class="btn btn-secondary btn-sm" style="width:100%; color:#EF4444; border-color:rgba(239,68,68,0.3);">
+          <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"/></svg>
+          <span>Sign Out</span>
+        </a>
+      </div>
+    </aside>
+
+    <!-- SIDEBAR BACKDROP OVERLAY FOR MOBILE & TAB VIEWS -->
+    <div class="dash-sidebar-backdrop" id="dashSidebarBackdrop"></div>
+
+    <!-- DASHBOARD MAIN CONTENT AREA -->
+    <main class="dashboard-content-area">
+      <!-- Topbar -->
+      <div class="dashboard-topbar">
+        <div>
+          <h2 style="font-size:1.6rem; margin-bottom:2px;">Client Portal Dashboard</h2>
+          <p style="font-size:0.88rem; color:var(--text-secondary); margin:0;">Active Project: #AP-2026-8941 &bull; Lead CIH: Dr. Elena Vance</p>
+        </div>
+
+        <div class="dash-topbar-actions" style="display:flex; align-items:center; gap:16px;">
+          <!-- Quick Book CTA -->
+          <button type="button" class="btn btn-primary btn-sm" onclick="navigateToDashTab('schedule')">
+            <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/></svg>
+            <span>Book Visit</span>
+          </button>
+
+          <!-- User Chip -->
+          <div class="user-profile-chip">
+            <div class="user-avatar">JD</div>
+            <div>
+              <div style="font-size:0.9rem; font-weight:700;">Jane Doe</div>
+              <div style="font-size:0.75rem; color:var(--text-muted);">Homeowner &bull; Verified</div>
+            </div>
+          </div>
+
+          <!-- Hamburger Menu Button (Far Top Right at the End) -->
+          <button type="button" class="dash-hamburger-btn" id="dashHamburgerBtn" aria-label="Open Navigation Menu">
+            <svg width="22" height="22" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M4 6h16M4 12h16M4 18h16"/></svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- SKELETON LOADER (Transitions between heavy tabs) -->
+      <div id="dashboardSkeleton" style="display:none; margin-bottom:30px;">
+        <div class="skeleton-box" style="height:140px; margin-bottom:24px;"></div>
+        <div class="dash-skeleton-grid">
+          <div class="skeleton-box" style="height:100px;"></div>
+          <div class="skeleton-box" style="height:100px;"></div>
+          <div class="skeleton-box" style="height:100px;"></div>
+        </div>
+        <div class="skeleton-box" style="height:260px;"></div>
+      </div>
+
+      <!-- ==========================================================================
+           TAB 1: OVERVIEW (Active Jobs, Next Inspection, Alerts)
+           ========================================================================== -->
+      <div class="dash-panel" id="panel-overview" style="display:block;">
+        <!-- Alert Banner -->
+        <div class="dash-alert-banner" style="background:var(--primary-surface); border:1px solid rgba(13,148,136,0.3); border-radius:var(--radius-md); padding:18px 24px; margin-bottom:28px; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:16px;">
+          <div class="dash-alert-content" style="display:flex; align-items:center; gap:14px;">
+            <div class="dash-alert-icon" style="width:40px; height:40px; border-radius:50%; background:var(--primary); color:#FFFFFF; display:flex; align-items:center; justify-content:center; flex-shrink:0;">
+              <svg width="22" height="22" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+            </div>
+            <div>
+              <h4 style="font-size:1rem; margin-bottom:2px;">Remediation Stage 4 Active</h4>
+              <p style="font-size:0.85rem; color:var(--text-secondary); margin:0;">HEPA negative-air scrubbers running. Post-clearance verification scheduled for tomorrow morning.</p>
+            </div>
+          </div>
+          <button type="button" class="btn btn-secondary btn-sm dash-alert-btn" onclick="navigateToDashTab('tracker')">View Timeline</button>
+        </div>
+
+        <!-- Metric Stat Cards -->
+        <div class="dash-stat-grid">
+          <div class="diff-card" style="padding:22px;">
+            <div style="font-size:0.8rem; color:var(--text-muted); text-transform:uppercase; font-weight:700;">Environmental Health Score</div>
+            <div style="font-family:var(--font-display); font-size:2.2rem; font-weight:800; color:var(--secondary); line-height:1.2; margin:6px 0;">96 / 100</div>
+            <div style="font-size:0.8rem; color:var(--secondary);">&uarr; Improved 42 points post-containment</div>
+          </div>
+
+          <div class="diff-card" style="padding:22px;">
+            <div style="font-size:0.8rem; color:var(--text-muted); text-transform:uppercase; font-weight:700;">Sub-surface Moisture Index</div>
+            <div style="font-family:var(--font-display); font-size:2.2rem; font-weight:800; color:var(--primary); line-height:1.2; margin:6px 0;">9.4% RH</div>
+            <div style="font-size:0.8rem; color:var(--text-muted);">Normal dry standard (&lt; 14%)</div>
+          </div>
+
+          <div class="diff-card" style="padding:22px;">
+            <div style="font-size:0.8rem; color:var(--text-muted); text-transform:uppercase; font-weight:700;">Next Scheduled Visit</div>
+            <div style="font-family:var(--font-display); font-size:1.8rem; font-weight:800; color:var(--text-primary); line-height:1.2; margin:6px 0;">Tomorrow</div>
+            <div style="font-size:0.8rem; color:var(--text-muted);">9:30 AM &bull; Final Spore Traps</div>
+          </div>
+
+          <div class="diff-card" style="padding:22px;">
+            <div style="font-size:0.8rem; color:var(--text-muted); text-transform:uppercase; font-weight:700;">Billing Balance</div>
+            <div style="font-family:var(--font-display); font-size:2.2rem; font-weight:800; color:var(--text-primary); line-height:1.2; margin:6px 0;">$489.00</div>
+            <div style="font-size:0.8rem; color:var(--accent-amber); font-weight:600;">Due in 14 days</div>
+          </div>
+        </div>
+
+        <!-- Visual Stage Tracker Preview -->
+        <div class="stage-tracker-wrapper">
+          <div class="stage-tracker-header" style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
+            <h3 style="font-size:1.25rem;">Active Remediation Progress: Job #AP-2026-8941</h3>
+            <span class="status-pill status-in-progress">Stage 4 of 6: Remediation Underway</span>
+          </div>
+          <p style="font-size:0.88rem; color:var(--text-secondary); margin-bottom:20px;">
+            Containment airlock established. Botanical antimicrobials applied. Continuous HEPA air exchange active.
+          </p>
+
+          <div class="stage-tracker-bar">
+            <div class="tracker-step completed">
+              <div class="tracker-node">&#10003;</div>
+              <div class="tracker-text">
+                <span class="tracker-title">1. Scheduled</span>
+                <span class="tracker-date">Oct 12, 10:00 AM</span>
+              </div>
+            </div>
+            <div class="tracker-step completed">
+              <div class="tracker-node">&#10003;</div>
+              <div class="tracker-text">
+                <span class="tracker-title">2. Inspected</span>
+                <span class="tracker-date">Oct 13, 2:15 PM</span>
+              </div>
+            </div>
+            <div class="tracker-step completed">
+              <div class="tracker-node">&#10003;</div>
+              <div class="tracker-text">
+                <span class="tracker-title">3. Lab Testing</span>
+                <span class="tracker-date">Oct 14, 4:45 PM</span>
+              </div>
+            </div>
+            <div class="tracker-step active">
+              <div class="tracker-node">4</div>
+              <div class="tracker-text">
+                <span class="tracker-title">4. Remediation</span>
+                <span class="tracker-date">Oct 15 (Active)</span>
+              </div>
+            </div>
+            <div class="tracker-step">
+              <div class="tracker-node">5</div>
+              <div class="tracker-text">
+                <span class="tracker-title">5. Post-Testing</span>
+                <span class="tracker-date">Oct 16, 9:30 AM</span>
+              </div>
+            </div>
+            <div class="tracker-step">
+              <div class="tracker-node">6</div>
+              <div class="tracker-text">
+                <span class="tracker-title">6. Clearance</span>
+                <span class="tracker-date">Pending PRV</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Quick Action Columns (Aligned Equal Height Grid) -->
+        <div class="dash-quick-actions-grid" style="display:grid; grid-template-columns:repeat(auto-fit, minmax(320px, 1fr)); gap:24px; align-items:stretch; margin-top:24px;">
+          <!-- Recent Reports Card -->
+          <div class="diff-card" style="display:flex; flex-direction:column; justify-content:space-between; height:100%; box-sizing:border-box;">
+            <div>
+              <div class="dash-card-header" style="display:flex; justify-content:space-between; align-items:center; gap:12px; margin-bottom:18px; border-bottom:1px solid var(--border-color); padding-bottom:12px;">
+                <div class="dash-card-title-group" style="text-align:left;">
+                  <h4 style="font-size:1.05rem; font-weight:700; margin:0 0 2px 0; color:var(--text-primary); text-align:left;">Latest Laboratory Reports</h4>
+                  <p style="font-size:0.78rem; color:var(--text-muted); margin:0; text-align:left;">AIHA EMLAP Certified</p>
+                </div>
+                <button type="button" class="btn btn-outline-primary btn-sm" onclick="navigateToDashTab('reports')" style="white-space:nowrap; flex-shrink:0;">View All</button>
+              </div>
+
+              <div style="display:flex; flex-direction:column; gap:12px;">
+                <div class="dash-report-row" style="display:flex; justify-content:space-between; align-items:center; gap:12px; padding:12px 14px; background:var(--bg-alt); border-radius:var(--radius-sm); border:1px solid var(--border-color);">
+                  <div style="min-width:0; flex:1;">
+                    <div class="dash-report-title" style="font-weight:700; font-size:0.88rem; color:var(--text-primary); white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">Pre-Remediation Baseline Spore Trap</div>
+                    <div style="font-size:0.76rem; color:var(--text-muted);">Analyzed Oct 14 &bull; AIHA Accredited Lab</div>
+                  </div>
+                  <button type="button" class="btn btn-secondary btn-sm" onclick="viewReportModal('LAB-8941-A', 'Basement Air-O-Cell Pre-Test', '18,420 Spores/m³')" style="flex-shrink:0;">View</button>
+                </div>
+
+                <div class="dash-report-row" style="display:flex; justify-content:space-between; align-items:center; gap:12px; padding:12px 14px; background:var(--bg-alt); border-radius:var(--radius-sm); border:1px solid var(--border-color);">
+                  <div style="min-width:0; flex:1;">
+                    <div class="dash-report-title" style="font-weight:700; font-size:0.88rem; color:var(--text-primary); white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">FLIR Infrared Thermal Photo Log</div>
+                    <div style="font-size:0.76rem; color:var(--text-muted);">Recorded Oct 13 &bull; 14 Radiometric Images</div>
+                  </div>
+                  <button type="button" class="btn btn-secondary btn-sm" onclick="navigateToDashTab('gallery')" style="flex-shrink:0;">Photos</button>
+                </div>
+              </div>
+            </div>
+
+            <div style="margin-top:20px;">
+              <button type="button" class="btn btn-secondary btn-sm" style="width:100%; text-align:center;" onclick="navigateToDashTab('reports')">Request Additional Air Sample</button>
+            </div>
+          </div>
+
+          <!-- Direct Technician Message Card -->
+          <div class="diff-card" style="display:flex; flex-direction:column; justify-content:space-between; height:100%; box-sizing:border-box;">
+            <div>
+              <div class="dash-card-header" style="display:flex; justify-content:space-between; align-items:center; gap:12px; margin-bottom:18px; border-bottom:1px solid var(--border-color); padding-bottom:12px;">
+                <div class="dash-card-title-group" style="text-align:left;">
+                  <h4 style="font-size:1.05rem; font-weight:700; margin:0 0 2px 0; color:var(--text-primary); text-align:left;">Assigned Industrial Hygienist</h4>
+                  <p style="font-size:0.78rem; color:var(--text-muted); margin:0; text-align:left;">Lead Environmental Investigator</p>
+                </div>
+                <span class="status-pill status-paid" style="flex-shrink:0; white-space:nowrap;">On-Duty</span>
+              </div>
+
+              <div style="display:flex; align-items:center; gap:14px; margin-bottom:14px;">
+                <div style="width:52px; height:52px; border-radius:50%; overflow:hidden; flex-shrink:0; border:2px solid var(--primary);">
+                  <img src="../assets/images/dr-elena-vance.webp" alt="Dr. Elena Vance, PhD, CIH" style="width:100%; height:100%; object-fit:cover;">
+                </div>
+                <div style="min-width:0; flex:1;">
+                  <h5 style="font-size:0.98rem; font-weight:700; margin:0 0 2px 0; color:var(--text-primary);">Dr. Elena Vance, PhD, CIH</h5>
+                  <p style="font-size:0.78rem; color:var(--primary); font-weight:600; margin:0;">ACAC CIEC #14092 &bull; 18 Yrs Exp</p>
+                </div>
+              </div>
+
+              <div style="background:var(--bg-alt); padding:12px 14px; border-radius:var(--radius-sm); border-left:3px solid var(--primary);">
+                <p style="font-size:0.84rem; color:var(--text-secondary); margin:0; font-style:italic; line-height:1.5;">
+                  "The negative-air scrubber pressure is holding steady at -0.021 in. WC. Fungal spore count reduced by 99.4%."
+                </p>
+              </div>
+            </div>
+
+            <div style="margin-top:20px;">
+              <button type="button" class="btn btn-primary btn-sm" style="width:100%; display:inline-flex; align-items:center; justify-content:center; gap:8px;" onclick="navigateToDashTab('messages')">
+                <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"/></svg>
+                <span>Send Direct Note to Dr. Vance</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ==========================================================================
+           TAB 2: SCHEDULE INSPECTION (Interactive Booking Form)
+           ========================================================================== -->
+      <div class="dash-panel" id="panel-schedule" style="display:none;">
+        <div class="diff-card" style="max-width:800px; margin:0 auto; padding:36px;">
+          <span class="section-badge">Booking Calendar</span>
+          <h3 style="font-size:1.6rem; margin-bottom:8px;">Schedule an On-Site Inspection or Clearance Test</h3>
+          <p style="color:var(--text-secondary); margin-bottom:28px;">
+            Select your preferred appointment date and time. An ACAC-certified hygienist will arrive with calibrated testing gear.
+          </p>
+
+          <form id="dashBookingForm">
+            <div class="micro-form-row">
+              <div>
+                <label style="display:block; font-size:0.88rem; font-weight:600; margin-bottom:6px;">Visit Type *</label>
+                <select class="input-field" id="bookType" required>
+                  <option value="Initial Thermal Inspection">Initial Diagnostic & Thermal Scan ($299)</option>
+                  <option value="Lab Spore Testing">Lab Spore Trap Testing Package ($489)</option>
+                  <option value="Post-Remediation Verification">Post-Remediation Verification (PRV) Clearance</option>
+                  <option value="Annual Air Check">Annual IAQ Preventive Health Check ($199)</option>
+                </select>
+              </div>
+              <div>
+                <label style="display:block; font-size:0.88rem; font-weight:600; margin-bottom:6px;">Property Specific Area *</label>
+                <input type="text" class="input-field" id="bookArea" placeholder="e.g. Crawlspace, Master Bath, Basement" required>
+              </div>
+            </div>
+
+            <div class="micro-form-row">
+              <div>
+                <label style="display:block; font-size:0.88rem; font-weight:600; margin-bottom:6px;">Preferred Date *</label>
+                <input type="date" class="input-field" id="bookDate" required value="2026-10-20">
+              </div>
+              <div>
+                <label style="display:block; font-size:0.88rem; font-weight:600; margin-bottom:6px;">Time Window *</label>
+                <select class="input-field" id="bookTime" required>
+                  <option value="8:00 AM - 11:00 AM">Morning (8:00 AM – 11:00 AM)</option>
+                  <option value="11:00 AM - 2:00 PM" selected>Mid-Day (11:00 AM – 2:00 PM)</option>
+                  <option value="2:00 PM - 5:00 PM">Afternoon (2:00 PM – 5:00 PM)</option>
+                  <option value="Evening Emergency">Emergency Window (Within 2 Hours)</option>
+                </select>
+              </div>
+            </div>
+
+            <div style="margin-bottom:24px;">
+              <label style="display:block; font-size:0.88rem; font-weight:600; margin-bottom:6px;">Observed Symptoms & Context</label>
+              <textarea class="input-field" rows="3" placeholder="Note any visible mold colors, musty odors, recent plumbing leaks, or respiratory symptoms..."></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-lg" style="width:100%;">
+              <span>Confirm Appointment Booking</span>
+              <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+            </button>
+          </form>
+        </div>
+      </div>
+
+      <!-- ==========================================================================
+           TAB 3: JOB STATUS TRACKER (Visual Stage Tracker)
+           ========================================================================== -->
+      <div class="dash-panel" id="panel-tracker" style="display:none;">
+        <div class="stage-tracker-wrapper">
+          <div class="stage-tracker-header" style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
+            <h3>Remediation Timeline & Log</h3>
+            <span class="status-pill status-in-progress">Active Containment</span>
+          </div>
+
+          <div class="stage-tracker-bar">
+            <div class="tracker-step completed"><div class="tracker-node">&#10003;</div><div class="tracker-text"><span class="tracker-title">Scheduled</span><span class="tracker-date">Oct 12</span></div></div>
+            <div class="tracker-step completed"><div class="tracker-node">&#10003;</div><div class="tracker-text"><span class="tracker-title">Inspected</span><span class="tracker-date">Oct 13</span></div></div>
+            <div class="tracker-step completed"><div class="tracker-node">&#10003;</div><div class="tracker-text"><span class="tracker-title">Lab Testing</span><span class="tracker-date">Oct 14</span></div></div>
+            <div class="tracker-step active"><div class="tracker-node">4</div><div class="tracker-text"><span class="tracker-title">Remediation</span><span class="tracker-date">Oct 15 (Active)</span></div></div>
+            <div class="tracker-step"><div class="tracker-node">5</div><div class="tracker-text"><span class="tracker-title">Post-Testing</span><span class="tracker-date">Oct 16</span></div></div>
+            <div class="tracker-step"><div class="tracker-node">6</div><div class="tracker-text"><span class="tracker-title">Verified</span><span class="tracker-date">Clearance</span></div></div>
+          </div>
+        </div>
+
+        <!-- Timestamped Technician Logs -->
+        <div class="diff-card">
+          <h4 style="font-size:1.15rem; margin-bottom:18px;">Forensic Daily Activity Log</h4>
+          <div style="display:flex; flex-direction:column; gap:16px;">
+            <div style="border-left:3px solid var(--primary); padding-left:16px;">
+              <div style="font-size:0.8rem; color:var(--text-muted); font-weight:700;">TODAY &bull; 08:30 AM</div>
+              <div style="font-weight:700; font-size:0.95rem; margin:2px 0;">HEPA Scrubber Exhaust Differential Calibrated</div>
+              <p style="font-size:0.88rem; color:var(--text-secondary); margin:0;">Lead Tech Thorne checked negative pressure manometer. Differential confirmed at -0.021 in. WC. Zero spore migration outside containment perimeter.</p>
+            </div>
+
+            <div style="border-left:3px solid var(--primary); padding-left:16px;">
+              <div style="font-size:0.8rem; color:var(--text-muted); font-weight:700;">YESTERDAY &bull; 04:45 PM</div>
+              <div style="font-weight:700; font-size:0.95rem; margin:2px 0;">Laboratory Pre-Test Report Uploaded</div>
+              <p style="font-size:0.88rem; color:var(--text-secondary); margin:0;">AIHA Lab #4982 confirmed high-density Stachybotrys chartarum (8,400 spores/m³). Remediation containment authorization initiated.</p>
+            </div>
+
+            <div style="border-left:3px solid var(--slate-300); padding-left:16px;">
+              <div style="font-size:0.8rem; color:var(--text-muted); font-weight:700;">OCT 13 &bull; 02:15 PM</div>
+              <div style="font-weight:700; font-size:0.95rem; margin:2px 0;">Thermal Imaging & Moisture Depth Profiling</div>
+              <p style="font-size:0.88rem; color:var(--text-secondary); margin:0;">Sarah Lin identified concealed pipe seal failure behind basement north wall with FLIR E96 camera.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ==========================================================================
+           TAB 4: AIR QUALITY REPORTS (Downloadable Reports & Modal View)
+           ========================================================================== -->
+      <div class="dash-panel" id="panel-reports" style="display:none;">
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:20px;">
+          <div>
+            <h3 style="font-size:1.35rem;">Certified Laboratory Reports</h3>
+            <p style="font-size:0.88rem; color:var(--text-secondary); margin:0;">Independent third-party AIHA EMLAP accredited certificates.</p>
+          </div>
+        </div>
+
+        <div class="dash-table-wrapper">
+          <table class="dash-table">
+            <thead>
+              <tr>
+                <th>Report ID</th>
+                <th>Test Type</th>
+                <th>Sample Location</th>
+                <th>Spore Density</th>
+                <th>Status</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td style="font-family:var(--font-mono); font-weight:700;">#LAB-8941-A</td>
+                <td>Air-O-Cell Spore Trap</td>
+                <td>North Basement Wall Void</td>
+                <td style="color:var(--accent-red); font-weight:700;">18,420 Spores/m³</td>
+                <td><span class="status-pill status-pending">Action Required</span></td>
+                <td>
+                  <button type="button" class="btn btn-secondary btn-sm" onclick="viewReportModal('LAB-8941-A', 'North Basement Spore Trap', '18,420 Spores/m³')">
+                    Preview Certificate
+                  </button>
+                </td>
+              </tr>
+              <tr>
+                <td style="font-family:var(--font-mono); font-weight:700;">#LAB-8941-B</td>
+                <td>Laser PM2.5 / VOC Particulate</td>
+                <td>1st Floor Living Space</td>
+                <td style="color:var(--secondary); font-weight:700;">22 µg/m³ (Normal)</td>
+                <td><span class="status-pill status-paid">Within Safe Limit</span></td>
+                <td>
+                  <button type="button" class="btn btn-secondary btn-sm" onclick="viewReportModal('LAB-8941-B', '1st Floor Living Space IAQ', '22 µg/m³ PM2.5')">
+                    Preview Certificate
+                  </button>
+                </td>
+              </tr>
+              <tr>
+                <td style="font-family:var(--font-mono); font-weight:700;">#LAB-8941-C</td>
+                <td>Post-Remediation Verification</td>
+                <td>Basement Containment Chamber</td>
+                <td style="color:var(--slate-400); font-weight:600;">Pending Incubation</td>
+                <td><span class="status-pill status-in-progress">In Incubator (24h)</span></td>
+                <td>
+                  <span style="font-size:0.8rem; color:var(--text-muted);">Results at 3:00 PM</span>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- ==========================================================================
+           TAB 5: BEFORE & AFTER DOCUMENTATION (Photo/Video Gallery per Job)
+           ========================================================================== -->
+      <div class="dash-panel" id="panel-gallery" style="display:none;">
+        <div style="margin-bottom:24px;">
+          <h3 style="font-size:1.35rem;">Project Photo Logs: Job #AP-2026-8941</h3>
+          <p style="font-size:0.88rem; color:var(--text-secondary); margin:0;">High-resolution photographic documentation and moisture meter readings.</p>
+        </div>
+
+        <div class="dash-gallery-grid">
+          <!-- Before Card -->
+          <div class="diff-card" style="padding:16px;">
+            <div style="position:relative; border-radius:var(--radius-sm); overflow:hidden; margin-bottom:12px;">
+              <img src="../assets/images/mold-before.webp" alt="Before Remediation" width="600" height="400">
+              <span class="comparison-pill pill-before" style="bottom:12px; right:12px;">Pre-Remediation Log</span>
+            </div>
+            <h4 style="font-size:1rem; margin-bottom:4px;">Basement Timber Joists & Wall Framing</h4>
+            <p style="font-size:0.82rem; color:var(--text-muted);">Timestamp: Oct 13 &bull; Moisture Saturation: 28.4% (Severe)</p>
+          </div>
+
+          <!-- After Card -->
+          <div class="diff-card" style="padding:16px;">
+            <div style="position:relative; border-radius:var(--radius-sm); overflow:hidden; margin-bottom:12px;">
+              <img src="../assets/images/mold-after.webp" alt="After Remediation" width="600" height="400">
+              <span class="comparison-pill pill-after" style="bottom:12px; left:12px;">Treated & Antimicrobial Sealed</span>
+            </div>
+            <h4 style="font-size:1rem; margin-bottom:4px;">Timber Media Blasted & Botanical Encapsulated</h4>
+            <p style="font-size:0.82rem; color:var(--text-muted);">Timestamp: Oct 15 &bull; Moisture Saturation: 9.2% (Dry Standard)</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- ==========================================================================
+           TAB 6: INVOICES & BILLING (Mock Stripe Payment Simulation)
+           ========================================================================== -->
+      <div class="dash-panel" id="panel-invoices" style="display:none;">
+        <div style="margin-bottom:24px;">
+          <h3 style="font-size:1.35rem;">Invoices & Billing Statements</h3>
+          <p style="font-size:0.88rem; color:var(--text-secondary); margin:0;">Itemized billing statements and secure digital payment processing.</p>
+        </div>
+
+        <div class="dash-table-wrapper">
+          <table class="dash-table" id="invoicesTable">
+            <thead>
+              <tr>
+                <th>Invoice #</th>
+                <th>Description</th>
+                <th>Date Issued</th>
+                <th>Amount</th>
+                <th>Status</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td style="font-family:var(--font-mono); font-weight:700;">#INV-2026-081</td>
+                <td>Initial Infrared Moisture Inspection Scan</td>
+                <td>Oct 13, 2026</td>
+                <td style="font-weight:700;">$299.00</td>
+                <td><span class="status-pill status-paid">Paid in Full</span></td>
+                <td>
+                  <button type="button" class="btn btn-secondary btn-sm" onclick="openModal('receiptModal')">Download Receipt</button>
+                </td>
+              </tr>
+              <tr id="row-inv-082">
+                <td style="font-family:var(--font-mono); font-weight:700;">#INV-2026-082</td>
+                <td>Air-O-Cell Spore Trap Lab Analysis Package</td>
+                <td>Oct 14, 2026</td>
+                <td style="font-weight:700;">$489.00</td>
+                <td><span class="status-pill status-pending" id="status-inv-082">Payment Due</span></td>
+                <td>
+                  <button type="button" class="btn btn-primary btn-sm" id="action-inv-082" onclick="openPaymentModal('inv-082', '$489.00')">
+                    Pay Now ($489.00)
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- ==========================================================================
+           TAB 7: MESSAGES & NOTIFICATIONS (Direct Chat with CIH)
+           ========================================================================== -->
+      <div class="dash-panel" id="panel-messages" style="display:none;">
+        <div style="margin-bottom:20px;">
+          <h3 style="font-size:1.35rem;">Direct Messaging with Lead Industrial Hygienist</h3>
+          <p style="font-size:0.88rem; color:var(--text-secondary); margin:0;">Encrypted channel with Dr. Elena Vance, CIH & Master Tech Thorne.</p>
+        </div>
+
+        <div class="chat-container">
+          <div class="chat-messages" id="chatMessages">
+            <div class="chat-bubble chat-technician">
+              <div class="chat-bubble-meta">Dr. Elena Vance, CIH &bull; Yesterday at 4:50 PM</div>
+              <div class="chat-bubble-text">
+                Hello Jane, we have reviewed your basement laboratory cassettes. As suspected, Stachybotrys spores were identified behind the north wallboard. We have our HEPA containment crew on site setting up negative pressure today.
+              </div>
+            </div>
+            <div class="chat-bubble chat-client">
+              <div class="chat-bubble-meta">You &bull; Yesterday at 5:15 PM</div>
+              <div class="chat-bubble-text">
+                Thank you Dr. Vance. Is it safe for our family to remain upstairs on the second floor while the containment scrubbers run?
+              </div>
+            </div>
+            <div class="chat-bubble chat-technician">
+              <div class="chat-bubble-meta">Dr. Elena Vance, CIH &bull; Yesterday at 5:22 PM</div>
+              <div class="chat-bubble-text">
+                Yes, absolutely. The basement is under negative pressure, meaning air is continuously pulled inward and exhausted outdoors through HEPA-500 filters. Zero air enters your upper living levels.
+              </div>
+            </div>
+          </div>
+
+          <!-- Chat Input -->
+          <form id="chatForm" style="display:flex; gap:12px; padding:16px; border-top:1px solid var(--border-color); background:var(--bg-surface);">
+            <input type="text" class="input-field" placeholder="Type a message to your assigned hygienist..." id="chatInput" required>
+            <button type="submit" class="btn btn-primary" style="white-space:nowrap;">Send Message</button>
+          </form>
+        </div>
+      </div>
+
+      <!-- ==========================================================================
+           TAB 8: SETTINGS (Profile, Notification Toggles, Property Records)
+           ========================================================================== -->
+      <div class="dash-panel" id="panel-settings" style="display:none;">
+        <div class="diff-card" style="max-width:700px; padding:32px;">
+          <h3 style="font-size:1.4rem; margin-bottom:18px;">Account & Notification Preferences</h3>
+          <div style="margin-bottom:24px;">
+            <label style="display:block; font-size:0.88rem; font-weight:600; margin-bottom:6px;">Client Name</label>
+            <input type="text" class="input-field" value="Jane Doe">
+          </div>
+          <div style="margin-bottom:24px;">
+            <label style="display:block; font-size:0.88rem; font-weight:600; margin-bottom:6px;">Contact Phone for SMS Urgent Alerts</label>
+            <input type="tel" class="input-field" value="(555) 234-5678">
+          </div>
+          <div style="margin-bottom:28px;">
+            <h4 style="font-size:1rem; margin-bottom:12px;">Alert Subscriptions</h4>
+            <label style="display:flex; align-items:center; gap:10px; margin-bottom:10px; cursor:pointer;">
+              <input type="checkbox" checked style="accent-color:var(--primary); width:18px; height:18px;">
+              <span>Instant SMS notifications when new lab reports are ready</span>
+            </label>
+            <label style="display:flex; align-items:center; gap:10px; margin-bottom:10px; cursor:pointer;">
+              <input type="checkbox" checked style="accent-color:var(--primary); width:18px; height:18px;">
+              <span>Technician arrival ETA alerts</span>
+            </label>
+            <label style="display:flex; align-items:center; gap:10px; cursor:pointer;">
+              <input type="checkbox" checked style="accent-color:var(--primary); width:18px; height:18px;">
+              <span>Seasonal humidity threshold warnings for active property</span>
+            </label>
+          </div>
+          <button type="button" class="btn btn-primary" onclick="showToast('Account preferences saved!', 'success')">Save Preferences</button>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <!-- PAYMENT MODAL (Mock Checkout) -->
+  <div class="modal-overlay" id="paymentModal">
+    <div class="modal-card">
+      <button type="button" class="modal-close-btn" onclick="closeModal('paymentModal')">&times;</button>
+      <span class="section-badge" style="margin-bottom:10px;">Stripe / Card Payment Gateway</span>
+      <h3 style="font-size:1.4rem; margin-bottom:6px;">Pay Statement: <span id="modalPayAmount">$489.00</span></h3>
+      <p style="font-size:0.88rem; color:var(--text-secondary); margin-bottom:20px;">
+        Air-O-Cell Spore Trap Laboratory Package #INV-2026-082
+      </p>
+
+      <form id="mockPaymentForm">
+        <div style="margin-bottom:16px;">
+          <label style="display:block; font-size:0.85rem; font-weight:600; margin-bottom:4px;">Cardholder Name</label>
+          <input type="text" class="input-field" value="Jane Doe" required>
+        </div>
+        <div style="margin-bottom:16px;">
+          <label style="display:block; font-size:0.85rem; font-weight:600; margin-bottom:4px;">Card Number</label>
+          <input type="text" class="input-field" value="•••• •••• •••• 4242" required>
+        </div>
+        <div class="micro-form-row" style="margin-bottom:20px;">
+          <div>
+            <label style="display:block; font-size:0.85rem; font-weight:600; margin-bottom:4px;">Expiration</label>
+            <input type="text" class="input-field" value="12/28" required>
+          </div>
+          <div>
+            <label style="display:block; font-size:0.85rem; font-weight:600; margin-bottom:4px;">CVC</label>
+            <input type="text" class="input-field" value="892" required>
+          </div>
+        </div>
+        <button type="submit" class="btn btn-primary btn-lg" style="width:100%;">
+          <span>Confirm & Pay Securely</span>
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- RECEIPT MODAL -->
+  <div class="modal-overlay" id="receiptModal">
+    <div class="modal-card">
+      <button type="button" class="modal-close-btn" onclick="closeModal('receiptModal')">&times;</button>
+      <div style="text-align:center; padding:10px 0;">
+        <div style="width:54px; height:54px; border-radius:50%; background:#DCFCE7; color:#16A34A; display:flex; align-items:center; justify-content:center; margin:0 auto 16px;">
+          <svg width="28" height="28" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+        </div>
+        <h3 style="font-size:1.4rem; margin-bottom:4px;">Payment Receipt Verified</h3>
+        <p style="font-size:0.85rem; color:var(--text-muted); margin-bottom:20px;">Transaction ID: #TXN-2026-991048</p>
+
+        <div style="background:var(--bg-alt); padding:16px; border-radius:var(--radius-sm); text-align:left; font-size:0.88rem; margin-bottom:24px;">
+          <div style="display:flex; justify-content:space-between; margin-bottom:6px;"><span>Billed To:</span><strong>Jane Doe</strong></div>
+          <div style="display:flex; justify-content:space-between; margin-bottom:6px;"><span>Property:</span><span>742 Clean Air Blvd, NY</span></div>
+          <div style="display:flex; justify-content:space-between; margin-bottom:6px;"><span>Payment Method:</span><span>Visa ending in 4242</span></div>
+          <div style="display:flex; justify-content:space-between; border-top:1px solid var(--border-color); padding-top:6px; font-weight:700;">
+            <span>Total Amount Paid:</span><span>$489.00 USD</span>
+          </div>
+        </div>
+
+        <button type="button" class="btn btn-primary" onclick="closeModal('receiptModal')">Done</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- REPORT VIEWER MODAL -->
+  <div class="modal-overlay" id="reportModal">
+    <div class="modal-card" style="max-width:680px;">
+      <button type="button" class="modal-close-btn" onclick="closeModal('reportModal')">&times;</button>
+      <span class="section-badge" style="margin-bottom:8px;">AIHA EMLAP Lab Report</span>
+      <h3 style="font-size:1.35rem; margin-bottom:6px;" id="reportModalTitle">Certificate of Analysis</h3>
+      <p style="font-size:0.85rem; color:var(--text-muted); margin-bottom:20px;">Microbial Air-O-Cell Spore Concentration Analysis</p>
+
+      <div style="background:var(--bg-alt); padding:20px; border-radius:var(--radius-md); margin-bottom:20px;">
+        <div style="display:flex; justify-content:space-between; margin-bottom:10px;">
+          <span>Detected Spore Concentration:</span>
+          <strong id="reportModalSpore" style="color:var(--primary);">18,420 Spores/m³</strong>
+        </div>
+        <div style="display:flex; justify-content:space-between; margin-bottom:10px;">
+          <span>Predominant Microscopic Taxa:</span>
+          <strong>Stachybotrys chartarum (46%)</strong>
+        </div>
+        <div style="display:flex; justify-content:space-between;">
+          <span>Lab Clearance Status:</span>
+          <span class="status-pill status-paid">Chain of Custody Complete</span>
+        </div>
+      </div>
+
+      <div style="display:flex; justify-content:flex-end; gap:12px;">
+        <button type="button" class="btn btn-secondary btn-sm" onclick="closeModal('reportModal')">Close</button>
+        <button type="button" class="btn btn-primary btn-sm" onclick="showToast('Lab PDF download initiated...', 'success')">Download Signed PDF</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="../assets/js/main.js"></script>
+  <script src="../assets/js/interactive.js"></script>
+  <script src="../assets/js/dashboard.js"></script>
+</body>
+</html>

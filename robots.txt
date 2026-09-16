@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+Disallow: /pages/dashboard.html
+Disallow: /pages/login.html
+Disallow: /pages/register.html
+
+Sitemap: https://aeropure-environmental.com/sitemap.xml

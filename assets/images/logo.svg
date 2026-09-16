@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 50" width="240" height="50">
+  <defs>
+    <linearGradient id="logo-bg-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0B2535"/>
+      <stop offset="100%" stop-color="#04121A"/>
+    </linearGradient>
+    <linearGradient id="logo-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#10B981"/>
+      <stop offset="100%" stop-color="#06B6D4"/>
+    </linearGradient>
+  </defs>
+  <!-- Dark Shield Badge Icon Mark -->
+  <g transform="translate(2, 4)">
+    <circle cx="21" cy="21" r="20" fill="url(#logo-bg-grad)" stroke="#0E3B4F" stroke-width="1.2"/>
+    <path d="M21 8.5 L31.5 13.8 V23.5 C31.5 30.5 21 35.5 21 35.5 C21 35.5 10.5 30.5 10.5 23.5 V13.8 Z" fill="rgba(16, 185, 129, 0.12)" stroke="url(#logo-grad)" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round"/>
+    <path d="M14.8 21.5 C17 17.8 25 17.8 27.2 21.5 C25 25.2 17 25.2 14.8 21.5 Z" fill="none" stroke="#10B981" stroke-width="1.8" stroke-linejoin="round"/>
+    <circle cx="21" cy="21.5" r="2.2" fill="#FFFFFF"/>
+  </g>
+  <!-- Typography -->
+  <text x="56" y="27" font-family="'Plus Jakarta Sans', sans-serif" font-size="20" font-weight="800" fill="currentColor" letter-spacing="-0.5">AEROPURE</text>
+  <text x="56" y="40" font-family="'Inter', sans-serif" font-size="8.5" font-weight="600" fill="#10B981" letter-spacing="2">AIR INTELLIGENCE</text>
+</svg>

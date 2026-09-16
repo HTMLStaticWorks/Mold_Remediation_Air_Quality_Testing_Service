@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Welcome Back | AeroPure Client Portal</title>
+  <meta name="description" content="Access your AeroPure client portal to review certified laboratory test reports, track remediation job stages, view before/after photo logs, and manage invoices.">
+  <link rel="icon" type="image/svg+xml" href="../assets/images/favicon.svg">
+
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="stylesheet" href="../assets/css/dark-mode.css">
+  <link rel="stylesheet" href="../assets/css/rtl.css">
+  
+  <style>
+    /* Responsive Auth Theme Variables */
+    :root, [data-theme="dark"] {
+      --auth-bg: #24303E;
+      --auth-card-bg: #17212D;
+      --auth-card-border: rgba(255, 255, 255, 0.08);
+      --auth-card-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+      --auth-text-main: #FFFFFF;
+      --auth-text-sub: #94A3B8;
+      --auth-label-color: #E2E8F0;
+      --auth-input-bg: #263344;
+      --auth-input-border: rgba(255, 255, 255, 0.08);
+      --auth-input-text: #FFFFFF;
+      --auth-input-focus-bg: #2A384B;
+      --auth-social-bg: rgba(255, 255, 255, 0.03);
+      --auth-social-border: rgba(255, 255, 255, 0.12);
+      --auth-social-hover: rgba(255, 255, 255, 0.08);
+      --auth-divider-color: rgba(255, 255, 255, 0.08);
+    }
+
+    [data-theme="light"] {
+      --auth-bg: #F1F5F9;
+      --auth-card-bg: #FFFFFF;
+      --auth-card-border: #E2E8F0;
+      --auth-card-shadow: 0 20px 40px rgba(15, 23, 42, 0.08);
+      --auth-text-main: #0F172A;
+      --auth-text-sub: #64748B;
+      --auth-label-color: #1E293B;
+      --auth-input-bg: #F8FAFC;
+      --auth-input-border: #CBD5E1;
+      --auth-input-text: #0F172A;
+      --auth-input-focus-bg: #FFFFFF;
+      --auth-social-bg: #F8FAFC;
+      --auth-social-border: #E2E8F0;
+      --auth-social-hover: #E2E8F0;
+      --auth-divider-color: #E2E8F0;
+    }
+
+    body.auth-page {
+      min-height: 100vh;
+      background-color: var(--auth-bg) !important;
+      color: var(--auth-text-main);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      margin: 0;
+      font-family: var(--font-sans, 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif);
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    .auth-header {
+      padding: 24px 32px;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .auth-container {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 30px 20px;
+    }
+
+    .auth-card {
+      background: var(--auth-card-bg);
+      border: 1px solid var(--auth-card-border);
+      border-radius: 28px;
+      width: 100%;
+      max-width: 480px;
+      padding: 44px 40px;
+      box-shadow: var(--auth-card-shadow);
+      text-align: center;
+      transition: background-color 0.3s ease, border-color 0.3s ease;
+    }
+
+    .auth-brand {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 24px;
+      text-decoration: none;
+      color: var(--auth-text-main);
+    }
+
+    .auth-brand svg {
+      width: 28px;
+      height: 28px;
+    }
+
+    .auth-brand-text {
+      font-weight: 800;
+      font-size: 1.25rem;
+      letter-spacing: -0.02em;
+      color: var(--auth-text-main);
+    }
+
+    .auth-title {
+      font-size: 1.75rem;
+      font-weight: 700;
+      color: var(--auth-text-main);
+      margin: 0 0 8px 0;
+      letter-spacing: -0.02em;
+    }
+
+    .auth-subtitle {
+      font-size: 0.88rem;
+      color: var(--auth-text-sub);
+      margin: 0 0 28px 0;
+      line-height: 1.5;
+    }
+
+    .auth-form-group {
+      text-align: left;
+      margin-bottom: 20px;
+    }
+
+    .auth-label {
+      display: block;
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--auth-label-color);
+      margin-bottom: 8px;
+    }
+
+    .auth-input {
+      width: 100%;
+      background: var(--auth-input-bg);
+      border: 1px solid var(--auth-input-border);
+      border-radius: 12px;
+      padding: 14px 16px;
+      font-size: 0.95rem;
+      color: var(--auth-input-text);
+      transition: all 0.2s ease;
+      box-sizing: border-box;
+      outline: none;
+    }
+
+    .auth-input::placeholder {
+      color: #64748B;
+    }
+
+    .auth-input:focus {
+      border-color: #36D399;
+      box-shadow: 0 0 0 3px rgba(54, 211, 153, 0.15);
+      background: var(--auth-input-focus-bg);
+    }
+
+    .auth-row-options {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 24px;
+      font-size: 0.85rem;
+    }
+
+    .auth-checkbox-label {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--auth-text-sub);
+      cursor: pointer;
+      user-select: none;
+    }
+
+    .auth-checkbox-label input[type="checkbox"] {
+      accent-color: #36D399;
+      width: 16px;
+      height: 16px;
+      border-radius: 4px;
+    }
+
+    .auth-forgot-link {
+      color: #36D399;
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.2s;
+    }
+
+    .auth-forgot-link:hover {
+      color: #2DD4BF;
+      text-decoration: underline;
+    }
+
+    .auth-btn-primary {
+      width: 100%;
+      background: #36D399;
+      color: #061B16;
+      border: none;
+      border-radius: 9999px;
+      padding: 15px 24px;
+      font-size: 1rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      box-shadow: 0 4px 20px rgba(54, 211, 153, 0.25);
+    }
+
+    .auth-btn-primary:hover {
+      background: #40E0A3;
+      transform: translateY(-1px);
+      box-shadow: 0 6px 24px rgba(54, 211, 153, 0.35);
+    }
+
+    .auth-divider {
+      display: flex;
+      align-items: center;
+      margin: 28px 0;
+      color: var(--auth-text-sub);
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+    }
+
+    .auth-divider::before,
+    .auth-divider::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--auth-divider-color);
+    }
+
+    .auth-divider span {
+      padding: 0 16px;
+    }
+
+    .auth-social-group {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      margin-bottom: 28px;
+    }
+
+    .auth-social-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      background: var(--auth-social-bg);
+      border: 1px solid var(--auth-social-border);
+      border-radius: 9999px;
+      padding: 12px 18px;
+      color: var(--auth-text-main);
+      font-size: 0.9rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.2s ease;
+      cursor: pointer;
+    }
+
+    .auth-social-btn:hover {
+      background: var(--auth-social-hover);
+      border-color: var(--auth-social-border);
+      transform: translateY(-1px);
+    }
+
+    .auth-social-btn svg {
+      width: 18px;
+      height: 18px;
+    }
+
+    .auth-footer-text {
+      font-size: 0.88rem;
+      color: var(--auth-text-sub);
+    }
+
+    .auth-footer-text a {
+      color: #36D399;
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .auth-footer-text a:hover {
+      text-decoration: underline;
+    }
+
+    .icon-toggle-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 44px;
+      height: 44px;
+      border-radius: 9999px;
+      background: var(--auth-card-bg);
+      border: 1px solid var(--auth-card-border);
+      color: var(--auth-text-main);
+      cursor: pointer;
+      transition: all 0.2s ease;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      position: relative;
+      z-index: 10;
+    }
+
+    .icon-toggle-btn:hover {
+      border-color: #36D399;
+      color: #36D399;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(54, 211, 153, 0.2);
+    }
+
+    .icon-toggle-btn.active,
+    .rtl-toggle-btn.active {
+      background: #36D399 !important;
+      color: #061B16 !important;
+      border-color: #36D399 !important;
+    }
+
+    /* RTL Layout Adjustments */
+    [dir="rtl"] .auth-header {
+      justify-content: flex-start;
+    }
+
+    [dir="rtl"] .auth-card {
+      text-align: right;
+    }
+
+    [dir="rtl"] .auth-form-group,
+    [dir="rtl"] .auth-label {
+      text-align: right;
+    }
+
+    [dir="rtl"] .auth-input {
+      text-align: right;
+      direction: rtl;
+    }
+
+    [dir="rtl"] .auth-forgot-link {
+      margin-right: auto;
+      margin-left: 0;
+    }
+  </style>
+</head>
+<body class="auth-page">
+
+  <!-- Top Right Header Controls -->
+  <header class="auth-header">
+    <button type="button" class="icon-toggle-btn theme-toggle-btn" title="Toggle Mode" aria-label="Toggle theme">
+      <svg class="icon-moon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/></svg>
+      <svg class="icon-sun" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="display:none;"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
+    </button>
+    <button type="button" class="icon-toggle-btn rtl-toggle-btn" title="Toggle RTL" aria-label="Toggle RTL">
+      <span style="font-weight:700; font-size:0.8rem;">RTL</span>
+    </button>
+  </header>
+
+  <!-- Centered Login Card -->
+  <main class="auth-container">
+    <div class="auth-card">
+      
+      <!-- Brand Logo -->
+      <a href="index.html" class="auth-brand" aria-label="AeroPure Homepage">
+        <svg viewBox="0 0 40 40" fill="none">
+          <circle cx="20" cy="20" r="19" fill="#0B2535" stroke="#0E3B4F" stroke-width="1.5"/>
+          <path d="M20 8 L30 13 V23 C30 29.5 20 34 20 34 C20 34 10 29.5 10 23 V13 Z" fill="rgba(54, 211, 153, 0.15)" stroke="#36D399" stroke-width="2" stroke-linejoin="round"/>
+          <circle cx="20" cy="20" r="2.5" fill="#36D399"/>
+        </svg>
+        <span class="auth-brand-text">AeroPure</span>
+      </a>
+
+      <h1 class="auth-title">Welcome Back</h1>
+      <p class="auth-subtitle">Enter your credentials to manage your air quality portal.</p>
+
+      <!-- Login Form -->
+      <form id="loginForm" onsubmit="event.preventDefault(); if(window.showToast) window.showToast('Successfully signed in!', 'success');">
+        <div class="auth-form-group">
+          <label class="auth-label" for="loginEmail">Email Address</label>
+          <input type="email" class="auth-input" placeholder="client@aeropure.com" id="loginEmail" required>
+        </div>
+
+        <div class="auth-form-group">
+          <label class="auth-label" for="loginPass">Password</label>
+          <input type="password" class="auth-input" placeholder="••••••••" id="loginPass" required>
+        </div>
+
+        <div class="auth-row-options">
+          <label class="auth-checkbox-label">
+            <input type="checkbox" id="rememberMe" checked>
+            <span>Remember me</span>
+          </label>
+          <a href="javascript:void(0)" onclick="openModal('forgotModal')" class="auth-forgot-link">Forgot password?</a>
+        </div>
+
+        <button type="submit" class="auth-btn-primary">Sign In</button>
+      </form>
+
+      <!-- Divider -->
+      <div class="auth-divider">
+        <span>OR</span>
+      </div>
+
+      <!-- Social Buttons -->
+      <div class="auth-social-group">
+        <button type="button" class="auth-social-btn" onclick="if(window.showToast) window.showToast('Google Sign-In initialized', 'info');">
+          <svg viewBox="0 0 24 24">
+            <path fill="#EA4335" d="M12 5c1.6 0 3 .6 4.1 1.6l3.1-3.1C17.3 1.7 14.8 1 12 1 7.4 1 3.5 3.6 1.6 7.4l3.7 2.9C6.2 7.4 8.8 5 12 5z"/>
+            <path fill="#4285F4" d="M23.5 12.3c0-.8-.1-1.6-.2-2.3H12v4.5h6.5c-.3 1.5-1.1 2.8-2.4 3.7l3.7 2.9c2.2-2 3.7-5 3.7-8.8z"/>
+            <path fill="#FBBC05" d="M5.3 14.7c-.3-.8-.4-1.7-.4-2.7s.1-1.9.4-2.7L1.6 6.4C.6 8.4 0 10.1 0 12s.6 3.6 1.6 5.6l3.7-2.9z"/>
+            <path fill="#34A853" d="M12 23c3.2 0 6-1.1 8-3l-3.7-2.9c-1.1.7-2.5 1.2-4.3 1.2-3.2 0-5.8-2.4-6.7-5.3L1.6 16C3.5 19.8 7.4 23 12 23z"/>
+          </svg>
+          <span>Google</span>
+        </button>
+
+        <button type="button" class="auth-social-btn" onclick="if(window.showToast) window.showToast('Apple Sign-In initialized', 'info');">
+          <svg fill="currentColor" viewBox="0 0 24 24">
+            <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 6.64c.67-.82 1.13-1.96.99-3.11-.98.04-2.17.65-2.86 1.47-.61.72-1.15 1.88-.99 3 1.09.09 2.2-.55 2.86-1.36z"/>
+          </svg>
+          <span>Apple</span>
+        </button>
+      </div>
+
+      <!-- Footer Link -->
+      <div class="auth-footer-text">
+        Don't have an account? <a href="register.html">Create One</a>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Forgot Password Modal -->
+  <div class="modal-overlay" id="forgotModal">
+    <div class="modal-card" style="background:#17212D; border:1px solid rgba(255,255,255,0.1); color:#FFFFFF;">
+      <button type="button" class="modal-close-btn" onclick="closeModal('forgotModal')" style="color:#FFFFFF;">&times;</button>
+      <h3 style="font-size:1.35rem; margin-bottom:10px; color:#FFFFFF;">Reset Your Portal Password</h3>
+      <p style="font-size:0.9rem; color:#94A3B8; margin-bottom:20px;">
+        Enter your registered email address and we'll send a secure password reset link.
+      </p>
+      <form onsubmit="event.preventDefault(); closeModal('forgotModal'); showToast('Password reset link sent to your email!', 'success');">
+        <div style="margin-bottom:20px;">
+          <input type="email" class="auth-input" placeholder="name@domain.com" required>
+        </div>
+        <button type="submit" class="auth-btn-primary" style="width:100%;">Send Reset Instructions</button>
+      </form>
+    </div>
+  </div>
+
+  <script src="../assets/js/main.js"></script>
+  <script src="../assets/js/interactive.js"></script>
+</body>
+</html>
