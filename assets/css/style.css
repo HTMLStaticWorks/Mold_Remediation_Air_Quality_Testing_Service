@@ -768,6 +768,55 @@ p {
 }
 
 /* Micro-Animation: Pulsing Clean Air Ripple & Shield */
+.tilt-card-media {
+  position: relative;
+  width: calc(100% + 64px);
+  margin: -42px -32px 0 -32px;
+  height: 200px;
+  overflow: hidden;
+  border-bottom: 1px solid var(--border-color);
+  transform: translateZ(15px);
+}
+
+.tilt-card-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.tilt-card:hover .tilt-card-media img {
+  transform: scale(1.08);
+}
+
+.tilt-card-media-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(15, 23, 42, 0.15) 0%, rgba(15, 23, 42, 0.6) 100%);
+  pointer-events: none;
+}
+
+.tilt-card-tag {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  padding: 5px 14px;
+  background: rgba(15, 23, 42, 0.75);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: var(--radius-full);
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: #5eead4;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+  z-index: 2;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+  transform: translateZ(25px);
+}
+
 .card-icon-wrapper {
   position: relative;
   width: 76px;
@@ -778,8 +827,10 @@ p {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 0 auto 24px auto;
+  margin: -38px auto 24px auto;
   transform: translateZ(40px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+  border: 3px solid var(--bg-surface);
 }
 
 .card-icon-wrapper svg {
@@ -1070,6 +1121,24 @@ p {
   box-sizing: border-box;
 }
 
+/* Secondary Buttons Inside Dark CTA Banners (Light & Dark Theme Visibility Fix) */
+.cta-banner-section .btn-secondary,
+.cta-banner-section a.btn-secondary {
+  background: rgba(255, 255, 255, 0.12) !important;
+  color: #FFFFFF !important;
+  border: 1.5px solid rgba(255, 255, 255, 0.35) !important;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.2);
+}
+
+.cta-banner-section .btn-secondary:hover,
+.cta-banner-section a.btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.22) !important;
+  color: #FFFFFF !important;
+  border-color: rgba(255, 255, 255, 0.6) !important;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+}
+
 .cta-trust-strip {
   display: flex;
   align-items: center;
@@ -1097,16 +1166,21 @@ p {
   min-width: 0;
 }
 
+.cta-banner-section h1,
+.cta-banner-section h2,
+.cta-banner-section h3,
+.cta-banner-section h4,
 .cta-banner-content h2 {
-  color: var(--white);
+  color: var(--white) !important;
   font-size: clamp(2rem, 3.5vw, 2.75rem);
   margin-bottom: 16px;
   overflow-wrap: break-word;
   word-wrap: break-word;
 }
 
+.cta-banner-section p,
 .cta-banner-content p {
-  color: var(--slate-300);
+  color: var(--slate-300) !important;
   font-size: 1.1rem;
   margin-bottom: 24px;
   overflow-wrap: break-word;
@@ -1182,8 +1256,8 @@ select, select.input-field {
 .hero-home-2 {
   position: relative;
   padding: 80px 0 100px;
-  background: radial-gradient(circle at 20% 30%, rgba(239, 68, 68, 0.08) 0%, transparent 40%),
-              radial-gradient(circle at 80% 80%, rgba(13, 148, 136, 0.1) 0%, transparent 50%),
+  background: radial-gradient(circle at 20% 30%, rgba(13, 148, 136, 0.18) 0%, transparent 45%),
+              radial-gradient(circle at 80% 80%, rgba(16, 185, 129, 0.14) 0%, transparent 50%),
               var(--slate-950);
   color: var(--white);
 }
@@ -1219,7 +1293,7 @@ select, select.input-field {
   height: 280px;
   border-radius: 50%;
   border: 24px solid transparent;
-  border-top-color: var(--accent-red);
+  border-top-color: var(--primary-light);
   border-right-color: var(--accent-amber);
   border-left-color: var(--secondary-light);
   transform: rotate(-45deg);
@@ -1269,7 +1343,7 @@ select, select.input-field {
   font-family: var(--font-mono);
   font-size: 1.3rem;
   font-weight: 700;
-  color: var(--accent-red);
+  color: var(--primary-light);
 }
 
 .reading-label {
@@ -1311,7 +1385,7 @@ select, select.input-field {
 .problem-card {
   background: var(--bg-surface);
   border: 1px solid var(--border-color);
-  border-top: 4px solid var(--accent-red);
+  border-top: 4px solid var(--primary);
   border-radius: var(--radius-md);
   padding: 28px 22px;
   box-shadow: var(--shadow-sm);
@@ -1321,6 +1395,35 @@ select, select.input-field {
   align-items: center;
   text-align: center;
   height: 100%;
+  overflow: hidden;
+}
+
+.problem-card-media {
+  position: relative;
+  width: calc(100% + 44px);
+  margin: -28px -22px 0 -22px;
+  height: 160px;
+  overflow: hidden;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.problem-card-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s ease;
+}
+
+.problem-card:hover .problem-card-media img {
+  transform: scale(1.08);
+}
+
+.problem-card-media-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(15, 23, 42, 0.1) 0%, rgba(15, 23, 42, 0.55) 100%);
+  pointer-events: none;
 }
 
 .problem-card:hover {
@@ -1332,12 +1435,16 @@ select, select.input-field {
   width: 52px;
   height: 52px;
   border-radius: var(--radius-sm);
-  background: var(--accent-red-surface);
-  color: var(--accent-red);
+  background: var(--primary-surface);
+  color: var(--primary);
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 0 auto 20px auto;
+  margin: -26px auto 20px auto;
+  position: relative;
+  z-index: 2;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.2);
+  border: 2px solid var(--bg-surface);
 }
 
 .problem-card h3,
@@ -1481,6 +1588,35 @@ select, select.input-field {
   align-items: center;
   text-align: center;
   height: 100%;
+  overflow: hidden;
+}
+
+.diff-card-media {
+  position: relative;
+  width: calc(100% + 48px);
+  margin: -32px -24px 0 -24px;
+  height: 160px;
+  overflow: hidden;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.diff-card-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s ease;
+}
+
+.diff-card:hover .diff-card-media img {
+  transform: scale(1.08);
+}
+
+.diff-card-media-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(15, 23, 42, 0.1) 0%, rgba(15, 23, 42, 0.55) 100%);
+  pointer-events: none;
 }
 
 .diff-card:hover {
@@ -1498,7 +1634,11 @@ select, select.input-field {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 0 auto 22px auto;
+  margin: -28px auto 22px auto;
+  position: relative;
+  z-index: 2;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.2);
+  border: 2px solid var(--bg-surface);
 }
 
 .diff-card h3 {

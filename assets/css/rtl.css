@@ -97,3 +97,8 @@ html[dir="rtl"] body {
   text-align: right;
   justify-content: flex-start;
 }
+
+[dir="rtl"] .tilt-card-tag {
+  right: auto;
+  left: 14px;
+}

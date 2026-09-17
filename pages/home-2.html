@@ -43,9 +43,9 @@
         <ul class="nav-links">
           <li><a href="index.html" class="nav-link">Home</a></li>
           <li><a href="home-2.html" class="nav-link active">Home 2</a></li>
+          <li><a href="about.html" class="nav-link">About</a></li>
           <li><a href="services.html" class="nav-link">Services</a></li>
           <li><a href="pricing.html" class="nav-link">Pricing</a></li>
-          <li><a href="about.html" class="nav-link">About</a></li>
           <li><a href="contact.html" class="nav-link">Contact</a></li>
         </ul>
       </nav>
@@ -119,9 +119,9 @@
     <ul class="drawer-nav-list">
       <li><a href="index.html" class="drawer-nav-link">Home</a></li>
       <li><a href="home-2.html" class="drawer-nav-link active">Home 2</a></li>
+      <li><a href="about.html" class="drawer-nav-link">About</a></li>
       <li><a href="services.html" class="drawer-nav-link">Services</a></li>
       <li><a href="pricing.html" class="drawer-nav-link">Pricing</a></li>
-      <li><a href="about.html" class="drawer-nav-link">About</a></li>
       <li><a href="contact.html" class="drawer-nav-link">Contact</a></li>
     </ul>
     <div class="drawer-footer-actions">
@@ -167,20 +167,20 @@
         <div class="hero-grid" style="align-items: center;">
           <!-- Text column -->
           <div>
-            <span class="section-badge" style="background: rgba(239, 68, 68, 0.15); color: #F87171; border-color: rgba(239, 68, 68, 0.3);">
+            <span class="section-badge">
               <svg width="16" height="16" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd"/></svg>
               <span>Indoor Air Contamination Forensics</span>
             </span>
             <h1 style="margin-bottom: 20px;">
               The Hidden Danger<br>
-              <span style="color: #F87171;">Circulating in Your Air.</span>
+              <span style="color: var(--primary-light);">Circulating in Your Air.</span>
             </h1>
             <p style="font-size: 1.15rem; margin-bottom: 32px; max-width: 540px;">
               Over 80% of toxic mold colonies proliferate silently behind baseboards, floor joists, and HVAC ducts. Every breath releases millions of micro-spores directly into your lungs.
             </p>
             <div class="hero-cta-group">
-              <a href="contact.html" class="btn btn-danger btn-lg">
-                <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/></svg>
+              <a href="contact.html" class="btn btn-primary btn-lg">
+                <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
                 <span>Request Urgent Mold Triage</span>
               </a>
               <a href="#problemSection" class="btn btn-secondary btn-lg" style="background:rgba(255,255,255,0.08); color:#F8FAFC; border-color:rgba(255,255,255,0.18);">
@@ -194,7 +194,7 @@
             <div class="aqi-gauge-card">
               <div class="aqi-gauge-header" style="display:flex; justify-content:space-between; align-items:center; margin-bottom:20px;">
                 <span style="font-size:0.85rem; font-weight:700; color:var(--slate-400); text-transform:uppercase; letter-spacing:0.08em;">Live Airborne Biometric Sensor</span>
-                <span id="aqiStatusBadge" style="padding:4px 12px; border-radius:var(--radius-full); font-size:0.75rem; font-weight:700; color:#FFFFFF; background-color:#EF4444;">
+                <span id="aqiStatusBadge" style="padding:4px 12px; border-radius:var(--radius-full); font-size:0.75rem; font-weight:700; color:#FFFFFF; background-color:var(--primary);">
                   Hazardous Spore Level
                 </span>
               </div>
@@ -247,7 +247,7 @@
     <section class="section-padding" id="problemSection">
       <div class="container">
         <div class="section-header">
-          <span class="section-badge" style="background:var(--accent-red-surface); color:var(--accent-red); border-color:rgba(239,68,68,0.2);">
+          <span class="section-badge">
             Microbial Toxicology
           </span>
           <h2 class="section-title">Why Airborne Mold Is a Biological Hazard</h2>
@@ -259,10 +259,14 @@
         <div class="problem-grid">
           <!-- Problem 1 -->
           <div class="problem-card">
+            <div class="problem-card-media">
+              <img src="../assets/images/hero-spore-danger.jpg" alt="Airborne toxic mold spores causing respiratory strain" loading="lazy">
+              <div class="problem-card-media-overlay"></div>
+            </div>
             <div class="problem-icon">
               <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
             </div>
-            <h3 style="font-size:1.25rem; margin-bottom:10px;">Respiratory & Neurological Strain</h3>
+            <h3 style="font-size:1.25rem; margin-bottom:10px;">Respiratory &amp; Neurological Strain</h3>
             <p style="font-size:0.92rem; color:var(--text-secondary);">
               Mycotoxins produced by <em>Stachybotrys chartarum</em> irritate bronchial pathways, inducing chronic asthma attacks, migraine clusters, and cognitive fatigue.
             </p>
@@ -270,6 +274,10 @@
 
           <!-- Problem 2 -->
           <div class="problem-card">
+            <div class="problem-card-media">
+              <img src="../assets/images/mold-inspection-thermal.jpg" alt="Sub-surface moisture scan showing wall framing rot" loading="lazy">
+              <div class="problem-card-media-overlay"></div>
+            </div>
             <div class="problem-icon">
               <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/></svg>
             </div>
@@ -281,6 +289,10 @@
 
           <!-- Problem 3 -->
           <div class="problem-card">
+            <div class="problem-card-media">
+              <img src="../assets/images/about-field-techs.jpg" alt="HVAC air filtration equipment and ductwork containment" loading="lazy">
+              <div class="problem-card-media-overlay"></div>
+            </div>
             <div class="problem-icon">
               <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/></svg>
             </div>
@@ -292,6 +304,10 @@
 
           <!-- Problem 4 -->
           <div class="problem-card">
+            <div class="problem-card-media">
+              <img src="../assets/images/about-genesis-lab.jpg" alt="Lab inspection analysis for real estate property appraisals" loading="lazy">
+              <div class="problem-card-media-overlay"></div>
+            </div>
             <div class="problem-icon">
               <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
             </div>
@@ -320,12 +336,12 @@
         <div class="hazard-grid" style="margin-top:40px;">
           
           <!-- Hazard Module 1 -->
-          <div class="tilt-card" style="background:var(--bg-surface); padding:32px 24px; border:1px solid var(--border-color); border-top:4px solid #EF4444; border-radius:var(--radius-lg); display:flex; flex-direction:column; align-items:center; text-align:center;">
-            <div style="height:2.2rem; display:inline-flex; align-items:center; justify-content:center; padding:4px 14px; background:rgba(239, 68, 68, 0.12); color:#EF4444; font-size:0.75rem; font-weight:700; border-radius:var(--radius-full); text-transform:uppercase; letter-spacing:0.05em; margin-bottom:16px; white-space:nowrap;">
+          <div class="tilt-card" style="background:var(--bg-surface); padding:32px 24px; border:1px solid var(--border-color); border-top:4px solid var(--primary); border-radius:var(--radius-lg); display:flex; flex-direction:column; align-items:center; text-align:center;">
+            <div style="height:2.2rem; display:inline-flex; align-items:center; justify-content:center; padding:4px 14px; background:var(--primary-surface); color:var(--primary); font-size:0.75rem; font-weight:700; border-radius:var(--radius-full); text-transform:uppercase; letter-spacing:0.05em; margin-bottom:16px; white-space:nowrap;">
               Critical • Level 4
             </div>
             <h3 style="font-size:1.18rem; font-weight:700; margin-bottom:12px; min-height:3.2rem; display:flex; align-items:flex-start; justify-content:center; text-align:center; width:100%; line-height:1.35;">Black Mold (Stachybotrys)</h3>
-            <div style="font-family:var(--font-mono); font-size:0.92rem; font-weight:800; color:#EF4444; margin-bottom:16px; min-height:2.0rem; display:flex; align-items:flex-start; justify-content:center; text-align:center; width:100%; white-space:nowrap;">
+            <div style="font-family:var(--font-mono); font-size:0.92rem; font-weight:800; color:var(--primary); margin-bottom:16px; min-height:2.0rem; display:flex; align-items:flex-start; justify-content:center; text-align:center; width:100%; white-space:nowrap;">
               &gt; 15,000 Spores/m³
             </div>
             <p style="font-size:0.88rem; line-height:1.5; color:var(--text-secondary); margin-bottom:24px; min-height:4.8rem; display:flex; align-items:flex-start; justify-content:center; text-align:center; width:100%;">
@@ -409,6 +425,10 @@
         <div class="differentiator-grid">
           <!-- Diff 1 -->
           <div class="diff-card">
+            <div class="diff-card-media">
+              <img src="../assets/images/hero-technician.jpg" alt="Certified environmental technician conducting FLIR infrared thermal inspection" loading="lazy">
+              <div class="diff-card-media-overlay"></div>
+            </div>
             <div class="diff-icon">
               <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg>
             </div>
@@ -420,6 +440,10 @@
 
           <!-- Diff 2 -->
           <div class="diff-card">
+            <div class="diff-card-media">
+              <img src="../assets/images/about-genesis-lab.jpg" alt="Independent accredited AIHA environmental laboratory scientist analyzing spore samples" loading="lazy">
+              <div class="diff-card-media-overlay"></div>
+            </div>
             <div class="diff-icon">
               <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/></svg>
             </div>
@@ -431,6 +455,10 @@
 
           <!-- Diff 3 -->
           <div class="diff-card">
+            <div class="diff-card-media">
+              <img src="../assets/images/about-field-techs.jpg" alt="Certified technicians applying botanical plant-derived antimicrobial encapsulant spray" loading="lazy">
+              <div class="diff-card-media-overlay"></div>
+            </div>
             <div class="diff-icon">
               <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
             </div>
@@ -442,6 +470,10 @@
 
           <!-- Diff 4 -->
           <div class="diff-card">
+            <div class="diff-card-media">
+              <img src="../assets/images/warranty-certificate-hd.jpg" alt="Official transferable lifetime warranty certificate and post-remediation clearance document" loading="lazy">
+              <div class="diff-card-media-overlay"></div>
+            </div>
             <div class="diff-icon">
               <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
             </div>
@@ -520,7 +552,7 @@
                 Subscribe to our quarterly environmental research bulletin. Receive actionable humidity control checklists and seasonal mold prevention guides.
               </p>
               <div style="margin-top:20px;">
-                <a href="pricing.html" class="btn btn-secondary" style="background:transparent; color:#FFFFFF; border-color:rgba(255,255,255,0.3);">
+                <a href="pricing.html" class="btn btn-secondary">
                   <span>Compare Remediation Pricing Packages &rarr;</span>
                 </a>
               </div>
@@ -610,9 +642,9 @@
         <ul class="footer-links">
           <li><a href="../index.html">Home</a></li>
           <li><a href="home-2.html" class="active">Home 2</a></li>
+          <li><a href="about.html">About</a></li>
           <li><a href="services.html">Services</a></li>
           <li><a href="pricing.html">Pricing</a></li>
-          <li><a href="about.html">About</a></li>
           <li><a href="contact.html">Contact</a></li>
         </ul>
       </div>

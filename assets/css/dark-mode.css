@@ -10,9 +10,12 @@ body.dark-theme {
   --bg-elevated: #1E293B;
   --bg-alt: #0B1120;
 
+  --primary: #14B8A6;
+  --primary-light: #2DD4BF;
+
   --text-primary: #F8FAFC;
-  --text-secondary: #94A3B8;
-  --text-muted: #64748B;
+  --text-secondary: #CBD5E1;
+  --text-muted: #94A3B8;
 
   --border-color: rgba(51, 65, 85, 0.7);
   --border-subtle: rgba(20, 184, 166, 0.18);
@@ -25,9 +28,9 @@ body.dark-theme {
   --shadow-lg: 0 24px 48px -12px rgba(0, 0, 0, 0.7);
   --shadow-hover: 0 28px 56px -10px rgba(13, 148, 136, 0.35);
 
-  --primary-surface: rgba(13, 148, 136, 0.15);
-  --secondary-surface: rgba(16, 185, 129, 0.15);
-  --accent-red-surface: rgba(239, 68, 68, 0.15);
+  --primary-surface: rgba(13, 148, 136, 0.25);
+  --secondary-surface: rgba(16, 185, 129, 0.2);
+  --accent-red-surface: rgba(239, 68, 68, 0.2);
 }
 
 [data-theme="dark"] .tilt-card {
