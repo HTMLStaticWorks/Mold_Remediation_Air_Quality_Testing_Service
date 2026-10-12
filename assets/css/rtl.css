@@ -36,11 +36,23 @@ html[dir="rtl"] body {
 }
 
 [dir="rtl"] .comparison-image-after {
-  right: 0;
-  left: auto;
+  clip-path: inset(0 0 0 calc(100% - var(--slider-pos, 50%)));
+  -webkit-clip-path: inset(0 0 0 calc(100% - var(--slider-pos, 50%)));
   border-right: none;
-  border-left: 3px solid var(--white);
-  box-shadow: -4px 0 20px rgba(0, 0, 0, 0.3);
+  border-left: none;
+  box-shadow: none;
+}
+
+[dir="rtl"] .comparison-divider {
+  left: auto;
+  right: var(--slider-pos, 50%);
+  transform: translateX(50%);
+}
+
+[dir="rtl"] .comparison-handle {
+  left: auto;
+  right: var(--slider-pos, 50%);
+  transform: translate(50%, -50%);
 }
 
 [dir="rtl"] .comparison-pill.pill-before {
@@ -51,6 +63,17 @@ html[dir="rtl"] body {
 [dir="rtl"] .comparison-pill.pill-after {
   left: auto;
   right: 24px;
+}
+
+@media (max-width: 576px) {
+  [dir="rtl"] .comparison-pill.pill-before {
+    left: 12px !important;
+    right: auto !important;
+  }
+  [dir="rtl"] .comparison-pill.pill-after {
+    right: 12px !important;
+    left: auto !important;
+  }
 }
 
 [dir="rtl"] .modal-close-btn {
@@ -68,6 +91,23 @@ html[dir="rtl"] body {
 
 [dir="rtl"] .mobile-nav-drawer.open {
   left: 0;
+}
+
+[dir="rtl"] .drawer-nav-link {
+  text-align: right;
+  justify-content: flex-start;
+  border-left: none;
+  border-right: 3px solid transparent;
+}
+
+[dir="rtl"] .drawer-nav-link:hover {
+  padding-left: 18px;
+  padding-right: 22px;
+}
+
+[dir="rtl"] .drawer-nav-link.active {
+  border-left-color: transparent;
+  border-right-color: var(--primary);
 }
 
 /* Directional SVG flips */
@@ -101,4 +141,13 @@ html[dir="rtl"] body {
 [dir="rtl"] .tilt-card-tag {
   right: auto;
   left: 14px;
+}
+
+[dir="rtl"] .prv-comparison-table th,
+[dir="rtl"] .prv-comparison-table td {
+  text-align: right;
+}
+
+[dir="rtl"] .accordion-header {
+  text-align: right !important;
 }

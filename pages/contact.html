@@ -7,18 +7,140 @@
   <meta name="description" content="24/7 rapid mold remediation dispatch & indoor air quality testing. Contact certified industrial hygienists with under 2-hour emergency arrival.">
   <link rel="icon" type="image/svg+xml" href="../assets/images/favicon.svg">
 
-  <link rel="stylesheet" href="../assets/css/style.css">
-  <link rel="stylesheet" href="../assets/css/dark-mode.css">
-  <link rel="stylesheet" href="../assets/css/rtl.css">
+  <link rel="stylesheet" href="../assets/css/style.css?v=2.3">
+  <link rel="stylesheet" href="../assets/css/dark-mode.css?v=2.3">
+  <link rel="stylesheet" href="../assets/css/rtl.css?v=2.3">
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+
+  <style>
+    .site-header {
+      position: fixed !important;
+      top: 0 !important;
+      left: 0 !important;
+      right: 0 !important;
+      width: 100% !important;
+      z-index: 1000 !important;
+    }
+    body:has(.site-header) {
+      padding-top: var(--header-height, 80px) !important;
+    }
+
+    @media (max-width: 768px) {
+      .hero-contact-page {
+        padding-top: 24px !important;
+        padding-bottom: 48px !important;
+        padding-left: 16px !important;
+        padding-right: 16px !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+        overflow: hidden !important;
+      }
+      .hero-card-container {
+        width: 100% !important;
+        max-width: 100% !important;
+        margin: 0 auto !important;
+        padding: 30px 18px 32px 18px !important;
+        border-radius: 20px !important;
+        box-sizing: border-box !important;
+        text-align: center !important;
+        box-shadow: 0 16px 40px -10px rgba(0, 0, 0, 0.25) !important;
+      }
+      .hero-card-container .section-badge {
+        margin-bottom: 12px !important;
+        font-size: 0.78rem !important;
+        padding: 5px 14px !important;
+      }
+      .hero-card-container h1 {
+        font-size: clamp(1.45rem, 5.8vw, 1.95rem) !important;
+        line-height: 1.25 !important;
+        margin-bottom: 14px !important;
+        letter-spacing: -0.02em !important;
+        word-break: break-word !important;
+        text-align: center !important;
+      }
+      .hero-card-container h1 br {
+        display: inline !important;
+      }
+      .hero-card-container p {
+        font-size: clamp(0.88rem, 3.6vw, 0.98rem) !important;
+        line-height: 1.55 !important;
+        margin-bottom: 22px !important;
+        padding-left: 4px !important;
+        padding-right: 4px !important;
+        max-width: 100% !important;
+        text-align: center !important;
+      }
+      .hero-card-container .hero-pricing-badges {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        gap: 10px !important;
+        width: 100% !important;
+        max-width: 320px !important;
+        margin: 0 auto 24px auto !important;
+        box-sizing: border-box !important;
+      }
+      .hero-card-container .hero-pricing-pill {
+        display: inline-flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        padding: 9px 14px !important;
+        border-radius: var(--radius-full) !important;
+        font-size: 0.85rem !important;
+        line-height: 1.35 !important;
+        box-sizing: border-box !important;
+        gap: 8px !important;
+        text-align: center !important;
+      }
+      .hero-card-container .hero-pricing-pill span {
+        font-size: 0.85rem !important;
+        font-weight: 600 !important;
+        white-space: normal !important;
+        word-break: break-word !important;
+      }
+      .hero-card-container .hero-pricing-pill svg {
+        width: 18px !important;
+        height: 18px !important;
+        flex-shrink: 0 !important;
+      }
+      .hero-card-container .hero-action-btns {
+        display: flex !important;
+        flex-direction: column !important;
+        width: 100% !important;
+        gap: 10px !important;
+        align-items: stretch !important;
+        box-sizing: border-box !important;
+      }
+      .hero-card-container .hero-action-btns .btn {
+        width: 100% !important;
+        max-width: 100% !important;
+        justify-content: center !important;
+        text-align: center !important;
+        white-space: normal !important;
+        word-break: break-word !important;
+        padding: 12px 18px !important;
+        min-height: 48px !important;
+        font-size: 0.92rem !important;
+        box-sizing: border-box !important;
+      }
+      .hero-card-container .btn-lg {
+        padding: 13px 20px !important;
+        font-size: 0.95rem !important;
+        min-height: 50px !important;
+      }
+    }
+  </style>
 </head>
 <body>
 
   <!-- Site Header -->
   <header class="site-header">
     <div class="container header-inner">
-      <a href="index.html" class="brand-logo" aria-label="AeroPure Homepage">
-        <svg viewBox="0 0 240 50" width="180" height="38">
+      <a href="../index.html" class="brand-logo" aria-label="AeroPure Homepage">
+        <svg viewBox="0 0 178 50" width="142" height="40">
           <defs>
             <linearGradient id="logo-bg-grad" x1="0%" y1="0%" x2="100%" y2="100%">
               <stop offset="0%" stop-color="#0B2535"/>
@@ -36,17 +158,18 @@
             <circle cx="21" cy="21.5" r="2.2" fill="#FFFFFF"/>
           </g>
           <text x="56" y="27" font-family="'Plus Jakarta Sans', sans-serif" font-size="20" font-weight="800" fill="currentColor" letter-spacing="-0.5">AEROPURE</text>
-          <text x="56" y="40" font-family="'Inter', sans-serif" font-size="8.5" font-weight="600" fill="#10B981" letter-spacing="2">AIR INTELLIGENCE</text>
+          <text x="56" y="41" class="logo-tagline" font-family="'Inter', sans-serif" font-size="9.5" font-weight="700" fill="#047857" letter-spacing="1.6">AIR INTELLIGENCE</text>
         </svg>
       </a>
 
       <!-- Primary Navigation -->
       <nav class="main-nav" aria-label="Primary Navigation">
         <ul class="nav-links">
-          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="../index.html" class="nav-link">Home</a></li>
           <li><a href="home-2.html" class="nav-link">Home 2</a></li>
-          <li><a href="about.html" class="nav-link">About</a></li>
+          <li><a href="mold-inspection-testing.html" class="nav-link">Inspection &amp; Testing</a></li>
           <li><a href="services.html" class="nav-link">Services</a></li>
+          <li><a href="about.html" class="nav-link">About</a></li>
           <li><a href="pricing.html" class="nav-link">Pricing</a></li>
           <li><a href="contact.html" class="nav-link active">Contact</a></li>
         </ul>
@@ -116,16 +239,17 @@
             <circle cx="21" cy="21.5" r="2.2" fill="#FFFFFF"/>
           </g>
           <text x="56" y="27" font-family="'Plus Jakarta Sans', sans-serif" font-size="20" font-weight="800" fill="currentColor" letter-spacing="-0.5">AEROPURE</text>
-          <text x="56" y="40" font-family="'Inter', sans-serif" font-size="8.5" font-weight="600" fill="#10B981" letter-spacing="2">AIR INTELLIGENCE</text>
+          <text x="56" y="41" class="logo-tagline" font-family="'Inter', sans-serif" font-size="9.5" font-weight="700" fill="#047857" letter-spacing="1.6">AIR INTELLIGENCE</text>
         </svg>
       </a>
       <button type="button" class="drawer-close-btn icon-toggle-btn"><svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg></button>
     </div>
     <ul class="drawer-nav-list">
-      <li><a href="index.html" class="drawer-nav-link">Home</a></li>
+      <li><a href="../index.html" class="drawer-nav-link">Home</a></li>
       <li><a href="home-2.html" class="drawer-nav-link">Home 2</a></li>
-      <li><a href="about.html" class="drawer-nav-link">About</a></li>
+      <li><a href="mold-inspection-testing.html" class="drawer-nav-link">Inspection &amp; Testing</a></li>
       <li><a href="services.html" class="drawer-nav-link">Services</a></li>
+      <li><a href="about.html" class="drawer-nav-link">About</a></li>
       <li><a href="pricing.html" class="drawer-nav-link">Pricing</a></li>
       <li><a href="contact.html" class="drawer-nav-link active">Contact</a></li>
     </ul>
@@ -163,7 +287,42 @@
   </aside>
 
   <main>
-    <!-- SECTION 1: URGENCY BANNER -->
+    <!-- SECTION 1: DEDICATED CONTACT HERO -->
+    <section class="section-padding hero-home-1 hero-contact-page" style="padding-top:60px; text-align:center;">
+      <div class="container hero-card-container" style="max-width:860px; margin:0 auto; text-align:center;">
+        <span class="section-badge" style="margin-bottom:12px; display:inline-block;">24/7 Rapid Dispatch & Triage</span>
+        <h1 style="margin-bottom:18px;">Emergency Response &<br><span class="text-gradient">Field Hygienist Consultation</span></h1>
+        <p style="font-size:1.15rem; margin-bottom:28px; color:var(--text-secondary); max-width:680px; margin-left:auto; margin-right:auto;">
+          Speak directly with certified environmental aerobiologists. We provide urgent on-site bio-containment, thermal moisture diagnostics, and third-party laboratory air clearances across all regional depots.
+        </p>
+        <div class="hero-pricing-badges" style="margin-bottom:28px;">
+          <div class="hero-pricing-pill">
+            <svg width="20" height="20" fill="#10B981" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+            <span style="font-weight:600; font-size:0.95rem;">&lt; 2-Hour Rapid On-Site Arrival</span>
+          </div>
+          <div class="hero-pricing-pill">
+            <svg width="20" height="20" fill="#10B981" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+            <span style="font-weight:600; font-size:0.95rem;">Board-Certified CIEC Hygienists</span>
+          </div>
+          <div class="hero-pricing-pill">
+            <svg width="20" height="20" fill="#10B981" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+            <span style="font-weight:600; font-size:0.95rem;">Zero Conflict-of-Interest Labs</span>
+          </div>
+        </div>
+        <div class="hero-action-btns" style="display:flex; justify-content:center; gap:16px; flex-wrap:wrap;">
+          <a href="tel:+18002376787" class="btn btn-primary btn-lg">
+            <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+            <span>Call 24/7 Hotline: (800) 237-6787</span>
+          </a>
+          <a href="#contactMainForm" class="btn btn-secondary btn-lg">
+            <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"/></svg>
+            <span>Dispatch Inquiry Form</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 2: URGENCY BANNER -->
     <div style="background:linear-gradient(90deg, #DC2626 0%, #B91C1C 100%); color:#FFFFFF; padding:16px 0; text-align:center; font-weight:600; font-size:0.95rem;">
       <div class="container" style="display:flex; align-items:center; justify-content:center; gap:12px; flex-wrap:wrap;">
         <svg width="22" height="22" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd"/></svg>
@@ -400,7 +559,7 @@
               <circle cx="21" cy="21.5" r="2.2" fill="#FFFFFF"/>
             </g>
             <text x="56" y="27" font-family="'Plus Jakarta Sans', sans-serif" font-size="20" font-weight="800" fill="#FFFFFF" letter-spacing="-0.5">AEROPURE</text>
-            <text x="56" y="40" font-family="'Inter', sans-serif" font-size="8.5" font-weight="600" fill="#10B981" letter-spacing="2">AIR INTELLIGENCE</text>
+            <text x="56" y="41" class="logo-tagline" font-family="'Inter', sans-serif" font-size="9.5" font-weight="700" fill="#34D399" letter-spacing="1.6">AIR INTELLIGENCE</text>
           </svg>
         </a>
         <p>
@@ -436,8 +595,9 @@
         <ul class="footer-links">
           <li><a href="../index.html">Home</a></li>
           <li><a href="home-2.html">Home 2</a></li>
-          <li><a href="about.html">About</a></li>
+          <li><a href="mold-inspection-testing.html">Inspection &amp; Testing</a></li>
           <li><a href="services.html">Services</a></li>
+          <li><a href="about.html">About</a></li>
           <li><a href="pricing.html">Pricing</a></li>
           <li><a href="contact.html" class="active">Contact</a></li>
         </ul>

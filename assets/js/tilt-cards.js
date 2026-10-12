@@ -38,8 +38,8 @@ document.addEventListener('DOMContentLoaded', () => {
         return; // Gracefully degrade on touch devices
       }
 
-      // Desktop 3D Physics Tracking
-      const maxTilt = 12; // degrees
+      // Subtle, clean micro-tilt (avoids excessive tilting and preserves visual balance)
+      const maxTilt = 2.5; // degrees
 
       const handleMouseMove = (e) => {
         const rect = card.getBoundingClientRect();
@@ -55,7 +55,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const tiltX = -percentY * maxTilt;
         const tiltY = percentX * maxTilt;
 
-        card.style.transform = `perspective(1200px) rotateX(${tiltX.toFixed(2)}deg) rotateY(${tiltY.toFixed(2)}deg) scale3d(1.02, 1.02, 1.02)`;
+        card.style.transform = `perspective(2000px) rotateX(${tiltX.toFixed(2)}deg) rotateY(${tiltY.toFixed(2)}deg) translateY(-4px) scale3d(1.005, 1.005, 1.005)`;
 
         // Specular Glare position
         const glareX = ((cardX / rect.width) * 100).toFixed(1);
@@ -65,12 +65,12 @@ document.addEventListener('DOMContentLoaded', () => {
       };
 
       const handleMouseEnter = () => {
-        card.style.transition = 'transform 0.1s ease-out, box-shadow 0.2s ease';
+        card.style.transition = 'transform 0.15s ease-out, box-shadow 0.25s ease';
       };
 
       const handleMouseLeave = () => {
-        card.style.transition = 'transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.5s ease';
-        card.style.transform = 'perspective(1200px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)';
+        card.style.transition = 'transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease';
+        card.style.transform = 'perspective(2000px) rotateX(0deg) rotateY(0deg) translateY(0) scale3d(1, 1, 1)';
       };
 
       container.addEventListener('mousemove', handleMouseMove);

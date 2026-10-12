@@ -18,9 +18,132 @@
   <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
 
   <!-- Core Stylesheets -->
-  <link rel="stylesheet" href="assets/css/style.css">
-  <link rel="stylesheet" href="assets/css/dark-mode.css">
-  <link rel="stylesheet" href="assets/css/rtl.css">
+  <link rel="stylesheet" href="assets/css/style.css?v=2.3">
+  <link rel="stylesheet" href="assets/css/dark-mode.css?v=2.3">
+  <link rel="stylesheet" href="assets/css/rtl.css?v=2.3">
+
+  <!-- Mobile PRV Responsive Containment & Fixed Header -->
+  <style>
+    .site-header {
+      position: fixed !important;
+      top: 0 !important;
+      left: 0 !important;
+      right: 0 !important;
+      width: 100% !important;
+      z-index: 1000 !important;
+    }
+    body:has(.site-header) {
+      padding-top: var(--header-height, 80px) !important;
+    }
+
+    @media (max-width: 768px) {
+      #prv-clearance {
+        width: 100% !important;
+        max-width: 100% !important;
+        overflow: hidden !important;
+      }
+      #prv-clearance .container {
+        width: 100% !important;
+        max-width: 100% !important;
+        padding-left: 16px !important;
+        padding-right: 16px !important;
+        box-sizing: border-box !important;
+      }
+      .prv-showcase-box {
+        padding: 22px 14px !important;
+        margin-top: 18px !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+        overflow: hidden !important;
+      }
+      .prv-split-grid {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 24px !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        min-width: 0 !important;
+        box-sizing: border-box !important;
+      }
+      .prv-content-col {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: stretch !important;
+        text-align: center !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        min-width: 0 !important;
+        box-sizing: border-box !important;
+        overflow: hidden !important;
+      }
+      .prv-badge {
+        margin-left: auto !important;
+        margin-right: auto !important;
+        text-align: center !important;
+        display: inline-flex !important;
+        align-self: center !important;
+      }
+      .prv-title {
+        text-align: center !important;
+        margin: 12px auto 16px auto !important;
+        font-size: clamp(1.35rem, 5vw, 1.75rem) !important;
+        width: 100% !important;
+        max-width: 100% !important;
+      }
+      .prv-desc {
+        text-align: center !important;
+        margin: 0 auto 16px auto !important;
+        font-size: 0.95rem !important;
+        line-height: 1.6 !important;
+        width: 100% !important;
+        max-width: 100% !important;
+      }
+      .prv-table-wrapper {
+        margin: 16px 0 !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        min-width: 0 !important;
+        align-self: stretch !important;
+        box-sizing: border-box !important;
+        overflow-x: auto !important;
+        -webkit-overflow-scrolling: touch !important;
+        display: block !important;
+      }
+      .prv-table-wrapper .prv-comparison-table {
+        min-width: 480px !important;
+        width: 100% !important;
+      }
+      .prv-cta-buttons {
+        display: flex !important;
+        flex-direction: column !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        align-self: stretch !important;
+        gap: 12px !important;
+        margin-top: 8px !important;
+        box-sizing: border-box !important;
+      }
+      .prv-cta-buttons .btn {
+        width: 100% !important;
+        max-width: 100% !important;
+        justify-content: center !important;
+        text-align: center !important;
+        white-space: normal !important;
+        padding: 12px 16px !important;
+        box-sizing: border-box !important;
+      }
+      .prv-guarantee-callout {
+        padding: 22px 14px !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        min-width: 0 !important;
+        align-self: stretch !important;
+        box-sizing: border-box !important;
+        text-align: center !important;
+      }
+    }
+  </style>
 
   <!-- JSON-LD LocalBusiness & Service Schema -->
   <script type="application/ld+json">
@@ -87,7 +210,7 @@
     <div class="container header-inner">
       <!-- Brand Logo -->
       <a href="index.html" class="brand-logo" aria-label="AeroPure Environmental Homepage">
-        <svg viewBox="0 0 240 50" width="180" height="38">
+        <svg viewBox="0 0 178 50" width="142" height="40">
           <defs>
             <linearGradient id="logo-bg-grad" x1="0%" y1="0%" x2="100%" y2="100%">
               <stop offset="0%" stop-color="#0B2535"/>
@@ -105,7 +228,7 @@
             <circle cx="21" cy="21.5" r="2.2" fill="#FFFFFF"/>
           </g>
           <text x="56" y="27" font-family="'Plus Jakarta Sans', sans-serif" font-size="20" font-weight="800" fill="currentColor" letter-spacing="-0.5">AEROPURE</text>
-          <text x="56" y="40" font-family="'Inter', sans-serif" font-size="8.5" font-weight="600" fill="#10B981" letter-spacing="2">AIR INTELLIGENCE</text>
+          <text x="56" y="41" class="logo-tagline" font-family="'Inter', sans-serif" font-size="9.5" font-weight="700" fill="#047857" letter-spacing="1.6">AIR INTELLIGENCE</text>
         </svg>
       </a>
 
@@ -114,8 +237,9 @@
         <ul class="nav-links">
           <li><a href="index.html" class="nav-link active">Home</a></li>
           <li><a href="pages/home-2.html" class="nav-link">Home 2</a></li>
-          <li><a href="pages/about.html" class="nav-link">About</a></li>
+          <li><a href="pages/mold-inspection-testing.html" class="nav-link">Inspection &amp; Testing</a></li>
           <li><a href="pages/services.html" class="nav-link">Services</a></li>
+          <li><a href="pages/about.html" class="nav-link">About</a></li>
           <li><a href="pages/pricing.html" class="nav-link">Pricing</a></li>
           <li><a href="pages/contact.html" class="nav-link">Contact</a></li>
         </ul>
@@ -185,7 +309,7 @@
             <circle cx="21" cy="21.5" r="2.2" fill="#FFFFFF"/>
           </g>
           <text x="56" y="27" font-family="'Plus Jakarta Sans', sans-serif" font-size="20" font-weight="800" fill="currentColor" letter-spacing="-0.5">AEROPURE</text>
-          <text x="56" y="40" font-family="'Inter', sans-serif" font-size="8.5" font-weight="600" fill="#10B981" letter-spacing="2">AIR INTELLIGENCE</text>
+          <text x="56" y="41" class="logo-tagline" font-family="'Inter', sans-serif" font-size="9.5" font-weight="700" fill="#047857" letter-spacing="1.6">AIR INTELLIGENCE</text>
         </svg>
       </a>
       <button type="button" class="drawer-close-btn icon-toggle-btn" aria-label="Close menu">
@@ -197,8 +321,9 @@
     <ul class="drawer-nav-list">
       <li><a href="index.html" class="drawer-nav-link active">Home</a></li>
       <li><a href="pages/home-2.html" class="drawer-nav-link">Home 2</a></li>
-      <li><a href="pages/about.html" class="drawer-nav-link">About</a></li>
+      <li><a href="pages/mold-inspection-testing.html" class="drawer-nav-link">Inspection &amp; Testing</a></li>
       <li><a href="pages/services.html" class="drawer-nav-link">Services</a></li>
+      <li><a href="pages/about.html" class="drawer-nav-link">About</a></li>
       <li><a href="pages/pricing.html" class="drawer-nav-link">Pricing</a></li>
       <li><a href="pages/contact.html" class="drawer-nav-link">Contact</a></li>
     </ul>
@@ -239,7 +364,7 @@
     <!-- ==========================================================================
          SECTION 1: HERO (Theme: "Breathe Safe Indoors" - Reassurance & Trust)
          ========================================================================== -->
-    <section class="hero-home-1">
+    <section class="hero-home-1 hero-home1-page">
       <div class="container hero-grid">
         <div class="hero-content">
           <div class="hero-tag">
@@ -469,6 +594,171 @@
     </section>
 
     <!-- ==========================================================================
+         SECTION: SIGNS OF MOLD PROBLEMS (Warning Red Flags & Health Indicators)
+         ========================================================================== -->
+    <section class="section-padding" style="background:var(--bg-alt);" id="signs-of-mold">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-badge">
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/></svg>
+            <span>Early Warning Indicators</span>
+          </span>
+          <h2 class="section-title">Critical Signs of a Hidden Mold Infestation</h2>
+          <p class="section-subtitle">Over 70% of indoor toxic mold colonies flourish unseen within drywall cavities, crawlspaces, and HVAC ductwork before becoming visible.</p>
+        </div>
+
+        <div class="signs-grid">
+          <!-- Sign 1: Musty Odor -->
+          <article class="sign-card">
+            <div class="sign-header">
+              <div class="sign-icon">
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/></svg>
+              </div>
+              <span class="sign-badge warning">Primary Cue</span>
+            </div>
+            <h3 class="sign-title">Persistent Musty, Earthy Odors</h3>
+            <p class="sign-desc">Active fungal colonies metabolize cellulose and release Microbial Volatile Organic Compounds (mVOCs) creating a damp, cellar-like stench that air fresheners cannot mask.</p>
+            <ul class="sign-symptom-list">
+              <li><svg fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg> Intensifies when HVAC kicks on</li>
+              <li><svg fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg> Stronger in basements and crawlspaces</li>
+            </ul>
+          </article>
+
+          <!-- Sign 2: Discoloration -->
+          <article class="sign-card">
+            <div class="sign-header">
+              <div class="sign-icon">
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4 4 4 0 014-4 4 4 0 014 4 4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"/></svg>
+              </div>
+              <span class="sign-badge urgent">Urgent Hazard</span>
+            </div>
+            <h3 class="sign-title">Dark Surface Spotting &amp; Discoloration</h3>
+            <p class="sign-desc">Splotches of black, soot-like clusters, olive green fuzz, or pinkish microbial films along baseboards, shower grout, window sills, or attic timber indicate mature spore fruiting.</p>
+            <ul class="sign-symptom-list">
+              <li><svg fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg> Stachybotrys chartarum (toxic black mold)</li>
+              <li><svg fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg> Returns rapidly even after bleach wipe</li>
+            </ul>
+          </article>
+
+          <!-- Sign 3: Water Leak History -->
+          <article class="sign-card">
+            <div class="sign-header">
+              <div class="sign-icon">
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"/></svg>
+              </div>
+              <span class="sign-badge info">Environmental</span>
+            </div>
+            <h3 class="sign-title">Past Water Incursion &amp; Plumbing Leaks</h3>
+            <p class="sign-desc">Drywall and subflooring exposed to moisture for more than 24-48 hours undergo rapid fungal germination. Ceiling water stains or previous pipe bursts frequently harbor hidden decay.</p>
+            <ul class="sign-symptom-list">
+              <li><svg fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg> Yellow/brown rings on drywall or plaster</li>
+              <li><svg fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg> Trapped condensation in building envelope</li>
+            </ul>
+          </article>
+
+          <!-- Sign 4: Health Symptoms -->
+          <article class="sign-card">
+            <div class="sign-header">
+              <div class="sign-icon">
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg>
+              </div>
+              <span class="sign-badge urgent">Health Impact</span>
+            </div>
+            <h3 class="sign-title">Unexplained Allergy &amp; Respiratory Flares</h3>
+            <p class="sign-desc">Family members experiencing chronic morning congestion, sudden pediatric wheezing, persistent throat tickles, or headache clusters that mysteriously vanish when leaving the house.</p>
+            <ul class="sign-symptom-list">
+              <li><svg fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg> Severe bronchial asthma triggers</li>
+              <li><svg fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg> Eye irritation and brain fog mycotoxicosis</li>
+            </ul>
+          </article>
+
+          <!-- Sign 5: Warped Walls -->
+          <article class="sign-card">
+            <div class="sign-header">
+              <div class="sign-icon">
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z"/></svg>
+              </div>
+              <span class="sign-badge warning">Structural Alert</span>
+            </div>
+            <h3 class="sign-title">Peeling Paint, Warping &amp; Bulging Walls</h3>
+            <p class="sign-desc">When water saturates gypsum drywall boards, paint bubbles and wallpaper seams delaminate. Soft, spongy floorboards or crowning baseboards indicate underlying mycelial wood rot.</p>
+            <ul class="sign-symptom-list">
+              <li><svg fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg> Efflorescence salt deposits on masonry</li>
+              <li><svg fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg> Timber loss of structural shear load</li>
+            </ul>
+          </article>
+
+          <!-- Sign 6: High Humidity -->
+          <article class="sign-card">
+            <div class="sign-header">
+              <div class="sign-icon">
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 00-9.78 2.096A4.001 4.001 0 003 15z"/></svg>
+              </div>
+              <span class="sign-badge info">Moisture Trigger</span>
+            </div>
+            <h3 class="sign-title">High Indoor Relative Humidity (&gt; 55% RH)</h3>
+            <p class="sign-desc">Sweating windows, continuous bathroom condensation, and poor crawlspace ventilation sustain the critical 55%+ relative humidity threshold required for Aspergillus proliferation.</p>
+            <ul class="sign-symptom-list">
+              <li><svg fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg> Condensation droplets on supply vents</li>
+              <li><svg fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg> Cold outdoor wall dew point bridging</li>
+            </ul>
+          </article>
+        </div>
+
+        <!-- Interactive Self-Check Tool -->
+        <div class="mold-risk-checker-box">
+          <div class="risk-checker-grid">
+            <div>
+              <span class="section-badge" style="font-size:0.75rem;">Interactive Assessment</span>
+              <h3 style="font-size:1.45rem; margin:8px 0 12px 0;">Home Mold Contamination Risk Calculator</h3>
+              <p style="font-size:0.92rem; color:var(--text-secondary); margin-bottom:20px;">
+                Check any symptoms present in your property to receive a real-time risk severity rating:
+              </p>
+              <div class="risk-checklist">
+                <label class="risk-check-item">
+                  <input type="checkbox" value="1">
+                  <span>Musty or damp odor</span>
+                </label>
+                <label class="risk-check-item">
+                  <input type="checkbox" value="1">
+                  <span>Visible dark spots/stains</span>
+                </label>
+                <label class="risk-check-item">
+                  <input type="checkbox" value="1">
+                  <span>Past plumbing or roof leak</span>
+                </label>
+                <label class="risk-check-item">
+                  <input type="checkbox" value="1">
+                  <span>Unexplained allergic cough</span>
+                </label>
+                <label class="risk-check-item">
+                  <input type="checkbox" value="1">
+                  <span>Peeling paint or wall dampness</span>
+                </label>
+                <label class="risk-check-item">
+                  <input type="checkbox" value="1">
+                  <span>Indoor humidity exceeds 55%</span>
+                </label>
+              </div>
+            </div>
+
+            <div class="risk-score-display">
+              <div class="risk-score-pill" id="riskPill">Minimal Risk • Score 0/6</div>
+              <h4 id="riskTitle" style="font-size:1.2rem; margin-bottom:8px;">Optimal Indoor Conditions</h4>
+              <p id="riskDesc" style="font-size:0.88rem; color:var(--text-secondary); line-height:1.6; margin-bottom:20px;">
+                No active red flags detected. Maintain relative humidity below 50% and inspect HVAC air filters quarterly.
+              </p>
+              <a href="pages/mold-inspection-testing.html" class="btn btn-primary btn-sm" style="display:inline-flex;">
+                <span>Book Forensic Inspection ($299)</span>
+                <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
          SECTION 4: HOW IT WORKS (4-Step Timeline)
          ========================================================================== -->
     <section class="section-padding timeline-section" aria-label="Our 4-Step Remediation Process">
@@ -508,6 +798,500 @@
             <div class="step-number">04</div>
             <h3 class="step-title">Clearance Verification</h3>
             <p class="step-desc">Post-remediation PRV air testing proves indoor spore levels match or beat pristine outdoor baseline air before containment drops.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         SECTION: MOLD REMEDIATION & REMOVAL (Clinical 5-Stage Containment Suite)
+         ========================================================================== -->
+    <section class="section-padding" id="remediation-protocol">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-badge">
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+            <span>Medical-Grade Eradication</span>
+          </span>
+          <h2 class="section-title">Forensic Mold Remediation &amp; Removal Protocol</h2>
+          <p class="section-subtitle">We follow strict ANSI/IICRC S520 Standard of Care guidelines to isolate, extract, and permanently eliminate fungal colonies without cross-contaminating living spaces.</p>
+        </div>
+
+        <div class="remediation-stages-row">
+          <!-- Stage 1 -->
+          <div class="stage-card">
+            <div class="stage-circle">01</div>
+            <h4>6-Mil Poly Airlock</h4>
+            <p>Physical isolation barrier with zippered decontamination chambers and negative pressure differential.</p>
+          </div>
+          <!-- Stage 2 -->
+          <div class="stage-card">
+            <div class="stage-circle">02</div>
+            <h4>HEPA-500 Scrubbing</h4>
+            <p>Continuous negative-air filtration capturing 99.97% of airborne spores down to 0.3 microns.</p>
+          </div>
+          <!-- Stage 3 -->
+          <div class="stage-card">
+            <div class="stage-circle">03</div>
+            <h4>Dry-Ice CO2 Blasting</h4>
+            <p>Non-destructive frozen CO2 lifts fungal roots out of wood framing without abrasive damage.</p>
+          </div>
+          <!-- Stage 4 -->
+          <div class="stage-card">
+            <div class="stage-circle">04</div>
+            <h4>Botanical Bio-Shield</h4>
+            <p>EPA-registered plant-derived antimicrobial encapsulates timber to prevent future spore rebirth.</p>
+          </div>
+          <!-- Stage 5 -->
+          <div class="stage-card">
+            <div class="stage-circle">05</div>
+            <h4>Biohazard Cleansing</h4>
+            <p>Exhaustive HEPA vacuuming, anti-microbial wipe-down, and certified hazardous waste containment disposal.</p>
+          </div>
+        </div>
+
+        <div style="margin-top:36px; text-align:center;">
+          <a href="pages/services.html#remediation" class="btn btn-secondary">
+            <span>Explore Technical Remediation Standards &amp; Pricing &rarr;</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         SECTION: BEFORE & AFTER CASE STUDIES (Interactive Split Comparison Slider)
+         ========================================================================== -->
+    <section class="section-padding" style="background:var(--bg-alt);" id="before-after">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-badge">
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg>
+            <span>Verified Results</span>
+          </span>
+          <h2 class="section-title">See The Transformation: Before &amp; After Remediation</h2>
+          <p class="section-subtitle">Slide the handle to inspect real residential containment zones before and after our medical-grade dry-ice eradication process.</p>
+        </div>
+
+        <div class="case-study-header-bar">
+          <div>
+            <h3 style="font-size:1.2rem; margin:0;">Active Case Study: <span style="color:var(--primary);">Attic Timber Rafter Restoration</span></h3>
+            <span style="font-size:0.84rem; color:var(--text-muted);">Scarsdale, NY &bull; Black Mold (Stachybotrys &amp; Aspergillus) Eradication</span>
+          </div>
+          <div class="case-study-tabs">
+            <button type="button" class="case-study-tab-btn active" data-case="attic">Attic Rafters</button>
+            <button type="button" class="case-study-tab-btn" data-case="basement">Basement Drywall</button>
+            <button type="button" class="case-study-tab-btn" data-case="crawlspace">Crawlspace Joists</button>
+          </div>
+        </div>
+
+        <!-- Interactive Comparison Slider -->
+        <div class="comparison-slider-wrapper" id="remediationSlider">
+          <!-- BEFORE IMAGE (Full Background) -->
+          <div class="comparison-image-before">
+            <img src="assets/images/mold-before-real.jpg" alt="Attic wooden beams before mold remediation showing heavy fungal growth and dark water stains" id="caseBeforeImg">
+          </div>
+
+          <!-- AFTER IMAGE (Clipped Foreground) -->
+          <div class="comparison-image-after">
+            <img src="assets/images/mold-after-real.jpg" alt="Attic wooden beams after professional mold remediation showing clean restored wood and zero fungal spores" id="caseAfterImg">
+          </div>
+
+          <!-- DIVIDER LINE -->
+          <div class="comparison-divider"></div>
+
+          <!-- DRAGGABLE HANDLE -->
+          <div class="comparison-handle" title="Drag to compare before and after">
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M8 9l-4 3 4 3m8-6l4 3-4 3"/>
+            </svg>
+          </div>
+
+          <!-- STATUS BADGE PILLS (Always Symmetrically Aligned) -->
+          <span class="comparison-pill pill-after">
+            <span class="pill-text-desktop">AFTER REMEDIATION</span>
+            <span class="pill-text-mobile">AFTER</span>
+          </span>
+          <span class="comparison-pill pill-before">
+            <span class="pill-text-desktop">BEFORE TREATMENT</span>
+            <span class="pill-text-mobile">BEFORE</span>
+          </span>
+        </div>
+
+        <!-- Verified Case Metrics Strip -->
+        <div class="case-metrics-bar">
+          <div class="case-metric-box">
+            <div class="case-metric-val" id="casePreVal" style="color:#EF4444;">24,870 /m³</div>
+            <div class="case-metric-lbl">Pre-Remediation Spores</div>
+          </div>
+          <div class="case-metric-box">
+            <div class="case-metric-val" id="casePostVal" style="color:#10B981;">40 /m³</div>
+            <div class="case-metric-lbl">Post-Remediation Spores</div>
+          </div>
+          <div class="case-metric-box">
+            <div class="case-metric-val" id="caseDurationVal">48 Hours</div>
+            <div class="case-metric-lbl">Containment Duration</div>
+          </div>
+          <div class="case-metric-box">
+            <div class="case-metric-val" id="caseStatusVal" style="color:#10B981;">100% Passed PRV</div>
+            <div class="case-metric-lbl">Lab Clearance Result</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         SECTION: WATER DAMAGE & MOISTURE CONTROL (Root Cause Engineering)
+         ========================================================================== -->
+    <section class="section-padding" id="water-damage">
+      <div class="container">
+        <div class="moisture-control-grid">
+          <!-- Text and feature steps -->
+          <div>
+            <span class="section-badge">
+              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"/></svg>
+              <span>Stop The Root Cause</span>
+            </span>
+            <h2 style="margin-bottom:18px;">Water Damage &amp; Moisture Control Services</h2>
+            <p style="font-size:1.05rem; color:var(--text-secondary); line-height:1.65; margin-bottom:24px;">
+              Mold cannot thrive without active moisture. Treating fungal spores without drying the structural framing guarantees mold regrowth within weeks. Our psychrometric drying technicians deploy rapid water extraction and industrial dehumidification within the critical 24-48 hour window.
+            </p>
+
+            <div class="moisture-stage-list">
+              <div class="moisture-stage-item">
+                <div class="moisture-step-num">01</div>
+                <div>
+                  <h4 style="font-size:1.05rem; margin-bottom:4px;">Thermal Leak &amp; Moisture Mapping</h4>
+                  <p style="font-size:0.88rem; color:var(--text-secondary); margin:0;">Using FLIR thermal cameras and sub-surface pin probes to trace hidden plumbing leaks and water migration paths behind walls.</p>
+                </div>
+              </div>
+              <div class="moisture-stage-item">
+                <div class="moisture-step-num">02</div>
+                <div>
+                  <h4 style="font-size:1.05rem; margin-bottom:4px;">LGR Industrial Dehumidification</h4>
+                  <p style="font-size:0.88rem; color:var(--text-secondary); margin:0;">Low Grain Refrigerant (LGR) units extract up to 130 pints of water per day, lowering structural dew points rapidly.</p>
+                </div>
+              </div>
+              <div class="moisture-stage-item">
+                <div class="moisture-step-num">03</div>
+                <div>
+                  <h4 style="font-size:1.05rem; margin-bottom:4px;">High-Velocity Axial Air Movers</h4>
+                  <p style="font-size:0.88rem; color:var(--text-secondary); margin:0;">Targeted vortex airflow accelerates surface evaporation from studs, floor joists, and concrete subfloors safely.</p>
+                </div>
+              </div>
+              <div class="moisture-stage-item">
+                <div class="moisture-step-num">04</div>
+                <div>
+                  <h4 style="font-size:1.05rem; margin-bottom:4px;">Vapor Barrier &amp; Encapsulation</h4>
+                  <p style="font-size:0.88rem; color:var(--text-secondary); margin:0;">Permanent crawlspace 20-mil vapor barriers and botanical antimicrobial seals that lock out rising ground dampness indefinitely.</p>
+                </div>
+              </div>
+            </div>
+
+            <div style="display:flex; gap:14px; flex-wrap:wrap;">
+              <a href="pages/contact.html" class="btn btn-primary">Dispatch Emergency Drying Unit</a>
+              <a href="pages/services.html" class="btn btn-secondary">Learn About Moisture Audits</a>
+            </div>
+          </div>
+
+          <!-- Media Graphic -->
+          <div class="moisture-media-wrapper">
+            <img src="assets/images/water-damage-control.jpg" alt="Certified water restoration technician using digital pin moisture meter with commercial LGR dehumidifiers and high velocity air movers" width="800" height="600" loading="lazy">
+            <div class="moisture-floating-badge">
+              <svg width="24" height="24" fill="#34D399" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+              <div>
+                <strong style="display:block; font-size:0.95rem;">Rapid 2-Hour Response</strong>
+                <span style="font-size:0.8rem; color:#CBD5E1;">Stops secondary mold colonization</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         SECTION: OUR TESTING EQUIPMENT & SCIENTIFIC METHODS
+         ========================================================================== -->
+    <section class="section-padding" style="background:var(--bg-alt);" id="testing-equipment">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-badge">
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/></svg>
+            <span>Scientific Instrumentation</span>
+          </span>
+          <h2 class="section-title">Our Testing Equipment &amp; Diagnostic Methods</h2>
+          <p class="section-subtitle">We invest in calibrated laboratory instruments to measure invisible fungal micro-pathogens with forensic accuracy.</p>
+        </div>
+
+        <div class="equipment-grid-3">
+          <!-- Equipment 1 -->
+          <article class="equipment-card">
+            <div class="equipment-icon-tag">
+              <div class="sign-icon">
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg>
+              </div>
+              <span class="equipment-tag">Thermal IR</span>
+            </div>
+            <h3 style="font-size:1.15rem; margin-bottom:8px;">FLIR E96 Infrared Thermal Camera</h3>
+            <p style="font-size:0.88rem; color:var(--text-secondary); line-height:1.5; margin-bottom:16px;">
+              640 &times; 480 high-resolution thermal matrix detecting sub-surface evaporative cooling temperature drops in insulation, subfloors, and framing.
+            </p>
+            <div class="equipment-spec-table">
+              <div class="equipment-spec-row"><span>Sensitivity:</span><strong>&lt; 30 mK (&plusmn;0.03&deg;C)</strong></div>
+              <div class="equipment-spec-row"><span>Diagnostic:</span><strong>Concealed Pipe Leaks</strong></div>
+            </div>
+          </article>
+
+          <!-- Equipment 2 -->
+          <article class="equipment-card">
+            <div class="equipment-icon-tag">
+              <div class="sign-icon">
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/></svg>
+              </div>
+              <span class="equipment-tag">Spore Trap</span>
+            </div>
+            <h3 style="font-size:1.15rem; margin-bottom:8px;">Zefon Bio-Pump Plus Air Sampler</h3>
+            <p style="font-size:0.88rem; color:var(--text-secondary); line-height:1.5; margin-bottom:16px;">
+              Calibrated primary flow vacuum pulling exactly 15 Liters/min across Air-O-Cell glass impaction cassettes for quantitative spore/m³ genus counts.
+            </p>
+            <div class="equipment-spec-table">
+              <div class="equipment-spec-row"><span>Calibration:</span><strong>NIST-Traceable Rotameter</strong></div>
+              <div class="equipment-spec-row"><span>Accuracy:</span><strong>99.8% Flow Rate Precision</strong></div>
+            </div>
+          </article>
+
+          <!-- Equipment 3 -->
+          <article class="equipment-card">
+            <div class="equipment-icon-tag">
+              <div class="sign-icon">
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
+              </div>
+              <span class="equipment-tag">Particle Laser</span>
+            </div>
+            <h3 style="font-size:1.15rem; margin-bottom:8px;">Handheld Laser Particle Counter</h3>
+            <p style="font-size:0.88rem; color:var(--text-secondary); line-height:1.5; margin-bottom:16px;">
+              Real-time dual-channel optical laser scattering detecting respirable particulate counts (PM2.5, PM10) and airborne micro-debris in seconds.
+            </p>
+            <div class="equipment-spec-table">
+              <div class="equipment-spec-row"><span>Channels:</span><strong>0.3µm, 0.5µm, 1.0µm, 5.0µm</strong></div>
+              <div class="equipment-spec-row"><span>Compliance:</span><strong>ISO 14644-1 Cleanrooms</strong></div>
+            </div>
+          </article>
+
+          <!-- Equipment 4 -->
+          <article class="equipment-card">
+            <div class="equipment-icon-tag">
+              <div class="sign-icon">
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg>
+              </div>
+              <span class="equipment-tag">Endoscopy</span>
+            </div>
+            <h3 style="font-size:1.15rem; margin-bottom:8px;">Micro-Borescope Cavity Endoscope</h3>
+            <p style="font-size:0.88rem; color:var(--text-secondary); line-height:1.5; margin-bottom:16px;">
+              Articulating 5.5mm probe camera equipped with ultra-bright LEDs, inspecting inside drywall voids, pipe chases, and duct junctions through tiny pinholes.
+            </p>
+            <div class="equipment-spec-table">
+              <div class="equipment-spec-row"><span>Probe Dia:</span><strong>5.5 mm Micro-Sheath</strong></div>
+              <div class="equipment-spec-row"><span>Resolution:</span><strong>1080p HD Live Feed</strong></div>
+            </div>
+          </article>
+
+          <!-- Equipment 5 -->
+          <article class="equipment-card">
+            <div class="equipment-icon-tag">
+              <div class="sign-icon">
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+              </div>
+              <span class="equipment-tag">Hydrometry</span>
+            </div>
+            <h3 style="font-size:1.15rem; margin-bottom:8px;">Delmhorst Dual Pin &amp; Pinless Meters</h3>
+            <p style="font-size:0.88rem; color:var(--text-secondary); line-height:1.5; margin-bottom:16px;">
+              High-frequency radio wave sensor reads deep sub-surface moisture without scratching, while insulated contact pins measure exact wood saturation depth.
+            </p>
+            <div class="equipment-spec-table">
+              <div class="equipment-spec-row"><span>Penetration:</span><strong>Up to 3/4" (19mm) Depth</strong></div>
+              <div class="equipment-spec-row"><span>Measurement:</span><strong>Wood %MC / Drywall Scale</strong></div>
+            </div>
+          </article>
+
+          <!-- Equipment 6 -->
+          <article class="equipment-card">
+            <div class="equipment-icon-tag">
+              <div class="sign-icon">
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+              </div>
+              <span class="equipment-tag">AIHA Lab</span>
+            </div>
+            <h3 style="font-size:1.15rem; margin-bottom:8px;">Gas Chromatography &amp; Mass Spectrometry</h3>
+            <p style="font-size:0.88rem; color:var(--text-secondary); line-height:1.5; margin-bottom:16px;">
+              Partner AIHA-EMLAP laboratory analysis for Volatile Organic Compounds (TVOC) and direct high-power optical microscopy for genus characterization.
+            </p>
+            <div class="equipment-spec-table">
+              <div class="equipment-spec-row"><span>Accreditation:</span><strong>AIHA-EMLAP &amp; ISO 17025</strong></div>
+              <div class="equipment-spec-row"><span>Turnaround:</span><strong>24 - 48 Hours Guaranteed</strong></div>
+            </div>
+          </article>
+        </div>
+
+        <div style="margin-top:40px; text-align:center;">
+          <a href="pages/mold-inspection-testing.html" class="btn btn-primary">
+            <span>Explore Complete Diagnostic &amp; Testing Protocol &rarr;</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         SECTION: POST-REMEDIATION VERIFICATION (PRV) & CLEARANCE GUARANTEE
+         ========================================================================== -->
+    <section class="section-padding" id="prv-clearance">
+      <div class="container">
+        <div class="prv-showcase-box">
+          <div class="prv-split-grid">
+            <div class="prv-content-col">
+              <span class="section-badge prv-badge" style="background:rgba(16,185,129,0.15); color:#10B981; border-color:#10B981;">
+                Clearance Verification Standard
+              </span>
+              <h2 class="prv-title">Post-Remediation Verification (PRV)</h2>
+              <p class="prv-desc">
+                How do you know the mold is truly gone? Before removing containment plastic, our industrial hygienists perform rigorous Post-Remediation Verification (PRV) testing to prove the air inside matches or beats outdoor baseline air.
+              </p>
+
+              <div class="prv-table-wrapper">
+                <table class="prv-comparison-table">
+                  <thead>
+                    <tr>
+                      <th>Fungal Genus Profile</th>
+                      <th>Pre-Remediation</th>
+                      <th>Outdoor Baseline</th>
+                      <th>Post-Remediation PRV</th>
+                      <th>Clearance</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><strong>Stachybotrys (Black Mold)</strong></td>
+                      <td style="color:#EF4444; font-weight:700;">8,400 /m³</td>
+                      <td>0 /m³</td>
+                      <td style="color:#10B981; font-weight:700;">0 /m³ (Undetected)</td>
+                      <td><span class="prv-badge-pass">PASSED</span></td>
+                    </tr>
+                    <tr>
+                      <td><strong>Aspergillus / Penicillium</strong></td>
+                      <td style="color:#F59E0B; font-weight:700;">14,800 /m³</td>
+                      <td>140 /m³</td>
+                      <td style="color:#10B981; font-weight:700;">28 /m³ (Pure)</td>
+                      <td><span class="prv-badge-pass">PASSED</span></td>
+                    </tr>
+                    <tr>
+                      <td><strong>Chaetomium globosum</strong></td>
+                      <td style="color:#EF4444; font-weight:700;">1,250 /m³</td>
+                      <td>0 /m³</td>
+                      <td style="color:#10B981; font-weight:700;">0 /m³ (Undetected)</td>
+                      <td><span class="prv-badge-pass">PASSED</span></td>
+                    </tr>
+                    <tr>
+                      <td><strong>Total Spores Concentration</strong></td>
+                      <td style="color:#EF4444; font-weight:900;">24,870 /m³</td>
+                      <td>220 /m³</td>
+                      <td style="color:#10B981; font-weight:900;">40 /m³ (Surgical Safe)</td>
+                      <td><span class="prv-badge-pass">PASSED</span></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <div class="prv-cta-buttons">
+                <button type="button" class="btn btn-primary" onclick="openModal('sampleReportModal')">
+                  <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+                  <span>Preview Official CIH Clearance Certificate</span>
+                </button>
+                <a href="pages/pricing.html" class="btn btn-secondary">Review Pricing &amp; Guarantees</a>
+              </div>
+            </div>
+
+            <!-- Guarantee Callout -->
+            <div class="prv-guarantee-callout">
+              <div style="width:64px; height:64px; border-radius:50%; background:var(--primary-surface); color:var(--primary); margin:0 auto 16px auto; display:flex; align-items:center; justify-content:center;">
+                <svg width="36" height="36" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+              </div>
+              <h3 style="font-size:1.35rem; margin-bottom:8px;">100% Pass Clearance Guarantee</h3>
+              <p style="font-size:0.92rem; color:var(--text-secondary); line-height:1.6; margin-bottom:20px;">
+                If post-remediation clearance testing shows elevated fungal spores in our containment zone, our crew will re-seal, re-scrub, and re-treat the area at zero additional cost to you until an independent AIHA-accredited lab issues a passing certificate.
+              </p>
+              <div style="padding:12px; background:var(--bg-surface); border-radius:var(--radius-sm); border:1px solid var(--border-color); font-size:0.85rem; font-weight:600;">
+                Valid for Escrow Real Estate Closings &bull; Transferable to Future Buyers
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         SECTION: WHY CHOOSE US (Clinical Differentiators & Standards)
+         ========================================================================== -->
+    <section class="section-padding" style="background:var(--bg-alt);" id="why-choose-us">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-badge">
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+            <span>The AeroPure Standard</span>
+          </span>
+          <h2 class="section-title">Why Property Owners Choose AeroPure</h2>
+          <p class="section-subtitle">We do not mask mold with cosmetic paint. We engineer forensic microbiological eradication backed by independent accredited science.</p>
+        </div>
+
+        <div class="differentiator-grid">
+          <!-- Diff 1 -->
+          <div class="diff-card">
+            <div class="diff-card-media">
+              <img src="assets/images/hero-technician.jpg" alt="Certified environmental hygienist testing indoor air quality" loading="lazy">
+              <div class="diff-card-media-overlay"></div>
+            </div>
+            <div class="diff-icon">
+              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+            </div>
+            <h3>IICRC Master Environmental Firm</h3>
+            <p>Every field team is led by board-certified industrial hygienists (CIH / CIEC) adhering strictly to ANSI/IICRC S520 containment standards.</p>
+          </div>
+
+          <!-- Diff 2 -->
+          <div class="diff-card">
+            <div class="diff-card-media">
+              <img src="assets/images/about-genesis-lab.jpg" alt="Independent accredited lab analyzing spore samples" loading="lazy">
+              <div class="diff-card-media-overlay"></div>
+            </div>
+            <div class="diff-icon">
+              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/></svg>
+            </div>
+            <h3>Independent Third-Party Labs</h3>
+            <p>Zero conflict of interest. All spore cassettes are shipped directly to independent AIHA-EMLAP accredited microbiology labs for unbiased verification.</p>
+          </div>
+
+          <!-- Diff 3 -->
+          <div class="diff-card">
+            <div class="diff-card-media">
+              <img src="assets/images/about-field-techs.jpg" alt="Botanical plant-derived antimicrobial encapsulant application" loading="lazy">
+              <div class="diff-card-media-overlay"></div>
+            </div>
+            <div class="diff-icon">
+              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+            </div>
+            <h3>Under 2-Hour Emergency Dispatch</h3>
+            <p>Strategic regional mobile units on standby 24/7 with rapid negative air containment equipment to arrest active water leak emergencies.</p>
+          </div>
+
+          <!-- Diff 4 -->
+          <div class="diff-card">
+            <div class="diff-card-media">
+              <img src="assets/images/warranty-certificate-hd.jpg" alt="Official transferable lifetime warranty certificate" loading="lazy">
+              <div class="diff-card-media-overlay"></div>
+            </div>
+            <div class="diff-icon">
+              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+            </div>
+            <h3>Transferable Lifetime Warranty</h3>
+            <p>Our remediated areas come with an official Certificate of Clearance and transferable lifetime warranty that passes to new homebuyers upon property sale.</p>
           </div>
         </div>
       </div>
@@ -621,6 +1405,69 @@
     </section>
 
     <!-- ==========================================================================
+         SECTION: SERVICE AREAS & LIVE DISPATCH LOOKUP
+         ========================================================================== -->
+    <section class="section-padding" style="background:var(--bg-alt);" id="service-areas">
+      <div class="container coverage-grid">
+        <!-- Map Graphic -->
+        <div class="coverage-map-frame" style="border:1px solid rgba(16,185,129,0.25); box-shadow:0 12px 36px rgba(0,0,0,0.4); border-radius:var(--radius-lg); overflow:hidden;">
+          <img src="assets/images/dispatch-map-tech.svg" alt="AeroPure live regional mobile dispatch network telemetry map showing 5 strategic depot centers and rapid response radiuses" width="900" height="600" style="width:100%; height:auto; display:block;">
+        </div>
+
+        <!-- Hubs details & Live Zip Checker -->
+        <div>
+          <span class="section-badge">Active Response Radiuses</span>
+          <h2 style="margin-bottom:14px;">Metropolitan &amp; Regional Service Areas</h2>
+          <p style="margin-bottom:20px; font-size:0.95rem; color:var(--text-secondary);">
+            Our mobile laboratories and negative-air containment trailers are stationed strategically across 5 regional depot centers for rapid emergency containment.
+          </p>
+
+          <div class="hub-list">
+            <div class="hub-item">
+              <div>
+                <div class="hub-name">Central Bio-Lab &amp; HQ Hub</div>
+                <div style="font-size:0.82rem; color:var(--text-muted);">Manhattan, Bronx &amp; Metro Central &bull; Avg Arrival: 30 mins</div>
+              </div>
+              <span class="hub-status">Units Available</span>
+            </div>
+            <div class="hub-item">
+              <div>
+                <div class="hub-name">North County Rapid Dispatch</div>
+                <div style="font-size:0.82rem; color:var(--text-muted);">Westchester, Rockland &amp; CT Borders &bull; Avg Arrival: 35 mins</div>
+              </div>
+              <span class="hub-status">Units Available</span>
+            </div>
+            <div class="hub-item">
+              <div>
+                <div class="hub-name">East Bay Commercial Station</div>
+                <div style="font-size:0.82rem; color:var(--text-muted);">Queens, Brooklyn &amp; Long Island &bull; Avg Arrival: 40 mins</div>
+              </div>
+              <span class="hub-status">Units Available</span>
+            </div>
+            <div class="hub-item">
+              <div>
+                <div class="hub-name">Tri-State Emergency Mobile Depot</div>
+                <div style="font-size:0.82rem; color:var(--text-muted);">Northern &amp; Central NJ Corridors &bull; Avg Arrival: 45 mins</div>
+              </div>
+              <span class="hub-status">Units Available</span>
+            </div>
+          </div>
+
+          <!-- Interactive Live Zip Checker -->
+          <div class="zip-checker-card">
+            <h4 style="font-size:1.05rem; margin-bottom:6px;">Check Live Dispatch to Your Zip Code</h4>
+            <p style="font-size:0.84rem; color:var(--text-muted); margin:0;">Enter your 5-digit zip code to see your nearest mobile unit and estimated arrival time.</p>
+            <form class="zip-search-form" id="zipCheckerForm">
+              <input type="text" class="input-field" placeholder="e.g. 10001, 10583, 07030" maxlength="5" id="zipInput" required style="padding:10px 14px; font-size:0.9rem;">
+              <button type="submit" class="btn btn-primary btn-sm" style="white-space:nowrap;">Check Dispatch</button>
+            </form>
+            <div id="zipResultMsg" class="zip-result-message"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
          SECTION 6: FINAL CTA BANNER (Schedule Inspection + Contact Micro-Form)
          ========================================================================== -->
     <section class="section-padding">
@@ -712,7 +1559,7 @@
               <circle cx="21" cy="21.5" r="2.2" fill="#FFFFFF"/>
             </g>
             <text x="56" y="27" font-family="'Plus Jakarta Sans', sans-serif" font-size="20" font-weight="800" fill="#FFFFFF" letter-spacing="-0.5">AEROPURE</text>
-            <text x="56" y="40" font-family="'Inter', sans-serif" font-size="8.5" font-weight="600" fill="#10B981" letter-spacing="2">AIR INTELLIGENCE</text>
+            <text x="56" y="41" class="logo-tagline" font-family="'Inter', sans-serif" font-size="9.5" font-weight="700" fill="#34D399" letter-spacing="1.6">AIR INTELLIGENCE</text>
           </svg>
         </a>
         <p>
@@ -748,8 +1595,9 @@
         <ul class="footer-links">
           <li><a href="index.html" class="active">Home</a></li>
           <li><a href="pages/home-2.html">Home 2</a></li>
-          <li><a href="pages/about.html">About</a></li>
+          <li><a href="pages/mold-inspection-testing.html">Inspection &amp; Testing</a></li>
           <li><a href="pages/services.html">Services</a></li>
+          <li><a href="pages/about.html">About</a></li>
           <li><a href="pages/pricing.html">Pricing</a></li>
           <li><a href="pages/contact.html">Contact</a></li>
         </ul>
@@ -797,6 +1645,198 @@
       </div>
     </div>
   </footer>
+
+  <!-- Sample Report Modal -->
+  <div class="modal-overlay" id="sampleReportModal">
+    <div class="modal-card" style="max-width:820px; max-height:90vh; overflow-y:auto;">
+      <button type="button" class="modal-close-btn" onclick="closeModal('sampleReportModal')" aria-label="Close modal">&times;</button>
+      <div style="border-bottom:2px solid var(--primary); padding-bottom:16px; margin-bottom:20px;">
+        <span class="section-badge" style="margin-bottom:8px;">ISO 17025 Accredited Laboratory Report</span>
+        <h3 style="font-size:1.4rem;">Official Certificate of Analysis: Certificate #LAB-2026-9811</h3>
+        <p style="font-size:0.85rem; color:var(--text-muted); margin:0;">Client: Scarsdale Estate Residence &bull; Sampled by: Elena Vance, PhD, CIH</p>
+      </div>
+
+      <div style="margin-bottom:24px; border:1px solid var(--border-color); border-radius:var(--radius-md); overflow:hidden; box-shadow:0 8px 24px rgba(0,0,0,0.2); background:#FFFFFF;">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1050" width="100%" height="auto" style="display:block; font-family:'Inter', system-ui, -apple-system, sans-serif;">
+          <defs>
+            <linearGradient id="cert-hdr-grad-idx" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" stop-color="#0B2535"/>
+              <stop offset="100%" stop-color="#04121A"/>
+            </linearGradient>
+            <linearGradient id="stamp-grad-idx" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#10B981"/>
+              <stop offset="100%" stop-color="#059669"/>
+            </linearGradient>
+          </defs>
+
+          <rect x="0" y="0" width="800" height="1050" fill="#FFFFFF"/>
+          <rect x="16" y="16" width="768" height="1018" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="2"/>
+          <rect x="24" y="24" width="752" height="1002" fill="none" stroke="#10B981" stroke-width="1" stroke-dasharray="6,4"/>
+
+          <rect x="25" y="25" width="750" height="110" fill="url(#cert-hdr-grad-idx)"/>
+          
+          <g transform="translate(45, 45)">
+            <circle cx="30" cy="30" r="26" fill="#0B1926" stroke="#10B981" stroke-width="2"/>
+            <path d="M30 14 L42 21.5 V35 C42 43 30 49 30 49 C30 49 18 43 18 35 V21.5 Z" fill="rgba(16, 185, 129, 0.2)" stroke="#10B981" stroke-width="2.2"/>
+            <circle cx="30" cy="31" r="3" fill="#FFFFFF"/>
+          </g>
+
+          <text x="115" y="62" font-size="22" font-weight="900" fill="#FFFFFF" letter-spacing="-0.5">AEROPURE ENVIRONMENTAL LABS</text>
+          <text x="115" y="80" font-size="11" font-weight="700" fill="#10B981" letter-spacing="2">AIHA-EMLAP &amp; ISO/IEC 17025 ACCREDITED TESTING</text>
+          <text x="115" y="98" font-size="9" font-weight="500" fill="#94A3B8">742 Clean Air Blvd, Suite 400 &#8226; Phone: +1 (800) 237-6787 &#8226; Lab License #EMLAP-104928</text>
+
+          <g transform="translate(620, 45)">
+            <rect width="135" height="70" rx="8" fill="rgba(16, 185, 129, 0.15)" stroke="#10B981" stroke-width="1.5"/>
+            <text x="67" y="24" font-size="9" font-weight="800" fill="#10B981" text-anchor="middle" letter-spacing="1">STATUS: VERIFIED</text>
+            <text x="67" y="44" font-size="14" font-weight="900" fill="#FFFFFF" text-anchor="middle">PASSED PRV</text>
+            <text x="67" y="58" font-size="8" font-weight="600" fill="#34D399" text-anchor="middle">CLEARED FOR OCCUPANCY</text>
+          </g>
+
+          <text x="40" y="170" font-size="18" font-weight="800" fill="#0F172A">CERTIFICATE OF ANALYSIS &amp; AEROBIOLOGY PROFILE</text>
+          <line x1="40" y1="180" x2="760" y2="180" stroke="#E2E8F0" stroke-width="2"/>
+
+          <rect x="40" y="195" width="720" height="90" rx="6" fill="#F8FAFC" stroke="#E2E8F0" stroke-width="1"/>
+          
+          <g font-size="11" fill="#334155">
+            <text x="60" y="220" font-weight="700" fill="#64748B">Report ID:</text>
+            <text x="140" y="220" font-weight="800" fill="#0F172A">LAB-2026-9811-A</text>
+            
+            <text x="60" y="244" font-weight="700" fill="#64748B">Sample Date:</text>
+            <text x="140" y="244" font-weight="600">Sept 14, 2026</text>
+
+            <text x="60" y="268" font-weight="700" fill="#64748B">Issue Date:</text>
+            <text x="140" y="268" font-weight="600">Sept 15, 2026</text>
+
+            <text x="310" y="220" font-weight="700" fill="#64748B">Property Site:</text>
+            <text x="410" y="220" font-weight="700" fill="#0F172A">Scarsdale Estate Residence</text>
+
+            <text x="310" y="244" font-weight="700" fill="#64748B">Lead Hygienist:</text>
+            <text x="410" y="244" font-weight="600">Elena Vance, PhD, CIH</text>
+
+            <text x="310" y="268" font-weight="700" fill="#64748B">Sampling Method:</text>
+            <text x="410" y="268" font-weight="600">Zefon Air-O-Cell @ 15 L/min</text>
+
+            <text x="590" y="220" font-weight="700" fill="#64748B">Target Area:</text>
+            <text x="670" y="220" font-weight="600">Master HVAC Zone</text>
+
+            <text x="590" y="244" font-weight="700" fill="#64748B">Lab Analyst:</text>
+            <text x="670" y="244" font-weight="600">Dr. M. Chen</text>
+
+            <text x="590" y="268" font-weight="700" fill="#64748B">Sample Count:</text>
+            <text x="670" y="268" font-weight="600">8 Air / 4 Surface</text>
+          </g>
+
+          <text x="40" y="322" font-size="13" font-weight="800" fill="#0F172A" letter-spacing="0.5">1. AIRBORNE SPORE TRAP QUANTITATIVE RESULTS (Spores/m³)</text>
+          
+          <rect x="40" y="335" width="720" height="32" fill="#0F172A" rx="4"/>
+          <g font-size="10" font-weight="800" fill="#FFFFFF">
+            <text x="55" y="356">FUNGAL / MYCOTOXIN GENUS</text>
+            <text x="270" y="356" text-anchor="middle">OUTDOOR BASELINE</text>
+            <text x="420" y="356" text-anchor="middle">PRE-REMEDIATION</text>
+            <text x="575" y="356" text-anchor="middle">POST-CLEARANCE</text>
+            <text x="710" y="356" text-anchor="middle">PRV STATUS</text>
+          </g>
+
+          <rect x="40" y="367" width="720" height="42" fill="#FEF2F2" stroke="#FCA5A5" stroke-width="0.8"/>
+          <text x="55" y="392" font-size="11" font-weight="800" fill="#991B1B">Stachybotrys chartarum (Black Mold)</text>
+          <text x="270" y="392" font-size="11" font-weight="600" fill="#475569" text-anchor="middle">0 /m³</text>
+          <text x="420" y="392" font-size="11" font-weight="800" fill="#DC2626" text-anchor="middle">8,400 /m³ (CRITICAL)</text>
+          <text x="575" y="392" font-size="11" font-weight="800" fill="#059669" text-anchor="middle">0 /m³ (UNDETECTED)</text>
+          <rect x="675" y="378" width="70" height="20" rx="10" fill="#10B981"/>
+          <text x="710" y="392" font-size="9" font-weight="800" fill="#FFFFFF" text-anchor="middle">PASSED</text>
+
+          <rect x="40" y="411" width="720" height="42" fill="#FFFBEB" stroke="#FDE68A" stroke-width="0.8"/>
+          <text x="55" y="436" font-size="11" font-weight="700" fill="#92400E">Aspergillus / Penicillium Group</text>
+          <text x="270" y="436" font-size="11" font-weight="600" fill="#475569" text-anchor="middle">140 /m³</text>
+          <text x="420" y="436" font-size="11" font-weight="800" fill="#D97706" text-anchor="middle">14,800 /m³ (ELEVATED)</text>
+          <text x="575" y="436" font-size="11" font-weight="800" fill="#059669" text-anchor="middle">28 /m³ (PURE)</text>
+          <rect x="675" y="422" width="70" height="20" rx="10" fill="#10B981"/>
+          <text x="710" y="436" font-size="9" font-weight="800" fill="#FFFFFF" text-anchor="middle">PASSED</text>
+
+          <rect x="40" y="455" width="720" height="42" fill="#F8FAFC" stroke="#E2E8F0" stroke-width="0.8"/>
+          <text x="55" y="480" font-size="11" font-weight="700" fill="#334155">Chaetomium globosum</text>
+          <text x="270" y="480" font-size="11" font-weight="600" fill="#475569" text-anchor="middle">0 /m³</text>
+          <text x="420" y="480" font-size="11" font-weight="700" fill="#E11D48" text-anchor="middle">1,250 /m³ (HIGH)</text>
+          <text x="575" y="480" font-size="11" font-weight="800" fill="#059669" text-anchor="middle">0 /m³ (UNDETECTED)</text>
+          <rect x="675" y="466" width="70" height="20" rx="10" fill="#10B981"/>
+          <text x="710" y="480" font-size="9" font-weight="800" fill="#FFFFFF" text-anchor="middle">PASSED</text>
+
+          <rect x="40" y="499" width="720" height="42" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="0.8"/>
+          <text x="55" y="524" font-size="11" font-weight="700" fill="#334155">Cladosporium sphaerospermum</text>
+          <text x="270" y="524" font-size="11" font-weight="600" fill="#475569" text-anchor="middle">80 /m³</text>
+          <text x="420" y="524" font-size="11" font-weight="600" fill="#475569" text-anchor="middle">420 /m³ (MODERATE)</text>
+          <text x="575" y="524" font-size="11" font-weight="800" fill="#059669" text-anchor="middle">12 /m³ (CLEARED)</text>
+          <rect x="675" y="510" width="70" height="20" rx="10" fill="#10B981"/>
+          <text x="710" y="524" font-size="9" font-weight="800" fill="#FFFFFF" text-anchor="middle">PASSED</text>
+
+          <rect x="40" y="543" width="720" height="44" fill="#0B1926" rx="4"/>
+          <text x="55" y="569" font-size="11" font-weight="900" fill="#FFFFFF">TOTAL AIRBORNE FUNGAL SPORES</text>
+          <text x="270" y="569" font-size="11" font-weight="800" fill="#94A3B8" text-anchor="middle">220 /m³</text>
+          <text x="420" y="569" font-size="11" font-weight="900" fill="#F87171" text-anchor="middle">24,870 /m³ (HAZARD)</text>
+          <text x="575" y="569" font-size="12" font-weight="900" fill="#34D399" text-anchor="middle">40 /m³ (SURGICAL SAFE)</text>
+          <rect x="675" y="555" width="70" height="22" rx="11" fill="#10B981"/>
+          <text x="710" y="570" font-size="10" font-weight="900" fill="#FFFFFF" text-anchor="middle">PASSED</text>
+
+          <text x="40" y="618" font-size="13" font-weight="800" fill="#0F172A" letter-spacing="0.5">2. VOLATILE ORGANIC COMPOUNDS (TVOC) &amp; PARTICULATES</text>
+          
+          <rect x="40" y="630" width="720" height="100" rx="6" fill="#F8FAFC" stroke="#E2E8F0" stroke-width="1"/>
+          
+          <g font-size="11">
+            <text x="60" y="658" font-weight="700" fill="#475569">Total Volatile Organic Compounds (TVOC):</text>
+            <text x="320" y="658" font-weight="800" fill="#DC2626">Pre: 1,840 ppb</text>
+            <text x="460" y="658" font-weight="800" fill="#059669">&rarr; Post: 18 ppb (Pure Air Standard)</text>
+            
+            <text x="60" y="684" font-weight="700" fill="#475569">Respirable PM2.5 Fine Particulates:</text>
+            <text x="320" y="684" font-weight="800" fill="#DC2626">Pre: 88 &#181;g/m&#179;</text>
+            <text x="460" y="684" font-weight="800" fill="#059669">&rarr; Post: 1.4 &#181;g/m&#179; (WHO Compliant)</text>
+
+            <text x="60" y="710" font-weight="700" fill="#475569">Relative Humidity &amp; Dew Point:</text>
+            <text x="320" y="710" font-weight="800" fill="#DC2626">Pre: 68.4% RH</text>
+            <text x="460" y="710" font-weight="800" fill="#059669">&rarr; Post: 42.1% RH (Optimal)</text>
+          </g>
+
+          <rect x="40" y="745" width="720" height="110" rx="6" fill="#F0FDF4" stroke="#BBF7D0" stroke-width="1"/>
+          <text x="55" y="768" font-size="11" font-weight="900" fill="#166534">BOARD-CERTIFIED INDUSTRIAL HYGIENIST CONCLUSION:</text>
+          <text x="55" y="788" font-size="10" font-weight="500" fill="#15803D">Post-Remediation Verification (PRV) testing confirms complete eradication of active Stachybotrys chartarum</text>
+          <text x="55" y="804" font-size="10" font-weight="500" fill="#15803D">and Aspergillus colonies. Indoor spore counts have been reduced below natural outdoor ambient baselines.</text>
+          <text x="55" y="820" font-size="10" font-weight="500" fill="#15803D">Air quality meets hospital-grade indoor environmental clearance standards.</text>
+          <text x="55" y="842" font-size="10" font-weight="800" fill="#166534">&#8226; Certificate #LAB-2026-9811 is valid for property closing escrow and insurance clearance.</text>
+
+          <g transform="translate(40, 875)">
+            <path d="M 20 40 Q 50 10 90 45 T 160 30" fill="none" stroke="#0F2C3E" stroke-width="2.5"/>
+            <line x1="10" y1="50" x2="240" y2="50" stroke="#94A3B8" stroke-width="1"/>
+            <text x="10" y="66" font-size="11" font-weight="800" fill="#0F172A">Elena Vance, PhD, CIH</text>
+            <text x="10" y="80" font-size="9" font-weight="600" fill="#64748B">Chief Environmental Microbiologist, AIHA #104928</text>
+
+            <g transform="translate(560, 20)">
+              <circle cx="50" cy="30" r="45" fill="none" stroke="#10B981" stroke-width="3" stroke-dasharray="6,3"/>
+              <circle cx="50" cy="30" r="38" fill="url(#stamp-grad-idx)" opacity="0.12"/>
+              <circle cx="50" cy="30" r="38" fill="none" stroke="#059669" stroke-width="1.5"/>
+              <text x="50" y="18" font-size="8" font-weight="900" fill="#059669" text-anchor="middle">AIHA-EMLAP</text>
+              <text x="50" y="32" font-size="10" font-weight="900" fill="#047857" text-anchor="middle">OFFICIAL</text>
+              <text x="50" y="44" font-size="9" font-weight="900" fill="#059669" text-anchor="middle">PASSED</text>
+              <text x="50" y="54" font-size="7" font-weight="700" fill="#065F46" text-anchor="middle">LAB #104928</text>
+            </g>
+          </g>
+
+          <line x1="40" y1="990" x2="760" y2="990" stroke="#CBD5E1" stroke-width="1"/>
+          <text x="400" y="1008" font-size="9" font-weight="500" fill="#94A3B8" text-anchor="middle">Page 1 of 1 &#8226; Official Accredited Laboratory Document &#8226; Confidential &#169; 2026 AeroPure Environmental Services</text>
+        </svg>
+      </div>
+
+      <div style="background:var(--secondary-surface); padding:16px; border-radius:var(--radius-sm); border:1px solid rgba(16,185,129,0.3); margin-bottom:24px;">
+        <h4 style="color:var(--secondary); font-size:0.95rem; margin-bottom:4px;">Official CIH Certification Assessment</h4>
+        <p style="font-size:0.85rem; color:var(--text-secondary); margin:0;">
+          Post-Remediation Verification (PRV) testing confirms complete eradication of active Stachybotrys chartarum and Aspergillus colonies. Indoor spore counts have been reduced below natural outdoor ambient baselines. Space certified safe for human re-occupancy.
+        </p>
+      </div>
+
+      <div style="display:flex; justify-content:flex-end; gap:12px;">
+        <button type="button" class="btn btn-secondary btn-sm" onclick="closeModal('sampleReportModal')">Close Preview</button>
+        <a href="pages/contact.html" class="btn btn-primary btn-sm">Order Lab Air Testing</a>
+      </div>
+    </div>
+  </div>
 
   <!-- Scripts -->
   <script src="assets/js/main.js"></script>

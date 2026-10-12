@@ -7,17 +7,99 @@
   <meta name="description" content="Explore our clinical services: FLIR thermal mold inspections, medical-grade HEPA negative air remediation, and certified spore trap air quality testing.">
   <link rel="icon" type="image/svg+xml" href="../assets/images/favicon.svg">
 
-  <link rel="stylesheet" href="../assets/css/style.css">
-  <link rel="stylesheet" href="../assets/css/dark-mode.css">
-  <link rel="stylesheet" href="../assets/css/rtl.css">
+  <link rel="stylesheet" href="../assets/css/style.css?v=2.3">
+  <link rel="stylesheet" href="../assets/css/dark-mode.css?v=2.3">
+  <link rel="stylesheet" href="../assets/css/rtl.css?v=2.3">
+
+  <style>
+    .site-header {
+      position: fixed !important;
+      top: 0 !important;
+      left: 0 !important;
+      right: 0 !important;
+      width: 100% !important;
+      z-index: 1000 !important;
+    }
+    body:has(.site-header) {
+      padding-top: var(--header-height, 80px) !important;
+    }
+
+    @media (max-width: 768px) {
+      .hero-services-page {
+        padding-top: 24px !important;
+        padding-bottom: 48px !important;
+        padding-left: 16px !important;
+        padding-right: 16px !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+        overflow: hidden !important;
+      }
+      .hero-card-container {
+        width: 100% !important;
+        max-width: 100% !important;
+        margin: 0 auto !important;
+        padding: 30px 18px 32px 18px !important;
+        border-radius: 20px !important;
+        box-sizing: border-box !important;
+        text-align: center !important;
+        box-shadow: 0 16px 40px -10px rgba(0, 0, 0, 0.25) !important;
+      }
+      .hero-card-container .section-badge {
+        margin-bottom: 12px !important;
+        font-size: 0.78rem !important;
+        padding: 5px 14px !important;
+      }
+      .hero-card-container h1 {
+        font-size: clamp(1.45rem, 5.8vw, 1.95rem) !important;
+        line-height: 1.25 !important;
+        margin-bottom: 14px !important;
+        letter-spacing: -0.02em !important;
+        word-break: break-word !important;
+        text-align: center !important;
+      }
+      .hero-card-container h1 br {
+        display: inline !important;
+      }
+      .hero-card-container p {
+        font-size: clamp(0.88rem, 3.6vw, 0.98rem) !important;
+        line-height: 1.55 !important;
+        margin-bottom: 22px !important;
+        padding-left: 4px !important;
+        padding-right: 4px !important;
+        max-width: 100% !important;
+        text-align: center !important;
+      }
+      .hero-card-container .hero-action-btns {
+        display: flex !important;
+        flex-direction: column !important;
+        width: 100% !important;
+        gap: 10px !important;
+        align-items: stretch !important;
+        box-sizing: border-box !important;
+      }
+      .hero-card-container .hero-action-btns .btn {
+        width: 100% !important;
+        max-width: 100% !important;
+        justify-content: center !important;
+        text-align: center !important;
+        white-space: normal !important;
+        word-break: break-word !important;
+        padding: 12px 18px !important;
+        min-height: 48px !important;
+        font-size: 0.92rem !important;
+        box-sizing: border-box !important;
+      }
+    }
+  </style>
 </head>
 <body>
 
   <!-- Site Header -->
   <header class="site-header">
     <div class="container header-inner">
-      <a href="index.html" class="brand-logo" aria-label="AeroPure Homepage">
-        <svg viewBox="0 0 240 50" width="180" height="38">
+      <a href="../index.html" class="brand-logo" aria-label="AeroPure Homepage">
+        <svg viewBox="0 0 178 50" width="142" height="40">
           <defs>
             <linearGradient id="logo-bg-grad" x1="0%" y1="0%" x2="100%" y2="100%">
               <stop offset="0%" stop-color="#0B2535"/>
@@ -35,17 +117,18 @@
             <circle cx="21" cy="21.5" r="2.2" fill="#FFFFFF"/>
           </g>
           <text x="56" y="27" font-family="'Plus Jakarta Sans', sans-serif" font-size="20" font-weight="800" fill="currentColor" letter-spacing="-0.5">AEROPURE</text>
-          <text x="56" y="40" font-family="'Inter', sans-serif" font-size="8.5" font-weight="600" fill="#10B981" letter-spacing="2">AIR INTELLIGENCE</text>
+          <text x="56" y="41" class="logo-tagline" font-family="'Inter', sans-serif" font-size="9.5" font-weight="700" fill="#047857" letter-spacing="1.6">AIR INTELLIGENCE</text>
         </svg>
       </a>
 
       <!-- Primary Navigation -->
       <nav class="main-nav" aria-label="Primary Navigation">
         <ul class="nav-links">
-          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="../index.html" class="nav-link">Home</a></li>
           <li><a href="home-2.html" class="nav-link">Home 2</a></li>
-          <li><a href="about.html" class="nav-link">About</a></li>
+          <li><a href="mold-inspection-testing.html" class="nav-link">Inspection &amp; Testing</a></li>
           <li><a href="services.html" class="nav-link active">Services</a></li>
+          <li><a href="about.html" class="nav-link">About</a></li>
           <li><a href="pricing.html" class="nav-link">Pricing</a></li>
           <li><a href="contact.html" class="nav-link">Contact</a></li>
         </ul>
@@ -115,16 +198,17 @@
             <circle cx="21" cy="21.5" r="2.2" fill="#FFFFFF"/>
           </g>
           <text x="56" y="27" font-family="'Plus Jakarta Sans', sans-serif" font-size="20" font-weight="800" fill="currentColor" letter-spacing="-0.5">AEROPURE</text>
-          <text x="56" y="40" font-family="'Inter', sans-serif" font-size="8.5" font-weight="600" fill="#10B981" letter-spacing="2">AIR INTELLIGENCE</text>
+          <text x="56" y="41" class="logo-tagline" font-family="'Inter', sans-serif" font-size="9.5" font-weight="700" fill="#047857" letter-spacing="1.6">AIR INTELLIGENCE</text>
         </svg>
       </a>
       <button type="button" class="drawer-close-btn icon-toggle-btn"><svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg></button>
     </div>
     <ul class="drawer-nav-list">
-      <li><a href="index.html" class="drawer-nav-link">Home</a></li>
+      <li><a href="../index.html" class="drawer-nav-link">Home</a></li>
       <li><a href="home-2.html" class="drawer-nav-link">Home 2</a></li>
-      <li><a href="about.html" class="drawer-nav-link">About</a></li>
+      <li><a href="mold-inspection-testing.html" class="drawer-nav-link">Inspection &amp; Testing</a></li>
       <li><a href="services.html" class="drawer-nav-link active">Services</a></li>
+      <li><a href="about.html" class="drawer-nav-link">About</a></li>
       <li><a href="pricing.html" class="drawer-nav-link">Pricing</a></li>
       <li><a href="contact.html" class="drawer-nav-link">Contact</a></li>
     </ul>
@@ -163,17 +247,19 @@
 
   <main>
     <!-- SECTION 1: SERVICES INTRO & PHILOSOPHY -->
-    <section class="section-padding hero-home-1" style="padding-top:60px; text-align:center;">
-      <div class="container" style="max-width:840px; margin:0 auto; text-align:center;">
+    <section class="section-padding hero-home-1 hero-services-page" style="padding-top:60px; text-align:center;">
+      <div class="container hero-card-container" style="max-width:840px; margin:0 auto; text-align:center;">
         <span class="section-badge" style="margin-bottom:12px; display:inline-block;">Precision Engineering</span>
         <h1 style="margin-bottom:18px;">Clinical Environmental<br><span class="text-gradient">Diagnostic Services</span></h1>
         <p style="font-size:1.15rem; margin-bottom:28px; color:var(--text-secondary); max-width:680px; margin-left:auto; margin-right:auto;">
           We combine high-resolution infrared thermal imaging, calibrated spore trap aerodynamics, and medical negative air pressure isolation to diagnose and eliminate fungal contamination.
         </p>
-        <div style="display:flex; justify-content:center; gap:16px; flex-wrap:wrap;">
+        <div class="hero-action-btns" style="display:flex; justify-content:center; gap:16px; flex-wrap:wrap;">
           <a href="#inspection" class="btn btn-primary">Mold Inspection</a>
+          <a href="mold-inspection-testing.html" class="btn btn-secondary">Inspection &amp; Testing Page &rarr;</a>
           <a href="#remediation" class="btn btn-secondary">Remediation</a>
           <a href="#testing" class="btn btn-secondary">Air Quality Testing</a>
+          <a href="#pricing-breakdown" class="btn btn-secondary">Pricing & Options</a>
         </div>
       </div>
     </section>
@@ -211,7 +297,47 @@
               <p style="font-size:0.84rem; margin:0;">HVAC relative humidity and condensation risk calculations.</p>
             </div>
           </div>
-          <a href="contact.html" class="btn btn-primary">Book an Infrared Inspection</a>
+
+          <!-- Clear Pricing & Service Options Box -->
+          <div class="service-price-callout">
+            <div style="display:flex; justify-content:space-between; align-items:flex-start; flex-wrap:wrap; gap:10px;">
+              <div>
+                <span class="service-price-badge">Fixed Transparent Rate</span>
+                <div class="service-price-val">$299 <span class="service-price-unit">/ standard inspection visit</span></div>
+              </div>
+              <div class="service-price-status-pill">
+                <svg width="14" height="14" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+                <span>Zero Hidden Trip Fees</span>
+              </div>
+            </div>
+            <p class="service-price-desc">
+              Standard flat rate covers residential homes up to 2,500 sq. ft. Includes full digital thermal photographic report delivered within 24 hours.
+            </p>
+            <div class="service-price-options-grid">
+              <div class="price-option-tag">
+                <span class="tag-title">Scope:</span>
+                <span class="tag-val">Up to 2,500 Sq Ft</span>
+              </div>
+              <div class="price-option-tag">
+                <span class="tag-title">Turnaround:</span>
+                <span class="tag-val">24h Written PDF</span>
+              </div>
+              <div class="price-option-tag">
+                <span class="tag-title">Crawlspace/Attic:</span>
+                <span class="tag-val">+$75 add-on</span>
+              </div>
+              <div class="price-option-tag">
+                <span class="tag-title">Extra Cassette:</span>
+                <span class="tag-val">+$95 / sample</span>
+              </div>
+            </div>
+          </div>
+
+          <div style="display:flex; gap:12px; flex-wrap:wrap; align-items:center;">
+            <a href="contact.html" class="btn btn-primary">Book an Infrared Inspection ($299)</a>
+            <a href="mold-inspection-testing.html" class="btn btn-secondary">Dedicated Inspection &amp; Testing Page &rarr;</a>
+            <a href="#pricing-breakdown" class="btn btn-secondary">Compare All Options</a>
+          </div>
         </div>
       </div>
     </section>
@@ -244,7 +370,46 @@
               <span><strong>Botanical Bio-Shield Barrier:</strong> EPA-registered thymol sealant prevents dormant spore germination.</span>
             </li>
           </ul>
-          <a href="contact.html" class="btn btn-primary">Schedule Remediation Triage</a>
+
+          <!-- Clear Pricing & Service Options Box -->
+          <div class="service-price-callout">
+            <div style="display:flex; justify-content:space-between; align-items:flex-start; flex-wrap:wrap; gap:10px;">
+              <div>
+                <span class="service-price-badge">100% Clearance Guaranteed</span>
+                <div class="service-price-val">From $1,490 <span class="service-price-unit">/ containment zone</span></div>
+              </div>
+              <div class="service-price-status-pill">
+                <svg width="14" height="14" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+                <span>Insurance Direct Billing</span>
+              </div>
+            </div>
+            <p class="service-price-desc">
+              Typical single-room containment projects range from $1,490 to $2,950 based on square footage and timber penetration depth. Free re-scrubbing if clearance test doesn't pass.
+            </p>
+            <div class="service-price-options-grid">
+              <div class="price-option-tag">
+                <span class="tag-title">Typical Scope:</span>
+                <span class="tag-val">$1,490 – $2,950 / rm</span>
+              </div>
+              <div class="price-option-tag">
+                <span class="tag-title">Full HVAC Scrub:</span>
+                <span class="tag-val">+$450 / system</span>
+              </div>
+              <div class="price-option-tag">
+                <span class="tag-title">Subfloor Sealing:</span>
+                <span class="tag-val">+$350 / crawlspace</span>
+              </div>
+              <div class="price-option-tag">
+                <span class="tag-title">Claim Billing:</span>
+                <span class="tag-val">Included (Xactimate)</span>
+              </div>
+            </div>
+          </div>
+
+          <div style="display:flex; gap:12px; flex-wrap:wrap; align-items:center;">
+            <a href="contact.html" class="btn btn-primary">Schedule Remediation Triage (From $1,490)</a>
+            <a href="#pricing-breakdown" class="btn btn-secondary">View Cost Details</a>
+          </div>
         </div>
         <div class="hero-media-wrapper">
           <div class="hero-image-frame" style="border:1px solid rgba(16,185,129,0.3); box-shadow:0 12px 36px rgba(0,0,0,0.4); border-radius:var(--radius-lg); overflow:hidden;">
@@ -278,10 +443,49 @@
                 <li>&bull; Official Post-Remediation Verification (PRV) Pass/Fail certificate signed by a CIH</li>
               </ul>
             </div>
-            <button type="button" class="btn btn-primary btn-lg" onclick="openModal('sampleReportModal')">
-              <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg>
-              <span>Preview Certified Sample Lab Report</span>
-            </button>
+
+            <!-- Clear Pricing & Service Options Box -->
+            <div class="service-price-callout">
+              <div style="display:flex; justify-content:space-between; align-items:flex-start; flex-wrap:wrap; gap:10px;">
+                <div>
+                  <span class="service-price-badge">AIHA-EMLAP Lab Certified</span>
+                  <div class="service-price-val">$489 <span class="service-price-unit">/ 3-sample diagnostic package</span></div>
+                </div>
+                <div class="service-price-status-pill">
+                  <svg width="14" height="14" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+                  <span>48h CIH Signed Certificate</span>
+                </div>
+              </div>
+              <p class="service-price-desc">
+                Includes 2 indoor target zone cassettes + 1 outdoor control baseline. Full quantitative genus breakdown and AIHA-EMLAP accredited lab clearance certificate.
+              </p>
+              <div class="service-price-options-grid">
+                <div class="price-option-tag">
+                  <span class="tag-title">Base Package:</span>
+                  <span class="tag-val">3 Air-O-Cell Cassettes</span>
+                </div>
+                <div class="price-option-tag">
+                  <span class="tag-title">Additional Sample:</span>
+                  <span class="tag-val">$95 / cassette</span>
+                </div>
+                <div class="price-option-tag">
+                  <span class="tag-title">Surface Tape Lift:</span>
+                  <span class="tag-val">$75 / swab sample</span>
+                </div>
+                <div class="price-option-tag">
+                  <span class="tag-title">Emergency Rush:</span>
+                  <span class="tag-val">+$150 (Same-Day)</span>
+                </div>
+              </div>
+            </div>
+
+            <div style="display:flex; gap:12px; flex-wrap:wrap; align-items:center;">
+              <button type="button" class="btn btn-primary" onclick="openModal('sampleReportModal')">
+                <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg>
+                <span>Preview Certified Sample Lab Report</span>
+              </button>
+              <a href="contact.html" class="btn btn-secondary">Order Air Testing ($489)</a>
+            </div>
           </div>
 
           <div class="hero-media-wrapper" style="text-align:center;">
@@ -454,6 +658,290 @@
               </svg>
             </div>
             <p style="font-size:0.82rem; color:var(--text-muted); margin-top:12px;">Click to view full high-resolution certified lab certificate modal</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 5: COMPREHENSIVE SERVICE PRICING & OPTIONS BREAKDOWN -->
+    <section class="section-padding" style="background:var(--bg-alt);" id="pricing-breakdown">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-badge">Cost Transparency &amp; Options Guide</span>
+          <h2 class="section-title">Clear Service Pricing &amp; Options Breakdown</h2>
+          <p class="section-subtitle">No artificial scare tactics, zero conflict-of-interest markup, and empirical forensic pricing. Understand exactly what is included in each service option.</p>
+        </div>
+
+        <!-- 3-Tier Side-by-Side Service Pricing Cards -->
+        <div class="pricing-grid-3">
+          <!-- Option 1: Mold Inspection -->
+          <div class="pricing-card">
+            <div class="pricing-header">
+              <span class="section-badge" style="font-size:0.75rem; margin-bottom:6px;">Diagnostic Phase 1</span>
+              <h3 class="pricing-title">Infrared Thermal Mold Inspection</h3>
+              <p style="font-size:0.88rem; color:var(--text-secondary);">Non-destructive moisture mapping &amp; thermography</p>
+              <div class="pricing-price">$299 <span>/ visit</span></div>
+            </div>
+            <ul class="pricing-features">
+              <li>
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                <span>Full FLIR infrared wall &amp; ceiling thermal anomaly scan</span>
+              </li>
+              <li>
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                <span>Sub-surface wood &amp; drywall moisture saturation pinning</span>
+              </li>
+              <li>
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                <span>Cavity borescope micro-endoscopic wall void check</span>
+              </li>
+              <li>
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                <span>Psychrometric relative humidity &amp; dew point mapping</span>
+              </li>
+              <li>
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                <span>Formal digital photo inspection log (24h written PDF)</span>
+              </li>
+              <li>
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                <span>Covers residential properties up to 2,500 sq. ft.</span>
+              </li>
+            </ul>
+            <div style="background:var(--bg-alt); padding:10px 14px; border-radius:var(--radius-sm); border:1px solid var(--border-color); margin-bottom:18px; font-size:0.82rem; color:var(--text-secondary);">
+              <strong>Common Add-on:</strong> Crawlspace / attic inspection: +$75
+            </div>
+            <a href="contact.html" class="btn btn-secondary" style="width:100%;">Book Inspection ($299)</a>
+          </div>
+
+          <!-- Option 2: Air Testing (Featured) -->
+          <div class="pricing-card featured">
+            <span class="popular-badge">Most Popular Diagnostic</span>
+            <div class="pricing-header">
+              <span class="section-badge" style="font-size:0.75rem; margin-bottom:6px;">Diagnostic Phase 3</span>
+              <h3 class="pricing-title">Forensic Lab Air Quality Testing</h3>
+              <p style="font-size:0.88rem; color:var(--text-secondary);">Quantitative microbiological spore trap profiling</p>
+              <div class="pricing-price" style="color:var(--primary);">$489 <span>/ package</span></div>
+            </div>
+            <ul class="pricing-features">
+              <li>
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                <span><strong>Includes complete Infrared Thermal Inspection scan</strong></span>
+              </li>
+              <li>
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                <span>3 Certified Air-O-Cell cassettes (2 indoor + 1 outdoor control)</span>
+              </li>
+              <li>
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                <span>AIHA-EMLAP &amp; ISO 17025 accredited laboratory microscopic analysis</span>
+              </li>
+              <li>
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                <span>Genus identification (Stachybotrys, Aspergillus, Penicillium)</span>
+              </li>
+              <li>
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                <span>TVOC chemical volatile gas &amp; PM2.5 laser particle screening</span>
+              </li>
+              <li>
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                <span>Official CIH-signed lab certificate with Pass/Fail PRV status (48h)</span>
+              </li>
+            </ul>
+            <div style="background:rgba(20,184,166,0.12); padding:10px 14px; border-radius:var(--radius-sm); border:1px solid rgba(20,184,166,0.25); margin-bottom:18px; font-size:0.82rem; color:var(--primary);">
+              <strong>Common Add-on:</strong> Additional air cassette sample: +$95 each
+            </div>
+            <a href="contact.html" class="btn btn-primary" style="width:100%;">Order Complete Air Testing ($489)</a>
+          </div>
+
+          <!-- Option 3: Full Remediation -->
+          <div class="pricing-card">
+            <div class="pricing-header">
+              <span class="section-badge" style="font-size:0.75rem; margin-bottom:6px;">Remediation Phase 2</span>
+              <h3 class="pricing-title">Hospital-Grade Negative Air Remediation</h3>
+              <p style="font-size:0.88rem; color:var(--text-secondary);">Guaranteed clinical eradication &amp; bio-shield clearance</p>
+              <div class="pricing-price">From $1,490 <span>/ zone</span></div>
+            </div>
+            <ul class="pricing-features">
+              <li>
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                <span>6-Mil polyethylene zippered negative-air pressure airlocks</span>
+              </li>
+              <li>
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                <span>Continuous DOP-tested HEPA-500 air scrubbers (99.97% @ 0.3&mu;m)</span>
+              </li>
+              <li>
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                <span>Dry-ice frozen CO2 timber blasting or micro-abrasion root lifting</span>
+              </li>
+              <li>
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                <span>EPA-registered botanical thymol bio-shield barrier sealant</span>
+              </li>
+              <li>
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                <span>HEPA vacuuming, double-bagging &amp; bio-hazard waste haul away</span>
+              </li>
+              <li>
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                <span><strong>100% Pass Clearance Guarantee (Free re-scrub if PRV fails)</strong></span>
+              </li>
+            </ul>
+            <div style="background:var(--bg-alt); padding:10px 14px; border-radius:var(--radius-sm); border:1px solid var(--border-color); margin-bottom:18px; font-size:0.82rem; color:var(--text-secondary);">
+              <strong>Typical Range:</strong> $1,490 – $2,950 per room based on depth
+            </div>
+            <a href="contact.html" class="btn btn-secondary" style="width:100%;">Request Custom Remediation Plan</a>
+          </div>
+        </div>
+
+        <!-- A-La-Carte Options & Associated Costs Table -->
+        <div style="margin-top:60px;">
+          <div style="text-align:center; max-width:680px; margin:0 auto 24px;">
+            <span class="section-badge" style="font-size:0.8rem;">Itemized Price Guide</span>
+            <h3 style="font-size:1.6rem; margin-top:8px; margin-bottom:8px;">A-La-Carte Options &amp; Associated Costs</h3>
+            <p style="font-size:0.95rem; color:var(--text-secondary); margin:0;">Transparent pricing for optional diagnostic add-ons, expedited laboratory turns, and specialized property zones.</p>
+          </div>
+
+          <div class="services-table-wrapper">
+            <table class="services-cost-table">
+              <thead>
+                <tr>
+                  <th style="min-width:220px;">Service Option / Add-On</th>
+                  <th style="min-width:280px;">Scope &amp; Inclusions</th>
+                  <th style="min-width:140px;">Associated Cost</th>
+                  <th style="min-width:160px;">Delivery / Turnaround</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>
+                    <strong>Additional Zefon Air-O-Cell Cassette</strong>
+                    <div style="font-size:0.78rem; color:var(--text-muted);">Microscopic Air Spore Trap</div>
+                  </td>
+                  <td>Sample an additional bedroom, basement, attic, or HVAC return duct. Quantitative Spores/m&sup3; genus breakdown.</td>
+                  <td><span class="cost-badge">$95</span> <span style="font-size:0.8rem;">/ cassette</span></td>
+                  <td>Included in 48h Lab PDF</td>
+                </tr>
+                <tr>
+                  <td>
+                    <strong>Surface Tape Lift / Sterile Swab Sample</strong>
+                    <div style="font-size:0.78rem; color:var(--text-muted);">Direct Colony Swab</div>
+                  </td>
+                  <td>Laboratory direct microscopy to confirm active mycelial growth vs cosmetic staining on framing, joists, or drywall.</td>
+                  <td><span class="cost-badge">$75</span> <span style="font-size:0.8rem;">/ sample</span></td>
+                  <td>Included in 48h Lab PDF</td>
+                </tr>
+                <tr>
+                  <td>
+                    <strong>Same-Day Emergency Lab Rush</strong>
+                    <div style="font-size:0.78rem; color:var(--text-muted);">Priority AIHA Courier &amp; Processing</div>
+                  </td>
+                  <td>Guaranteed 12-hour laboratory analysis turnaround for urgent hospital patient rooms or real estate escrow deadlines.</td>
+                  <td><span class="cost-badge">+$150</span> <span style="font-size:0.8rem;">flat fee</span></td>
+                  <td>Same-Day (12 Hours)</td>
+                </tr>
+                <tr>
+                  <td>
+                    <strong>Crawlspace &amp; Attic Void Diagnostic</strong>
+                    <div style="font-size:0.78rem; color:var(--text-muted);">Sub-grade &amp; Roof Truss Inspection</div>
+                  </td>
+                  <td>Full protective PPE entry, high-intensity borescope void exploration, timber psychrometric moisture saturation check.</td>
+                  <td><span class="cost-badge">+$75</span> <span style="font-size:0.8rem;">/ specialized zone</span></td>
+                  <td>Same-day on-site check</td>
+                </tr>
+                <tr>
+                  <td>
+                    <strong>Whole-Home HVAC Duct Decontamination</strong>
+                    <div style="font-size:0.78rem; color:var(--text-muted);">Mechanical Air Distribution System</div>
+                  </td>
+                  <td>Negative-air pressure scrubber connection to supply/return trunks, botanical bio-shield fogging, and evaporator coil wash.</td>
+                  <td><span class="cost-badge">+$450</span> <span style="font-size:0.8rem;">/ HVAC system</span></td>
+                  <td>Completed during remediation</td>
+                </tr>
+                <tr>
+                  <td>
+                    <strong>Timber Subfloor Vapor Encapsulation</strong>
+                    <div style="font-size:0.78rem; color:var(--text-muted);">Crawlspace Joist Barrier</div>
+                  </td>
+                  <td>Commercial antimicrobial botanical barrier sealant applied to exposed floor joists and subfloor plywood to prevent spore resurgence.</td>
+                  <td><span class="cost-badge">+$350</span> <span style="font-size:0.8rem;">/ crawlspace zone</span></td>
+                  <td>Completed during remediation</td>
+                </tr>
+                <tr>
+                  <td>
+                    <strong>Multi-Zone Residential Package Discount</strong>
+                    <div style="font-size:0.78rem; color:var(--text-muted);">Whole-Floor / Multi-Room Bundle</div>
+                  </td>
+                  <td>Properties requiring 3 or more remediation containment zones receive an automatic volume reduction across equipment scrub hours.</td>
+                  <td><span class="cost-badge" style="color:var(--secondary);">15% Discount</span></td>
+                  <td>Applied automatically to quote</td>
+                </tr>
+                <tr>
+                  <td>
+                    <strong>Insurance Direct Claim Billing (Xactimate)</strong>
+                    <div style="font-size:0.78rem; color:var(--text-muted);">Homeowners Insurance Coordination</div>
+                  </td>
+                  <td>Direct claim filing with itemized industry-standard Xactimate pricing codes, forensic photo logs, and adjuster telephone defense.</td>
+                  <td><span class="cost-badge" style="color:#10B981;">$0 (Free)</span></td>
+                  <td>Instant file submission</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Transparent Pricing Quality & Guarantee Pledge -->
+        <div style="margin-top:48px; background:var(--bg-surface); border:1px solid var(--border-color); border-radius:var(--radius-lg); padding:32px 36px; box-shadow:var(--shadow-sm);">
+          <div style="display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:20px; border-bottom:1px solid var(--border-color); padding-bottom:20px; margin-bottom:24px;">
+            <div>
+              <span class="section-badge" style="background:rgba(16,185,129,0.15); color:#10B981; margin-bottom:6px;">Our Ironclad Commitment</span>
+              <h3 style="font-size:1.35rem; margin:0;">The AeroPure Transparent Pricing &amp; Clearance Guarantee</h3>
+            </div>
+            <a href="contact.html" class="btn btn-primary">Request Customized Project Scope</a>
+          </div>
+
+          <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(220px, 1fr)); gap:24px;">
+            <div style="display:flex; gap:12px; align-items:flex-start;">
+              <div style="width:36px; height:36px; border-radius:50%; background:var(--primary-surface); color:var(--primary); display:flex; align-items:center; justify-content:center; flex-shrink:0;">
+                <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+              </div>
+              <div>
+                <h5 style="font-size:0.95rem; margin-bottom:4px;">Zero Hidden Trip Fees</h5>
+                <p style="font-size:0.84rem; color:var(--text-secondary); margin:0;">All diagnostic inspections are quoted as flat-rate fees with zero surprise fuel or mileage surcharges.</p>
+              </div>
+            </div>
+
+            <div style="display:flex; gap:12px; align-items:flex-start;">
+              <div style="width:36px; height:36px; border-radius:50%; background:var(--primary-surface); color:var(--primary); display:flex; align-items:center; justify-content:center; flex-shrink:0;">
+                <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/></svg>
+              </div>
+              <div>
+                <h5 style="font-size:0.95rem; margin-bottom:4px;">No Conflict-of-Interest</h5>
+                <p style="font-size:0.84rem; color:var(--text-secondary); margin:0;">We utilize independent accredited third-party laboratories so test results are un-biased and never inflated.</p>
+              </div>
+            </div>
+
+            <div style="display:flex; gap:12px; align-items:flex-start;">
+              <div style="width:36px; height:36px; border-radius:50%; background:var(--primary-surface); color:var(--primary); display:flex; align-items:center; justify-content:center; flex-shrink:0;">
+                <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+              </div>
+              <div>
+                <h5 style="font-size:0.95rem; margin-bottom:4px;">100% PRV Clearance Pass</h5>
+                <p style="font-size:0.84rem; color:var(--text-secondary); margin:0;">If post-clearance air quality testing fails after remediation, our crew will re-contain and re-scrub at zero cost.</p>
+              </div>
+            </div>
+
+            <div style="display:flex; gap:12px; align-items:flex-start;">
+              <div style="width:36px; height:36px; border-radius:50%; background:var(--primary-surface); color:var(--primary); display:flex; align-items:center; justify-content:center; flex-shrink:0;">
+                <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"/></svg>
+              </div>
+              <div>
+                <h5 style="font-size:0.95rem; margin-bottom:4px;">Direct Insurance Billing</h5>
+                <p style="font-size:0.84rem; color:var(--text-secondary); margin:0;">We furnish itemized Xactimate estimates and negotiate directly with your property insurance claims adjuster.</p>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -680,7 +1168,7 @@
               <circle cx="21" cy="21.5" r="2.2" fill="#FFFFFF"/>
             </g>
             <text x="56" y="27" font-family="'Plus Jakarta Sans', sans-serif" font-size="20" font-weight="800" fill="#FFFFFF" letter-spacing="-0.5">AEROPURE</text>
-            <text x="56" y="40" font-family="'Inter', sans-serif" font-size="8.5" font-weight="600" fill="#10B981" letter-spacing="2">AIR INTELLIGENCE</text>
+            <text x="56" y="41" class="logo-tagline" font-family="'Inter', sans-serif" font-size="9.5" font-weight="700" fill="#34D399" letter-spacing="1.6">AIR INTELLIGENCE</text>
           </svg>
         </a>
         <p>
@@ -716,8 +1204,9 @@
         <ul class="footer-links">
           <li><a href="../index.html">Home</a></li>
           <li><a href="home-2.html">Home 2</a></li>
-          <li><a href="about.html">About</a></li>
+          <li><a href="mold-inspection-testing.html">Inspection &amp; Testing</a></li>
           <li><a href="services.html" class="active">Services</a></li>
+          <li><a href="about.html">About</a></li>
           <li><a href="pricing.html">Pricing</a></li>
           <li><a href="contact.html">Contact</a></li>
         </ul>

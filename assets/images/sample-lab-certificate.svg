@@ -30,7 +30,7 @@
   <!-- Header Text -->
   <text x="115" y="62" font-size="22" font-weight="900" fill="#FFFFFF" letter-spacing="-0.5">AEROPURE ENVIRONMENTAL LABS</text>
   <text x="115" y="80" font-size="11" font-weight="700" fill="#10B981" letter-spacing="2">AIHA-EMLAP &amp; ISO/IEC 17025 ACCREDITED TESTING</text>
-  <text x="115" y="98" font-size="9" font-weight="500" fill="#94A3B8">742 Clean Air Blvd, Suite 400 &bull; Phone: +1 (800) 237-6787 &bull; Lab License #EMLAP-104928</text>
+  <text x="115" y="98" font-size="9" font-weight="500" fill="#94A3B8">742 Clean Air Blvd, Suite 400 &#8226; Phone: +1 (800) 237-6787 &#8226; Lab License #EMLAP-104928</text>
 
   <!-- Certificate Verification Badge Right -->
   <g transform="translate(620, 45)">
@@ -145,15 +145,15 @@
   <g font-size="11">
     <text x="60" y="658" font-weight="700" fill="#475569">Total Volatile Organic Compounds (TVOC):</text>
     <text x="320" y="658" font-weight="800" fill="#DC2626">Pre: 1,840 ppb</text>
-    <text x="460" y="658" font-weight="800" fill="#059669">&rarr; Post: 18 ppb (Pure Air Standard)</text>
+    <text x="460" y="658" font-weight="800" fill="#059669">&#8594; Post: 18 ppb (Pure Air Standard)</text>
     
     <text x="60" y="684" font-weight="700" fill="#475569">Respirable PM2.5 Fine Particulates:</text>
     <text x="320" y="684" font-weight="800" fill="#DC2626">Pre: 88 &#181;g/m&#179;</text>
-    <text x="460" y="684" font-weight="800" fill="#059669">&rarr; Post: 1.4 &#181;g/m&#179; (WHO Compliant)</text>
+    <text x="460" y="684" font-weight="800" fill="#059669">&#8594; Post: 1.4 &#181;g/m&#179; (WHO Compliant)</text>
 
     <text x="60" y="710" font-weight="700" fill="#475569">Relative Humidity &amp; Dew Point:</text>
     <text x="320" y="710" font-weight="800" fill="#DC2626">Pre: 68.4% RH</text>
-    <text x="460" y="710" font-weight="800" fill="#059669">&rarr; Post: 42.1% RH (Optimal)</text>
+    <text x="460" y="710" font-weight="800" fill="#059669">&#8594; Post: 42.1% RH (Optimal)</text>
   </g>
 
   <!-- HYGIENIST REMARKS &amp; CERTIFICATION STATEMENT -->
@@ -162,7 +162,7 @@
   <text x="55" y="788" font-size="10" font-weight="500" fill="#15803D">Post-Remediation Verification (PRV) testing confirms complete eradication of active Stachybotrys chartarum</text>
   <text x="55" y="804" font-size="10" font-weight="500" fill="#15803D">and Aspergillus colonies. Indoor spore counts have been reduced below natural outdoor ambient baselines.</text>
   <text x="55" y="820" font-size="10" font-weight="500" fill="#15803D">Air quality meets hospital-grade indoor environmental clearance standards.</text>
-  <text x="55" y="842" font-size="10" font-weight="800" fill="#166534">&bull; Certificate #LAB-2026-9811 is valid for property closing escrow and insurance clearance.</text>
+  <text x="55" y="842" font-size="10" font-weight="800" fill="#166534">&#8226; Certificate #LAB-2026-9811 is valid for property closing escrow and insurance clearance.</text>
 
   <!-- SIGNATURE &amp; ACCREDITATION STAMP BLOCK -->
   <g transform="translate(40, 875)">
@@ -186,5 +186,5 @@
 
   <!-- FOOTER DISCLAIMER -->
   <line x1="40" y1="990" x2="760" y2="990" stroke="#CBD5E1" stroke-width="1"/>
-  <text x="400" y="1008" font-size="9" font-weight="500" fill="#94A3B8" text-anchor="middle">Page 1 of 1 &bull; Official Accredited Laboratory Document &bull; Confidential &copy; 2026 AeroPure Environmental Services</text>
+  <text x="400" y="1008" font-size="9" font-weight="500" fill="#94A3B8" text-anchor="middle">Page 1 of 1 &#8226; Official Accredited Laboratory Document &#8226; Confidential &#169; 2026 AeroPure Environmental Services</text>
 </svg>

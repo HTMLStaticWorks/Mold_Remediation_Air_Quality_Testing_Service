@@ -33,6 +33,11 @@ body.dark-theme {
   --accent-red-surface: rgba(239, 68, 68, 0.2);
 }
 
+[data-theme="dark"] .logo-tagline,
+body.dark-theme .logo-tagline {
+  fill: #34D399 !important;
+}
+
 [data-theme="dark"] .tilt-card {
   background: #0F172A;
   border-color: rgba(51, 65, 85, 0.8);
@@ -82,6 +87,53 @@ body.dark-theme {
   background: radial-gradient(circle at 80% 20%, rgba(20, 184, 166, 0.15) 0%, transparent 50%),
               radial-gradient(circle at 10% 80%, rgba(6, 182, 212, 0.1) 0%, transparent 40%),
               #070B14;
+}
+
+[data-theme="dark"] .hero-home1-page {
+  background-image: 
+    linear-gradient(135deg, rgba(7, 11, 20, 0.82) 0%, rgba(15, 23, 42, 0.75) 50%, rgba(7, 11, 20, 0.86) 100%),
+    url('../images/home1-hero-bg.jpg');
+}
+
+[data-theme="dark"] .hero-about-page {
+  background-image: 
+    linear-gradient(135deg, rgba(7, 11, 20, 0.82) 0%, rgba(15, 23, 42, 0.75) 50%, rgba(7, 11, 20, 0.86) 100%),
+    url('../images/about-hero-bg.jpg');
+}
+
+[data-theme="dark"] .hero-pricing-page {
+  background-image: 
+    linear-gradient(180deg, rgba(7, 11, 20, 0.82) 0%, rgba(15, 23, 42, 0.74) 60%, rgba(7, 11, 20, 0.88) 100%),
+    url('../images/pricing-hero-bg.jpg');
+}
+
+[data-theme="dark"] .hero-services-page {
+  background-image: 
+    linear-gradient(180deg, rgba(7, 11, 20, 0.82) 0%, rgba(15, 23, 42, 0.75) 50%, rgba(7, 11, 20, 0.88) 100%),
+    url('../images/services-hero-bg.jpg');
+}
+
+[data-theme="dark"] .hero-contact-page {
+  background-image: 
+    linear-gradient(180deg, rgba(7, 11, 20, 0.82) 0%, rgba(15, 23, 42, 0.75) 50%, rgba(7, 11, 20, 0.88) 100%),
+    url('../images/contact-hero-bg.jpg');
+}
+
+[data-theme="dark"] .hero-card-container,
+[data-theme="dark"] .hero-home1-page .hero-content,
+[data-theme="dark"] .hero-about-page .about-hero-content {
+  background: rgba(15, 23, 42, 0.88);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border: 1px solid rgba(51, 65, 85, 0.6);
+  box-shadow: 0 24px 50px -12px rgba(0, 0, 0, 0.6);
+}
+
+[data-theme="dark"] .hero-about-page .stat-item,
+[data-theme="dark"] .hero-pricing-pill {
+  background: rgba(30, 41, 59, 0.88);
+  border-color: rgba(51, 65, 85, 0.8);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.5);
 }
 
 [data-theme="dark"] .btn-secondary {
@@ -200,4 +252,46 @@ body.dark-theme .status-completed {
   color: #4ADE80 !important;
   border: 1px solid rgba(74, 222, 128, 0.3) !important;
 }
+
+/* Enhanced Environmental Modules Dark Mode Support */
+[data-theme="dark"] .sign-card,
+[data-theme="dark"] .equipment-card,
+[data-theme="dark"] .stage-card,
+[data-theme="dark"] .prv-showcase-box,
+[data-theme="dark"] .prv-table-wrapper,
+[data-theme="dark"] .case-metric-box,
+[data-theme="dark"] .zip-checker-card,
+[data-theme="dark"] .risk-score-display,
+[data-theme="dark"] .risk-check-item,
+[data-theme="dark"] .moisture-stage-item,
+[data-theme="dark"] .case-study-tab-btn {
+  background: #0F172A !important;
+  border-color: rgba(51, 65, 85, 0.8) !important;
+}
+
+[data-theme="dark"] .mold-risk-checker-box {
+  background: rgba(15, 23, 42, 0.85) !important;
+  border-color: rgba(20, 184, 166, 0.25) !important;
+}
+
+[data-theme="dark"] .prv-comparison-table th {
+  background: #1E293B !important;
+  color: #CBD5E1 !important;
+}
+
+[data-theme="dark"] .prv-comparison-table td {
+  border-color: rgba(51, 65, 85, 0.8) !important;
+}
+
+[data-theme="dark"] .prv-guarantee-callout {
+  background: rgba(16, 185, 129, 0.08) !important;
+  border-color: rgba(16, 185, 129, 0.3) !important;
+}
+
+[data-theme="dark"] .site-header.scrolled,
+body.dark-theme .site-header.scrolled {
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.5) !important;
+  border-bottom-color: rgba(51, 65, 85, 0.9) !important;
+}
+
 

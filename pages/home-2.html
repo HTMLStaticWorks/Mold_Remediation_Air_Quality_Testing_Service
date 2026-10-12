@@ -7,17 +7,57 @@
   <meta name="description" content="Invisible toxic mold spores & airborne mycotoxins threaten your respiratory health. Measure particulate levels with our interactive AQI spore meter.">
   <link rel="icon" type="image/svg+xml" href="../assets/images/favicon.svg">
 
-  <link rel="stylesheet" href="../assets/css/style.css">
-  <link rel="stylesheet" href="../assets/css/dark-mode.css">
-  <link rel="stylesheet" href="../assets/css/rtl.css">
+  <link rel="stylesheet" href="../assets/css/style.css?v=2.2">
+  <link rel="stylesheet" href="../assets/css/dark-mode.css?v=2.2">
+  <link rel="stylesheet" href="../assets/css/rtl.css?v=2.2">
+
+  <!-- Mobile Comparison Slider & Fixed Header Alignments -->
+  <style>
+    .site-header {
+      position: fixed !important;
+      top: 0 !important;
+      left: 0 !important;
+      right: 0 !important;
+      width: 100% !important;
+      z-index: 1000 !important;
+    }
+    body:has(.site-header) {
+      padding-top: var(--header-height, 80px) !important;
+    }
+
+    @media (max-width: 576px) {
+      .pill-text-desktop {
+        display: none !important;
+      }
+      .pill-text-mobile {
+        display: inline !important;
+      }
+      .comparison-pill {
+        bottom: 12px !important;
+        padding: 5px 12px !important;
+        font-size: 0.72rem !important;
+        font-weight: 800 !important;
+        letter-spacing: 0.04em !important;
+        max-width: 44% !important;
+        text-align: center !important;
+        box-sizing: border-box !important;
+      }
+      .comparison-pill.pill-before {
+        right: 12px !important;
+      }
+      .comparison-pill.pill-after {
+        left: 12px !important;
+      }
+    }
+  </style>
 </head>
 <body>
 
   <!-- Site Header -->
   <header class="site-header">
     <div class="container header-inner">
-      <a href="index.html" class="brand-logo" aria-label="AeroPure Environmental Homepage">
-        <svg viewBox="0 0 240 50" width="180" height="38">
+      <a href="../index.html" class="brand-logo" aria-label="AeroPure Environmental Homepage">
+        <svg viewBox="0 0 178 50" width="142" height="40">
           <defs>
             <linearGradient id="logo-bg-grad" x1="0%" y1="0%" x2="100%" y2="100%">
               <stop offset="0%" stop-color="#0B2535"/>
@@ -35,16 +75,17 @@
             <circle cx="21" cy="21.5" r="2.2" fill="#FFFFFF"/>
           </g>
           <text x="56" y="27" font-family="'Plus Jakarta Sans', sans-serif" font-size="20" font-weight="800" fill="currentColor" letter-spacing="-0.5">AEROPURE</text>
-          <text x="56" y="40" font-family="'Inter', sans-serif" font-size="8.5" font-weight="600" fill="#10B981" letter-spacing="2">AIR INTELLIGENCE</text>
+          <text x="56" y="41" class="logo-tagline" font-family="'Inter', sans-serif" font-size="9.5" font-weight="700" fill="#047857" letter-spacing="1.6">AIR INTELLIGENCE</text>
         </svg>
       </a>
 
       <nav class="main-nav" aria-label="Primary Navigation">
         <ul class="nav-links">
-          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="../index.html" class="nav-link">Home</a></li>
           <li><a href="home-2.html" class="nav-link active">Home 2</a></li>
-          <li><a href="about.html" class="nav-link">About</a></li>
+          <li><a href="mold-inspection-testing.html" class="nav-link">Inspection &amp; Testing</a></li>
           <li><a href="services.html" class="nav-link">Services</a></li>
+          <li><a href="about.html" class="nav-link">About</a></li>
           <li><a href="pricing.html" class="nav-link">Pricing</a></li>
           <li><a href="contact.html" class="nav-link">Contact</a></li>
         </ul>
@@ -109,7 +150,7 @@
             <circle cx="21" cy="21.5" r="2.2" fill="#FFFFFF"/>
           </g>
           <text x="56" y="27" font-family="'Plus Jakarta Sans', sans-serif" font-size="20" font-weight="800" fill="currentColor" letter-spacing="-0.5">AEROPURE</text>
-          <text x="56" y="40" font-family="'Inter', sans-serif" font-size="8.5" font-weight="600" fill="#10B981" letter-spacing="2">AIR INTELLIGENCE</text>
+          <text x="56" y="41" class="logo-tagline" font-family="'Inter', sans-serif" font-size="9.5" font-weight="700" fill="#047857" letter-spacing="1.6">AIR INTELLIGENCE</text>
         </svg>
       </a>
       <button type="button" class="drawer-close-btn icon-toggle-btn" aria-label="Close menu">
@@ -117,10 +158,11 @@
       </button>
     </div>
     <ul class="drawer-nav-list">
-      <li><a href="index.html" class="drawer-nav-link">Home</a></li>
+      <li><a href="../index.html" class="drawer-nav-link">Home</a></li>
       <li><a href="home-2.html" class="drawer-nav-link active">Home 2</a></li>
-      <li><a href="about.html" class="drawer-nav-link">About</a></li>
+      <li><a href="mold-inspection-testing.html" class="drawer-nav-link">Inspection &amp; Testing</a></li>
       <li><a href="services.html" class="drawer-nav-link">Services</a></li>
+      <li><a href="about.html" class="drawer-nav-link">About</a></li>
       <li><a href="pricing.html" class="drawer-nav-link">Pricing</a></li>
       <li><a href="contact.html" class="drawer-nav-link">Contact</a></li>
     </ul>
@@ -163,80 +205,26 @@
          Visual Centerpiece: Live AQI & Mold Spore Gauge Meter with Interactive Toggles
          ========================================================================== -->
     <section class="hero-home-2">
-      <div class="container">
-        <div class="hero-grid" style="align-items: center;">
-          <!-- Text column -->
-          <div>
-            <span class="section-badge">
-              <svg width="16" height="16" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd"/></svg>
-              <span>Indoor Air Contamination Forensics</span>
-            </span>
-            <h1 style="margin-bottom: 20px;">
-              The Hidden Danger<br>
-              <span style="color: var(--primary-light);">Circulating in Your Air.</span>
-            </h1>
-            <p style="font-size: 1.15rem; margin-bottom: 32px; max-width: 540px;">
-              Over 80% of toxic mold colonies proliferate silently behind baseboards, floor joists, and HVAC ducts. Every breath releases millions of micro-spores directly into your lungs.
-            </p>
-            <div class="hero-cta-group">
-              <a href="contact.html" class="btn btn-primary btn-lg">
-                <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
-                <span>Request Urgent Mold Triage</span>
-              </a>
-              <a href="#problemSection" class="btn btn-secondary btn-lg" style="background:rgba(255,255,255,0.08); color:#F8FAFC; border-color:rgba(255,255,255,0.18);">
-                <span>Examine Health Risks</span>
-              </a>
-            </div>
-          </div>
-
-          <!-- Visual Centerpiece: Interactive Animated AQI & Spore Meter -->
-          <div>
-            <div class="aqi-gauge-card">
-              <div class="aqi-gauge-header" style="display:flex; justify-content:space-between; align-items:center; margin-bottom:20px;">
-                <span style="font-size:0.85rem; font-weight:700; color:var(--slate-400); text-transform:uppercase; letter-spacing:0.08em;">Live Airborne Biometric Sensor</span>
-                <span id="aqiStatusBadge" style="padding:4px 12px; border-radius:var(--radius-full); font-size:0.75rem; font-weight:700; color:#FFFFFF; background-color:var(--primary);">
-                  Hazardous Spore Level
-                </span>
-              </div>
-
-              <!-- Needle Arc -->
-              <div class="gauge-meter-wrapper">
-                <div class="gauge-arc"></div>
-                <div class="gauge-needle" id="aqiNeedle" style="transform: translateX(-50%) rotate(68deg);"></div>
-              </div>
-
-              <!-- Main Value -->
-              <div id="aqiValueDisplay" style="font-family:var(--font-display); font-size:2.8rem; font-weight:800; color:#F8FAFC; line-height:1; margin-bottom:6px;">
-                245 AQI
-              </div>
-              <p id="aqiAdviceText" style="font-size:0.88rem; color:var(--slate-300); margin:0 auto 16px; max-width:380px;">
-                High-density Stachybotrys & Aspergillus detected. Immediate negative-air containment and HEPA scrubbing required.
-              </p>
-
-              <!-- Readings Strip -->
-              <div class="gauge-readings">
-                <div class="reading-col">
-                  <span class="reading-val" id="sporeCountDisplay">18,420 /m³</span>
-                  <span class="reading-label">Mold Spore Density</span>
-                </div>
-                <div class="reading-col">
-                  <span class="reading-val" id="pm25Display" style="color:var(--slate-200);">84 µg/m³</span>
-                  <span class="reading-label">PM2.5 Particulates</span>
-                </div>
-                <div class="reading-col">
-                  <span class="reading-val" style="color:#38BDF8;">68.4%</span>
-                  <span class="reading-label">Relative Humidity</span>
-                </div>
-              </div>
-
-              <!-- Interactive State Switchers -->
-              <div class="gauge-state-toggles">
-                <button type="button" class="state-btn active" data-state="hazardous">Basement Infestation</button>
-                <button type="button" class="state-btn" data-state="moderate">Dormant Attic Leak</button>
-                <button type="button" class="state-btn" data-state="pure">Post-Remediation Clean</button>
-              </div>
-            </div>
-          </div>
+      <div class="container" style="max-width: 880px; margin: 0 auto; text-align: center;">
+        <span class="section-badge" style="margin: 0 auto 20px; display: inline-flex;">
+          <svg width="16" height="16" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd"/></svg>
+          <span>Indoor Air Contamination Forensics</span>
+        </span>
+        <h1 style="margin-bottom: 22px; text-align: center;">
+          The Hidden Danger<br>
+          <span style="color: var(--primary-light);">Circulating in Your Air.</span>
+        </h1>
+        <p style="font-size: 1.18rem; margin: 0 auto 36px; max-width: 700px; text-align: center; color: var(--slate-200); line-height: 1.65;">
+          Over 80% of toxic mold colonies proliferate silently behind baseboards, floor joists, and HVAC ducts. Every breath releases millions of micro-spores directly into your lungs.
+        </p>
+        <div class="hero-cta-group" style="justify-content: center; display: flex; gap: 16px; flex-wrap: wrap; margin-bottom: 0;">
+          <a href="contact.html" class="btn btn-primary btn-lg">
+            <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+            <span>Request Urgent Mold Triage</span>
+          </a>
+          <a href="#problemSection" class="btn btn-secondary btn-lg" style="background:rgba(255,255,255,0.08); color:#F8FAFC; border-color:rgba(255,255,255,0.18);">
+            <span>Examine Health Risks</span>
+          </a>
         </div>
       </div>
     </section>
@@ -407,6 +395,87 @@
             </div>
           </div>
 
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         BEFORE & AFTER CASE STUDIES (Interactive Split Comparison Slider)
+         ========================================================================== -->
+    <section class="section-padding" style="background:var(--bg-alt);" id="before-after">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-badge">
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg>
+            <span>Verified Results</span>
+          </span>
+          <h2 class="section-title">Visual Proof: Interactive Before &amp; After Remediation</h2>
+          <p class="section-subtitle">Slide the handle to inspect forensic restoration across real residential containment zones before and after our medical-grade dry-ice eradication process.</p>
+        </div>
+
+        <div class="case-study-header-bar">
+          <div>
+            <h3 style="font-size:1.2rem; margin:0;">Active Case Study: <span style="color:var(--primary);">Attic Timber Rafter Restoration</span></h3>
+            <span style="font-size:0.84rem; color:var(--text-muted);">Scarsdale, NY &bull; Black Mold (Stachybotrys &amp; Aspergillus) Eradication</span>
+          </div>
+          <div class="case-study-tabs">
+            <button type="button" class="case-study-tab-btn active" data-case="attic">Attic Rafters</button>
+            <button type="button" class="case-study-tab-btn" data-case="basement">Basement Drywall</button>
+            <button type="button" class="case-study-tab-btn" data-case="crawlspace">Crawlspace Joists</button>
+          </div>
+        </div>
+
+        <!-- Interactive Comparison Slider -->
+        <div class="comparison-slider-wrapper" id="remediationSlider">
+          <!-- BEFORE IMAGE (Full Background) -->
+          <div class="comparison-image-before">
+            <img src="../assets/images/mold-before-real.jpg" alt="Attic wooden beams before mold remediation showing heavy fungal growth and dark water stains" id="caseBeforeImg">
+          </div>
+
+          <!-- AFTER IMAGE (Clipped Foreground) -->
+          <div class="comparison-image-after">
+            <img src="../assets/images/mold-after-real.jpg" alt="Attic wooden beams after professional mold remediation showing clean restored wood and zero fungal spores" id="caseAfterImg">
+          </div>
+
+          <!-- DIVIDER LINE -->
+          <div class="comparison-divider"></div>
+
+          <!-- DRAGGABLE HANDLE -->
+          <div class="comparison-handle" title="Drag to compare before and after">
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M8 9l-4 3 4 3m8-6l4 3-4 3"/>
+            </svg>
+          </div>
+
+          <!-- STATUS BADGE PILLS (Always Symmetrically Aligned) -->
+          <span class="comparison-pill pill-after">
+            <span class="pill-text-desktop">AFTER REMEDIATION</span>
+            <span class="pill-text-mobile">AFTER</span>
+          </span>
+          <span class="comparison-pill pill-before">
+            <span class="pill-text-desktop">BEFORE TREATMENT</span>
+            <span class="pill-text-mobile">BEFORE</span>
+          </span>
+        </div>
+
+        <!-- Verified Case Metrics Strip -->
+        <div class="case-metrics-bar">
+          <div class="case-metric-box">
+            <div class="case-metric-val" id="casePreVal" style="color:#EF4444;">24,870 /m³</div>
+            <div class="case-metric-lbl">Pre-Remediation Spores</div>
+          </div>
+          <div class="case-metric-box">
+            <div class="case-metric-val" id="casePostVal" style="color:#10B981;">40 /m³</div>
+            <div class="case-metric-lbl">Post-Remediation Spores</div>
+          </div>
+          <div class="case-metric-box">
+            <div class="case-metric-val" id="caseDurationVal">48 Hours</div>
+            <div class="case-metric-lbl">Containment Duration</div>
+          </div>
+          <div class="case-metric-box">
+            <div class="case-metric-val" id="caseStatusVal" style="color:#10B981;">100% Passed PRV</div>
+            <div class="case-metric-lbl">Lab Clearance Result</div>
+          </div>
         </div>
       </div>
     </section>
@@ -606,7 +675,7 @@
               <circle cx="21" cy="21.5" r="2.2" fill="#FFFFFF"/>
             </g>
             <text x="56" y="27" font-family="'Plus Jakarta Sans', sans-serif" font-size="20" font-weight="800" fill="#FFFFFF" letter-spacing="-0.5">AEROPURE</text>
-            <text x="56" y="40" font-family="'Inter', sans-serif" font-size="8.5" font-weight="600" fill="#10B981" letter-spacing="2">AIR INTELLIGENCE</text>
+            <text x="56" y="41" class="logo-tagline" font-family="'Inter', sans-serif" font-size="9.5" font-weight="700" fill="#34D399" letter-spacing="1.6">AIR INTELLIGENCE</text>
           </svg>
         </a>
         <p>
@@ -642,8 +711,9 @@
         <ul class="footer-links">
           <li><a href="../index.html">Home</a></li>
           <li><a href="home-2.html" class="active">Home 2</a></li>
-          <li><a href="about.html">About</a></li>
+          <li><a href="mold-inspection-testing.html">Inspection &amp; Testing</a></li>
           <li><a href="services.html">Services</a></li>
+          <li><a href="about.html">About</a></li>
           <li><a href="pricing.html">Pricing</a></li>
           <li><a href="contact.html">Contact</a></li>
         </ul>

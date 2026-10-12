@@ -270,11 +270,31 @@
     });
   };
 
+  /* ==========================================================================
+     6. Fixed Header Scroll State
+     ========================================================================== */
+  const initFixedHeader = () => {
+    const header = document.querySelector('.site-header');
+    if (!header) return;
+
+    const handleScroll = () => {
+      if (window.scrollY > 15) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    handleScroll();
+  };
+
   // Run on DOM ready
   document.addEventListener('DOMContentLoaded', () => {
     initTheme();
     initDirection();
     initMobileNav();
+    initFixedHeader();
     initFormValidation();
     initScrollUp();
 

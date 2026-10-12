@@ -18,5 +18,5 @@
   </g>
   <!-- Typography -->
   <text x="56" y="27" font-family="'Plus Jakarta Sans', sans-serif" font-size="20" font-weight="800" fill="currentColor" letter-spacing="-0.5">AEROPURE</text>
-  <text x="56" y="40" font-family="'Inter', sans-serif" font-size="8.5" font-weight="600" fill="#10B981" letter-spacing="2">AIR INTELLIGENCE</text>
+  <text x="56" y="41" class="logo-tagline" font-family="'Inter', sans-serif" font-size="9.5" font-weight="700" fill="#047857" letter-spacing="1.6">AIR INTELLIGENCE</text>
 </svg>

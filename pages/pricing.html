@@ -7,17 +7,114 @@
   <meta name="description" content="Transparent pricing for certified mold inspection, laboratory air testing, and hospital-grade remediation. No hidden fees with 100% clearance guarantee.">
   <link rel="icon" type="image/svg+xml" href="../assets/images/favicon.svg">
 
-  <link rel="stylesheet" href="../assets/css/style.css">
-  <link rel="stylesheet" href="../assets/css/dark-mode.css">
-  <link rel="stylesheet" href="../assets/css/rtl.css">
+  <link rel="stylesheet" href="../assets/css/style.css?v=2.3">
+  <link rel="stylesheet" href="../assets/css/dark-mode.css?v=2.3">
+  <link rel="stylesheet" href="../assets/css/rtl.css?v=2.3">
+
+  <style>
+    .site-header {
+      position: fixed !important;
+      top: 0 !important;
+      left: 0 !important;
+      right: 0 !important;
+      width: 100% !important;
+      z-index: 1000 !important;
+    }
+    body:has(.site-header) {
+      padding-top: var(--header-height, 80px) !important;
+    }
+
+    @media (max-width: 768px) {
+      .hero-pricing-page {
+        padding-top: 24px !important;
+        padding-bottom: 48px !important;
+        padding-left: 16px !important;
+        padding-right: 16px !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+        overflow: hidden !important;
+      }
+      .hero-card-container {
+        width: 100% !important;
+        max-width: 100% !important;
+        margin: 0 auto !important;
+        padding: 30px 18px 32px 18px !important;
+        border-radius: 20px !important;
+        box-sizing: border-box !important;
+        text-align: center !important;
+        box-shadow: 0 16px 40px -10px rgba(0, 0, 0, 0.25) !important;
+      }
+      .hero-card-container .section-badge {
+        margin-bottom: 12px !important;
+        font-size: 0.78rem !important;
+        padding: 5px 14px !important;
+      }
+      .hero-card-container h1 {
+        font-size: clamp(1.45rem, 5.8vw, 1.95rem) !important;
+        line-height: 1.25 !important;
+        margin-bottom: 14px !important;
+        letter-spacing: -0.02em !important;
+        word-break: break-word !important;
+        text-align: center !important;
+      }
+      .hero-card-container h1 br {
+        display: inline !important;
+      }
+      .hero-card-container p {
+        font-size: clamp(0.88rem, 3.6vw, 0.98rem) !important;
+        line-height: 1.55 !important;
+        margin-bottom: 22px !important;
+        padding-left: 4px !important;
+        padding-right: 4px !important;
+        max-width: 100% !important;
+        text-align: center !important;
+      }
+      .hero-card-container .hero-pricing-badges {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        gap: 10px !important;
+        width: 100% !important;
+        max-width: 320px !important;
+        margin: 0 auto 24px auto !important;
+        box-sizing: border-box !important;
+      }
+      .hero-card-container .hero-pricing-pill {
+        display: inline-flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        padding: 9px 14px !important;
+        border-radius: var(--radius-full) !important;
+        font-size: 0.85rem !important;
+        line-height: 1.35 !important;
+        box-sizing: border-box !important;
+        gap: 8px !important;
+        text-align: center !important;
+      }
+      .hero-card-container .hero-pricing-pill span {
+        font-size: 0.85rem !important;
+        font-weight: 600 !important;
+        white-space: normal !important;
+        word-break: break-word !important;
+      }
+      .hero-card-container .hero-pricing-pill svg {
+        width: 18px !important;
+        height: 18px !important;
+        flex-shrink: 0 !important;
+      }
+    }
+  </style>
 </head>
 <body>
 
   <!-- Site Header -->
   <header class="site-header">
     <div class="container header-inner">
-      <a href="index.html" class="brand-logo" aria-label="AeroPure Homepage">
-        <svg viewBox="0 0 240 50" width="180" height="38">
+      <a href="../index.html" class="brand-logo" aria-label="AeroPure Homepage">
+        <svg viewBox="0 0 178 50" width="142" height="40">
           <defs>
             <linearGradient id="logo-bg-grad" x1="0%" y1="0%" x2="100%" y2="100%">
               <stop offset="0%" stop-color="#0B2535"/>
@@ -35,17 +132,18 @@
             <circle cx="21" cy="21.5" r="2.2" fill="#FFFFFF"/>
           </g>
           <text x="56" y="27" font-family="'Plus Jakarta Sans', sans-serif" font-size="20" font-weight="800" fill="currentColor" letter-spacing="-0.5">AEROPURE</text>
-          <text x="56" y="40" font-family="'Inter', sans-serif" font-size="8.5" font-weight="600" fill="#10B981" letter-spacing="2">AIR INTELLIGENCE</text>
+          <text x="56" y="41" class="logo-tagline" font-family="'Inter', sans-serif" font-size="9.5" font-weight="700" fill="#047857" letter-spacing="1.6">AIR INTELLIGENCE</text>
         </svg>
       </a>
 
       <!-- Primary Navigation -->
       <nav class="main-nav" aria-label="Primary Navigation">
         <ul class="nav-links">
-          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="../index.html" class="nav-link">Home</a></li>
           <li><a href="home-2.html" class="nav-link">Home 2</a></li>
-          <li><a href="about.html" class="nav-link">About</a></li>
+          <li><a href="mold-inspection-testing.html" class="nav-link">Inspection &amp; Testing</a></li>
           <li><a href="services.html" class="nav-link">Services</a></li>
+          <li><a href="about.html" class="nav-link">About</a></li>
           <li><a href="pricing.html" class="nav-link active">Pricing</a></li>
           <li><a href="contact.html" class="nav-link">Contact</a></li>
         </ul>
@@ -115,16 +213,17 @@
             <circle cx="21" cy="21.5" r="2.2" fill="#FFFFFF"/>
           </g>
           <text x="56" y="27" font-family="'Plus Jakarta Sans', sans-serif" font-size="20" font-weight="800" fill="currentColor" letter-spacing="-0.5">AEROPURE</text>
-          <text x="56" y="40" font-family="'Inter', sans-serif" font-size="8.5" font-weight="600" fill="#10B981" letter-spacing="2">AIR INTELLIGENCE</text>
+          <text x="56" y="41" class="logo-tagline" font-family="'Inter', sans-serif" font-size="9.5" font-weight="700" fill="#047857" letter-spacing="1.6">AIR INTELLIGENCE</text>
         </svg>
       </a>
       <button type="button" class="drawer-close-btn icon-toggle-btn"><svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg></button>
     </div>
     <ul class="drawer-nav-list">
-      <li><a href="index.html" class="drawer-nav-link">Home</a></li>
+      <li><a href="../index.html" class="drawer-nav-link">Home</a></li>
       <li><a href="home-2.html" class="drawer-nav-link">Home 2</a></li>
-      <li><a href="about.html" class="drawer-nav-link">About</a></li>
+      <li><a href="mold-inspection-testing.html" class="drawer-nav-link">Inspection &amp; Testing</a></li>
       <li><a href="services.html" class="drawer-nav-link">Services</a></li>
+      <li><a href="about.html" class="drawer-nav-link">About</a></li>
       <li><a href="pricing.html" class="drawer-nav-link active">Pricing</a></li>
       <li><a href="contact.html" class="drawer-nav-link">Contact</a></li>
     </ul>
@@ -163,19 +262,19 @@
 
   <main>
     <!-- SECTION 1: PRICING PHILOSOPHY & INTRO -->
-    <section class="section-padding hero-home-1" style="padding-top:60px; text-align:center;">
-      <div class="container" style="max-width:840px; margin:0 auto; text-align:center;">
+    <section class="section-padding hero-home-1 hero-pricing-page" style="padding-top:60px; text-align:center;">
+      <div class="container hero-card-container" style="max-width:840px; margin:0 auto; text-align:center;">
         <span class="section-badge" style="margin-bottom:12px; display:inline-block;">Transparent Environmental Pricing</span>
         <h1 style="margin-bottom:18px;">Forensic Science.<br><span class="text-gradient">Honest Investment.</span></h1>
         <p style="font-size:1.15rem; margin-bottom:28px; color:var(--text-secondary); max-width:680px; margin-left:auto; margin-right:auto;">
           We despise high-pressure sales tactics and artificial scare techniques. Every quote is backed by empirical data, infrared photo logs, and independent lab rates.
         </p>
-        <div style="display:flex; justify-content:center; gap:24px; flex-wrap:wrap;">
-          <div style="display:flex; align-items:center; gap:8px;">
+        <div class="hero-pricing-badges">
+          <div class="hero-pricing-pill">
             <svg width="20" height="20" fill="#10B981" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
             <span style="font-weight:600; font-size:0.95rem;">Insurance Claim Assistance</span>
           </div>
-          <div style="display:flex; align-items:center; gap:8px;">
+          <div class="hero-pricing-pill">
             <svg width="20" height="20" fill="#10B981" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
             <span style="font-weight:600; font-size:0.95rem;">Zero Conflict-of-Interest Labs</span>
           </div>
@@ -218,7 +317,8 @@
                 <span>Written Photographic Inspection Report</span>
               </li>
             </ul>
-            <a href="contact.html" class="btn btn-secondary" style="width:100%;">Book Standard Inspection</a>
+            <a href="contact.html" class="btn btn-secondary" style="width:100%; margin-bottom:8px;">Book Standard Inspection</a>
+            <a href="mold-inspection-testing.html" style="display:block; text-align:center; font-size:0.84rem; color:var(--primary); font-weight:600;">View Inspection Protocol Details &rarr;</a>
           </div>
 
           <!-- Tier 2 (Featured) -->
@@ -392,7 +492,7 @@
               <circle cx="21" cy="21.5" r="2.2" fill="#FFFFFF"/>
             </g>
             <text x="56" y="27" font-family="'Plus Jakarta Sans', sans-serif" font-size="20" font-weight="800" fill="#FFFFFF" letter-spacing="-0.5">AEROPURE</text>
-            <text x="56" y="40" font-family="'Inter', sans-serif" font-size="8.5" font-weight="600" fill="#10B981" letter-spacing="2">AIR INTELLIGENCE</text>
+            <text x="56" y="41" class="logo-tagline" font-family="'Inter', sans-serif" font-size="9.5" font-weight="700" fill="#34D399" letter-spacing="1.6">AIR INTELLIGENCE</text>
           </svg>
         </a>
         <p>
@@ -428,8 +528,9 @@
         <ul class="footer-links">
           <li><a href="../index.html">Home</a></li>
           <li><a href="home-2.html">Home 2</a></li>
-          <li><a href="about.html">About</a></li>
+          <li><a href="mold-inspection-testing.html">Inspection &amp; Testing</a></li>
           <li><a href="services.html">Services</a></li>
+          <li><a href="about.html">About</a></li>
           <li><a href="pricing.html" class="active">Pricing</a></li>
           <li><a href="contact.html">Contact</a></li>
         </ul>
