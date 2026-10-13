@@ -203,9 +203,10 @@ document.addEventListener('DOMContentLoaded', () => {
     document.body.style.overflow = '';
   };
 
-  if (dashHamburgerBtn) {
-    dashHamburgerBtn.addEventListener('click', openDashSidebar);
-  }
+  const dashHamburgerBtns = document.querySelectorAll('.dash-hamburger-btn, #dashHamburgerBtn, #dashMobileHamburgerBtn');
+  dashHamburgerBtns.forEach(btn => {
+    btn.addEventListener('click', openDashSidebar);
+  });
   if (dashSidebarCloseBtn) {
     dashSidebarCloseBtn.addEventListener('click', closeDashSidebar);
   }

@@ -504,32 +504,152 @@ p {
   letter-spacing: 0.02em;
 }
 
-@media (max-width: 1340px) and (min-width: 1025px) {
+/* ==========================================================================
+   TABLET PRO / TAB PRO NAVIGATION SYSTEM (1025px to 1366px+)
+   Adaptive alignment, spacing and scaling to ensure 100% fit without overflow
+   ========================================================================== */
+
+/* Tier 1: Large Tablet Pro / Small Laptop (1200px to 1366px, e.g. iPad Pro 12.9 landscape, 1280px tablets) */
+@media (max-width: 1366px) and (min-width: 1200px) {
   .site-header .container {
     padding-left: 20px;
     padding-right: 20px;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+  .header-inner {
+    gap: 14px;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    box-sizing: border-box;
+  }
+  .brand-logo {
+    flex-shrink: 0;
+  }
+  .brand-logo svg,
+  .brand-logo img {
+    height: 38px;
+    width: auto;
+  }
+  .main-nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    min-width: 0;
+    flex-shrink: 1;
   }
   .nav-links {
-    gap: 16px;
+    gap: 12px;
+    white-space: nowrap;
   }
   .nav-link {
-    font-size: 0.89rem;
-    padding: 8px 1px;
+    font-size: 0.85rem;
+    padding: 6px 2px;
+    white-space: nowrap;
   }
   .header-actions {
-    gap: 8px;
+    gap: 7px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
   }
   .header-actions .btn-sm {
-    padding: 0 12px;
-    font-size: 0.84rem;
-    height: 38px;
-    min-height: 38px;
+    padding: 0 10px;
+    font-size: 0.81rem;
+    height: 36px;
+    min-height: 36px;
+    gap: 6px;
+  }
+  .header-actions .btn-sm svg {
+    width: 15px;
+    height: 15px;
   }
   .icon-toggle-btn {
-    width: 38px;
-    height: 38px;
+    width: 36px;
+    height: 36px;
+  }
+  .icon-toggle-btn svg {
+    width: 16px;
+    height: 16px;
+  }
+  .rtl-toggle-btn span {
+    font-size: 0.74rem;
   }
 }
+
+/* Tier 2: Medium/Compact Tablet Pro (1025px to 1199px, e.g. iPad Pro 11 landscape 1194px, iPad Air 1180px, iPad Pro 10.5 1112px) */
+@media (max-width: 1199px) and (min-width: 1025px) {
+  .site-header .container {
+    padding-left: 14px;
+    padding-right: 14px;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+  .header-inner {
+    gap: 10px;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    box-sizing: border-box;
+  }
+  .brand-logo {
+    flex-shrink: 0;
+  }
+  .brand-logo svg,
+  .brand-logo img {
+    height: 34px;
+    width: auto;
+  }
+  .main-nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    min-width: 0;
+    flex-shrink: 1;
+  }
+  .nav-links {
+    gap: 8px;
+    white-space: nowrap;
+  }
+  .nav-link {
+    font-size: 0.80rem;
+    padding: 6px 1px;
+    letter-spacing: -0.015em;
+    white-space: nowrap;
+  }
+  .header-actions {
+    gap: 5px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+  }
+  .header-actions .btn-sm {
+    padding: 0 8px;
+    font-size: 0.76rem;
+    height: 34px;
+    min-height: 34px;
+    gap: 5px;
+  }
+  .header-actions .btn-sm svg {
+    width: 14px;
+    height: 14px;
+  }
+  .icon-toggle-btn {
+    width: 34px;
+    height: 34px;
+  }
+  .icon-toggle-btn svg {
+    width: 15px;
+    height: 15px;
+  }
+  .rtl-toggle-btn span {
+    font-size: 0.70rem;
+  }
+}
+
 
 .mobile-menu-toggle {
   display: none;
@@ -723,7 +843,7 @@ p {
 .hero-services-page {
   position: relative;
   background-image: 
-    linear-gradient(180deg, rgba(255, 255, 255, 0.22) 0%, rgba(240, 253, 250, 0.12) 50%, rgba(255, 255, 255, 0.30) 100%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.72) 0%, rgba(240, 253, 250, 0.58) 50%, rgba(255, 255, 255, 0.78) 100%),
     url('../images/services-hero-bg.jpg');
   background-size: cover;
   background-position: center 25%;
@@ -742,13 +862,33 @@ p {
 
 /* Frosted Glass Content Containers: 100% Crisp Typography & Clear Backgrounds */
 .hero-card-container {
-  background: rgba(255, 255, 255, 0.90);
-  backdrop-filter: blur(18px);
-  -webkit-backdrop-filter: blur(18px);
+  background: rgba(255, 255, 255, 0.94);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
   border: 1px solid rgba(255, 255, 255, 0.95);
   border-radius: 28px;
   padding: 44px 36px;
   box-shadow: 0 20px 48px -12px rgba(15, 23, 42, 0.12), 0 1px 3px rgba(15, 23, 42, 0.05);
+}
+
+.hero-card-container .hero-tag {
+  background: rgba(16, 185, 129, 0.12);
+  border: 1px solid rgba(16, 185, 129, 0.35);
+  color: #047857;
+  font-weight: 700;
+}
+
+.hero-card-container .hero-title {
+  color: #0F172A;
+}
+
+.hero-card-container .hero-description {
+  color: #334155;
+  font-weight: 450;
+}
+
+.hero-card-container .hero-trust-badges {
+  border-top: 1px solid rgba(15, 23, 42, 0.08);
 }
 
 .hero-home1-page .hero-content {
@@ -2495,6 +2635,84 @@ select, select.input-field {
   gap: 24px;
 }
 
+/* Dashboard Mobile & Tablet Top Navbar */
+.dash-mobile-navbar {
+  display: none;
+  position: sticky;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 64px;
+  background: rgba(255, 255, 255, 0.94);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border-color);
+  box-shadow: 0 2px 12px rgba(15, 23, 42, 0.05);
+  z-index: 1000;
+  box-sizing: border-box;
+}
+
+.dash-mobile-navbar-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: 100%;
+  padding: 0 20px;
+  box-sizing: border-box;
+}
+
+.dash-mobile-nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.dash-mobile-nav-actions .icon-toggle-btn {
+  width: 38px;
+  height: 38px;
+  border-radius: var(--radius-sm, 8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.dash-nav-book-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 14px;
+  font-size: 0.84rem;
+  font-weight: 600;
+  border-radius: var(--radius-sm, 8px);
+  flex-shrink: 0;
+  height: 38px;
+  box-sizing: border-box;
+}
+
+.dash-nav-user-chip {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.dash-nav-user-chip .user-avatar {
+  width: 36px;
+  height: 36px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--primary) 0%, #059669 100%);
+  color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid rgba(255, 255, 255, 0.9);
+  box-shadow: 0 2px 6px rgba(13, 148, 136, 0.25);
+}
+
 .dashboard-topbar {
   display: flex;
   align-items: center;
@@ -2933,6 +3151,18 @@ select, select.input-field {
    1. GLOBAL TOUCH & HAMBURGER NAVIGATION (Screen width <= 1024px)
    -------------------------------------------------------------------------- */
 @media (max-width: 1024px) {
+  .site-header .container {
+    padding-left: 18px;
+    padding-right: 18px;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+  .header-inner {
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    box-sizing: border-box;
+  }
   .main-nav {
     display: none;
   }
@@ -4589,25 +4819,35 @@ select, select.input-field {
 
 /* Dashboard Page Responsive Alignment Rules (Tab & Mobile Views) */
 @media (max-width: 1024px) {
+  .dash-mobile-navbar {
+    display: flex !important;
+  }
+
+  .dashboard-layout {
+    grid-template-columns: 1fr !important;
+  }
+
+  .dashboard-content-area {
+    padding-top: 24px !important;
+  }
+
   .dashboard-topbar {
-    flex-direction: column !important;
+    display: flex !important;
+    flex-direction: row !important;
     align-items: center !important;
-    text-align: center !important;
-    gap: 16px !important;
+    justify-content: space-between !important;
+    text-align: left !important;
+    margin-bottom: 24px !important;
+    padding-bottom: 16px !important;
+    border-bottom: 1px solid var(--border-color) !important;
   }
 
   .dashboard-topbar > div {
-    text-align: center !important;
+    text-align: left !important;
   }
 
-  .dash-topbar-actions {
-    justify-content: center !important;
-    width: 100%;
-  }
-
-  .dash-topbar-actions .icon-toggle-btn,
-  .dash-topbar-actions .rtl-toggle-btn,
-  .dash-topbar-actions .theme-toggle-btn {
+  /* Desktop topbar actions are hidden on tablet/mobile as they reside in dash-mobile-navbar */
+  .dashboard-topbar .dash-topbar-actions {
     display: none !important;
   }
 
@@ -4638,22 +4878,67 @@ select, select.input-field {
 }
 
 @media (max-width: 576px) {
-  .dash-topbar-actions {
-    flex-direction: column !important;
-    align-items: center !important;
-    gap: 12px !important;
-    width: 100%;
+  .dash-mobile-navbar {
+    height: 60px !important;
   }
 
-  .dash-topbar-actions .btn {
-    width: 100% !important;
-    justify-content: center !important;
-    white-space: nowrap !important;
+  .dash-mobile-navbar-inner {
+    padding: 0 14px !important;
+    gap: 8px !important;
   }
 
-  .user-profile-chip {
-    justify-content: center !important;
-    width: 100%;
+  .dash-mobile-navbar .brand-logo svg {
+    width: 120px !important;
+    height: 34px !important;
+  }
+
+  .dash-mobile-nav-actions {
+    gap: 6px !important;
+  }
+
+  .dash-mobile-nav-actions .rtl-toggle-btn {
+    display: none !important;
+  }
+
+  .dash-mobile-nav-actions .icon-toggle-btn {
+    width: 34px !important;
+    height: 34px !important;
+  }
+
+  .dash-nav-book-btn {
+    padding: 6px 10px !important;
+    height: 34px !important;
+    font-size: 0.78rem !important;
+  }
+
+  .dash-nav-book-btn span.btn-text {
+    display: none !important;
+  }
+
+  .dash-nav-user-chip .user-avatar {
+    width: 32px !important;
+    height: 32px !important;
+    font-size: 0.75rem !important;
+  }
+
+  .dash-hamburger-btn {
+    width: 36px !important;
+    height: 36px !important;
+  }
+
+  .dashboard-topbar {
+    margin-bottom: 20px !important;
+    padding-bottom: 14px !important;
+  }
+
+  .dash-topbar-title-block h2 {
+    font-size: 1.25rem !important;
+    line-height: 1.25 !important;
+  }
+
+  .dash-topbar-title-block p {
+    font-size: 0.8rem !important;
+    line-height: 1.35 !important;
   }
 
   .dash-alert-banner {
@@ -5595,7 +5880,8 @@ select, select.input-field {
   }
 
   .hero-card-container .hero-action-btns,
-  .hero-card-container > div:last-child:not(.hero-pricing-badges) {
+  .hero-card-container .hero-cta-group,
+  .hero-card-container > div:last-child:not(.hero-pricing-badges):not(.hero-trust-badges) {
     display: flex !important;
     flex-direction: column !important;
     width: 100% !important;
@@ -5605,7 +5891,8 @@ select, select.input-field {
   }
 
   .hero-card-container .hero-action-btns .btn,
-  .hero-card-container > div:last-child:not(.hero-pricing-badges) .btn {
+  .hero-card-container .hero-cta-group .btn,
+  .hero-card-container > div:last-child:not(.hero-pricing-badges):not(.hero-trust-badges) .btn {
     width: 100% !important;
     max-width: 100% !important;
     justify-content: center !important;
@@ -5615,6 +5902,16 @@ select, select.input-field {
     padding: 12px 18px !important;
     min-height: 48px !important;
     font-size: 0.92rem !important;
+    box-sizing: border-box !important;
+  }
+
+  .hero-card-container .hero-trust-badges {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 12px !important;
+    width: 100% !important;
+    padding-top: 20px !important;
     box-sizing: border-box !important;
   }
 

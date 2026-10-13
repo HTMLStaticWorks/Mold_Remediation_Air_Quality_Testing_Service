@@ -18,11 +18,11 @@
   <link rel="icon" type="image/svg+xml" href="../assets/images/favicon.svg">
 
   <!-- Core Stylesheets -->
-  <link rel="stylesheet" href="../assets/css/style.css?v=2.3">
-  <link rel="stylesheet" href="../assets/css/dark-mode.css?v=2.3">
-  <link rel="stylesheet" href="../assets/css/rtl.css?v=2.3">
+  <link rel="stylesheet" href="../assets/css/style.css?v=2.4">
+  <link rel="stylesheet" href="../assets/css/dark-mode.css?v=2.4">
+  <link rel="stylesheet" href="../assets/css/rtl.css?v=2.4">
 
-  <!-- Mobile Fixed Header & Accordion Alignments -->
+  <!-- Mobile Fixed Header & Accordion Alignments & Hero Contrast -->
   <style>
     .site-header {
       position: fixed !important;
@@ -36,7 +36,146 @@
       padding-top: var(--header-height, 80px) !important;
     }
 
+    /* Hero Card Frosted Glass & Text Visibility */
+    .hero-card-container {
+      background: rgba(255, 255, 255, 0.94) !important;
+      backdrop-filter: blur(20px) !important;
+      -webkit-backdrop-filter: blur(20px) !important;
+      border: 1px solid rgba(255, 255, 255, 0.95) !important;
+      border-radius: 28px !important;
+      padding: 44px 36px !important;
+      box-shadow: 0 20px 48px -12px rgba(15, 23, 42, 0.12), 0 1px 3px rgba(15, 23, 42, 0.05) !important;
+    }
+    .hero-card-container .hero-tag {
+      background: rgba(16, 185, 129, 0.12) !important;
+      border: 1px solid rgba(16, 185, 129, 0.35) !important;
+      color: #047857 !important;
+      font-weight: 700 !important;
+    }
+    .hero-card-container .hero-title {
+      color: #0F172A !important;
+    }
+    .hero-card-container .hero-description {
+      color: #334155 !important;
+      font-weight: 450 !important;
+    }
+    .hero-card-container .hero-trust-badges {
+      border-top: 1px solid rgba(15, 23, 42, 0.08) !important;
+    }
+    .hero-card-container .badge-title {
+      color: #0F172A !important;
+      font-weight: 700 !important;
+    }
+    .hero-card-container .badge-sub {
+      color: #475569 !important;
+    }
+
+    /* Dark Mode Hero Card Adjustments */
+    [data-theme="dark"] .hero-card-container {
+      background: rgba(15, 23, 42, 0.90) !important;
+      backdrop-filter: blur(20px) !important;
+      -webkit-backdrop-filter: blur(20px) !important;
+      border: 1px solid rgba(51, 65, 85, 0.65) !important;
+      box-shadow: 0 24px 50px -12px rgba(0, 0, 0, 0.6) !important;
+    }
+    [data-theme="dark"] .hero-card-container .hero-tag {
+      background: rgba(16, 185, 129, 0.18) !important;
+      border-color: rgba(16, 185, 129, 0.4) !important;
+      color: #34D399 !important;
+    }
+    [data-theme="dark"] .hero-card-container .hero-title {
+      color: #F8FAFC !important;
+    }
+    [data-theme="dark"] .hero-card-container .hero-description {
+      color: #CBD5E1 !important;
+    }
+    [data-theme="dark"] .hero-card-container .hero-trust-badges {
+      border-top: 1px solid rgba(51, 65, 85, 0.6) !important;
+    }
+    [data-theme="dark"] .hero-card-container .badge-title {
+      color: #F8FAFC !important;
+    }
+    [data-theme="dark"] .hero-card-container .badge-sub {
+      color: #94A3B8 !important;
+    }
+
     @media (max-width: 768px) {
+      .hero-services-page {
+        padding-top: 24px !important;
+        padding-bottom: 48px !important;
+        padding-left: 16px !important;
+        padding-right: 16px !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+        overflow: hidden !important;
+      }
+      .hero-card-container {
+        width: 100% !important;
+        max-width: 100% !important;
+        margin: 0 auto !important;
+        padding: 30px 18px 32px 18px !important;
+        border-radius: 20px !important;
+        box-sizing: border-box !important;
+        text-align: center !important;
+        box-shadow: 0 16px 40px -10px rgba(0, 0, 0, 0.25) !important;
+      }
+      .hero-card-container .hero-tag {
+        margin-bottom: 12px !important;
+        font-size: 0.78rem !important;
+        padding: 5px 14px !important;
+      }
+      .hero-card-container .hero-title {
+        font-size: clamp(1.45rem, 5.8vw, 1.95rem) !important;
+        line-height: 1.25 !important;
+        margin-bottom: 14px !important;
+        letter-spacing: -0.02em !important;
+        word-break: break-word !important;
+        text-align: center !important;
+      }
+      .hero-card-container .hero-title br {
+        display: inline !important;
+      }
+      .hero-card-container .hero-description {
+        font-size: clamp(0.88rem, 3.6vw, 0.98rem) !important;
+        line-height: 1.55 !important;
+        margin-bottom: 22px !important;
+        padding-left: 4px !important;
+        padding-right: 4px !important;
+        max-width: 100% !important;
+        text-align: center !important;
+      }
+      .hero-card-container .hero-cta-group {
+        display: flex !important;
+        flex-direction: column !important;
+        width: 100% !important;
+        gap: 10px !important;
+        align-items: stretch !important;
+        box-sizing: border-box !important;
+        margin-bottom: 24px !important;
+      }
+      .hero-card-container .hero-cta-group .btn {
+        width: 100% !important;
+        max-width: 100% !important;
+        justify-content: center !important;
+        text-align: center !important;
+        white-space: normal !important;
+        word-break: break-word !important;
+        padding: 12px 18px !important;
+        min-height: 48px !important;
+        font-size: 0.92rem !important;
+        box-sizing: border-box !important;
+      }
+      .hero-card-container .hero-trust-badges {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        gap: 12px !important;
+        width: 100% !important;
+        padding-top: 20px !important;
+        box-sizing: border-box !important;
+      }
+
       .accordion-group,
       .accordion-wrapper {
         width: 100% !important;
@@ -279,7 +418,7 @@
          PAGE HERO: MOLD INSPECTION & AIR QUALITY TESTING
          ========================================================================== -->
     <section class="hero-home-1 hero-services-page" style="padding-top:76px; padding-bottom:70px; text-align:center;">
-      <div class="container" style="max-width:960px; margin:0 auto; text-align:center;">
+      <div class="container hero-card-container" style="max-width:960px; margin:0 auto; text-align:center;">
         <div class="hero-tag" style="margin:0 auto 16px auto; display:inline-flex;">
           <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
           <span>Certified Forensic Environmental Diagnostics</span>
@@ -288,7 +427,7 @@
           Forensic Mold Inspection &amp;<br>
           <span class="text-gradient">Air Quality Lab Testing</span>
         </h1>
-        <p class="hero-description" style="margin:0 auto 32px auto; max-width:760px; font-size:1.15rem; line-height:1.65; color:var(--text-secondary); text-align:center;">
+        <p class="hero-description" style="margin:0 auto 32px auto; max-width:760px; font-size:1.15rem; line-height:1.65; text-align:center;">
           Scientific infrared thermal moisture mapping and independent AIHA-EMLAP accredited spore-trap lab testing. We identify hidden toxic mold colonies and measure exact airborne spore concentrations per cubic meter with forensic accuracy.
         </p>
 
